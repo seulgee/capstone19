@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Seoulnamsan";
+  src: url("../fonts/Seoulnamsan_oft/Seoulnamsan_B.otf");
+  };
+
+#landing {
+    height: 100vh;
+    width: 100%;
+}
+
+.background {
+    background-color: #4568FB;
+    height: 100vh;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#landing-container {
+    height: 100vh;
+    position: fixed;
+}
+
+#landing-title__right, #landing-title__left {
+    font-family: "Seoulnamsan";
+    font-size: 50pt;
+    color: #abd6cc;
+    opacity: 0;
+}
+
+#align-1 {
+    text-align: right;
+}
+
+#row-1 {
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#row-2 {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#landing-button {
+    position: relative;
+    top: 50px;
+    opacity: 0;
+    width: 300px;
+    margin-top: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: "Seoulnamsan";
+}
+
+#landing-title__left:before{
+    content: '일상속';
+    animation-name: head-1;
+    animation-duration: .7s;
+    animation-iteration-count: initial;
+    animation-delay: 1s;
+}
+
+@keyframes head-1 {
+    0% {opacity:1; content: "일상속"}
+    20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+    70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+    100% {opacity:1; content: "일상속"}
+}
+
+#landing-title__right:before{
+    content: '외래어';
+    animation-name: head-2;
+    animation-duration: .7s;
+    animation-iteration-count: initial;
+    animation-delay: 1s;
+}
+
+@keyframes head-2 {
+    0% {opacity:1; content: "외래어"}
+    40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+    80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+    100% {opacity:1; content: "외래어"}
+}
