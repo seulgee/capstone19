@@ -3,6 +3,9 @@
   src: url("../fonts/Seoulnamsan_oft/Seoulnamsan_B.otf");
   };
 
+
+/*/ LANDING */
+
 #landing {
     height: 100vh;
     width: 100%;
@@ -24,7 +27,7 @@
 #landing-title__right, #landing-title__left {
     font-family: "Seoulnamsan";
     font-size: 50pt;
-    color: #abd6cc;
+    color: #ffe7aa;
     opacity: 0;
 }
 
@@ -58,6 +61,14 @@
     padding-top: 20px;
     padding-bottom: 20px;
     font-family: "Seoulnamsan";
+    border: 1.5px solid #ffe7aa;
+    color: #ffe7aa;
+}
+
+#landing-button:hover {
+    background-color: #ffe7aa;
+    color: #4568FB;
+    border-color: #ffe7aa;
 }
 
 #landing-title__left:before{
@@ -89,3 +100,164 @@
     80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
     100% {opacity:1; content: "외래어"}
 }
+
+
+/*/ MAIN */
+
+#main-container {
+    padding: 10px 30px 10px 30px;
+    height: 100vh;
+}
+
+.title {
+    position: absolute;
+    top: 18px;
+    left: 30px;
+    z-index: 8;
+}
+
+h3, li {
+    font-family: 'Seoulnamsan';
+    font-size: 18px;
+}
+
+h3, .nav-link:hover {
+    color: #4568fb;
+}
+
+h1 {
+    font-family: 'Nanum Square', sans-serif;
+    color: #DBDBE0;
+}
+
+h1 .about-text {
+    font-size: 200px;
+}
+
+li a {
+    color: #4568fb;
+}
+
+#phrase-wrapper {
+    display: block;
+}
+
+.highlight {
+    color: #4568fb;
+}
+
+#placeholder {
+    height: 12%;
+}
+
+.nav-link:active {
+    color: #4568fb;
+}
+
+.nav-container {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    z-index: 10;
+}
+
+.vl {
+    display: block;
+    background: #4568fb;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-right: 5px;
+    height: 100px;
+    width: 2px;
+    float: right;
+}
+
+.icons {
+    display: block;
+    margin-top: 130px;
+    transform: translateX(17px);
+    width: 35px;
+    float: right;
+}
+
+#icon-refresh {
+    margin-top: 17px;
+}
+
+#icon-image {
+    margin-top: 10px;
+}
+
+.nav {
+    width: auto;
+    z-index: 10;
+    text-align: right;
+}
+
+.nav-link {
+    padding-right: 0;
+    color: #001266;
+}
+
+.nav-about__link {
+    animation-name: about-hover;
+    animation-duration: .3s;
+    animation-iteration-count: 1;
+    animation-play-state: paused; 
+    content: '소';
+}
+
+.nav-about:hover {
+    animation-play-state: running;
+}
+
+@keyframes about-hover {
+    100% {content:"소개"}
+}
+
+#translation {
+    margin-top: 20px;
+    font-family: 'Merriweather';
+    font-weight: 300;
+    font-size: 1.5em;
+    color: #DBDBE0;
+}
+
+.noUi-base {
+    height: 8px;
+    width: 100%;
+    background: #DBDBE0;
+    border: none;
+    border-radius: 7px;
+    outline: none;
+    z-index: 0;
+    margin: 0;
+}
+
+/*
+.knob {
+    width: 15px;
+    height: 15px;
+    z-index: 1000;
+    background: #001266;
+    border-radius: 7.5px;
+    transition: .2s;
+    margin: 0;
+    transform: translateY(-25%);
+}
+
+.knob:hover, .knob:active {
+    width: 25px;
+    height: 25px;
+    border-radius: 12.5px;
+    transition: .2s;
+    cursor: ew-resize; 
+    transform: translateY(-50%);
+} */
+
+#slidercontainer {
+    height: 20%;
+}
+
+  
