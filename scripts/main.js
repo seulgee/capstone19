@@ -8,6 +8,14 @@ $(document).ready(function(){
     var translation = $('#translation')
     var slider = $('#slidercontainer, .slider-text')
 
+    $('.vl').animate({
+        height: "100px"
+    },350)
+
+    $('#icon-audio').animate({opacity:1},300).delay(1400);
+    $('#icon-refresh').animate({opacity:1},300).delay(1600);
+    $('#icon-image').animate({opacity:1},300).delay(1800);
+
     translation.animate({
         opacity: '1'
     },500);
@@ -37,17 +45,55 @@ $(document).ready(function(){
         TweenLite.to(whyLink, 2, {text:"중", ease:Power2.easeIn});
     });
 
-    // var items = new Array();
-    // items[0]="<a href='../mainPage/index-1.html'></a>"; 
-    // items[1]="<a href='../mainPage/index-2.html></a>"; 
-    // items[2]="<a href='../mainPage/index-3.html'></a>"; 
-    // items[3]="<a href='../mainPage/index-4.html'></a>";
-    // items[4]="<a href='../mainPage/index-5.html'></a>"; 
-    // items[5]="<a href='../mainPage/index-6.html'></a>"; 
+    var fit = fitty('h1');
+    var phraseActual = phrase.find('h1')
+    var imageIcon = $('#icon-image');
+    var translationActual = translation.find('p');
+    var sliderRow = $('#sliderrow');
 
-    // window.location.reload(function(){
+    imageIcon.on("click",function(){
+        if (fit) {
+            fit[0].unsubscribe();
+            phraseActual.animate({
+                fontSize: "40px",
+                marginTop: "+190px"
+            },300);
+            translationActual.animate({
+                fontSize: "20px",
+                marginTop: "20px"
+            },300);
+            sliderRow.animate({
+                marginTop: "50px"
+            });
+            $('.image-1').animate({
+                left: "0"
+            },400)
+        } else {
+            fit.fit();
+            console.log("works");
+        }
+        
+    })
 
-    // });
+    let items = new Array();
+    items[0]="../mainPage/index-1.html"; 
+    items[1]="../mainPage/index-2.html"; 
+    items[2]="<src='../mainPage/index-3.html'>"; 
+    items[3]="<src='../mainPage/index-4.html'>";
+    items[4]="<src='../mainPage/index-5.html'>"; 
+    items[5]="<src='../mainPage/index-6.html'>"; 
+
+    var refreshIcon = $('#icon-refresh');
+    refreshIcon.on("click",function(){
+        window.location.assign(function(){
+            for(let i = 0; i < items.length; i++){
+    
+                console.log(items[i]);
+             
+             }
+             
+        });
+    })
 
     // Draggable.create("#slider-thumb", {
     //     type:"y",

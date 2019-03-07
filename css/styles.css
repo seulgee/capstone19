@@ -107,6 +107,7 @@
 #main-container {
     padding: 10px 30px 10px 30px;
     height: 100vh;
+    overflow: hidden;;
 }
 
 .title {
@@ -172,7 +173,7 @@ li a {
     border-radius: 2px;
     margin-top: 10px;
     margin-right: 5px;
-    height: 100px;
+    height: 0px;
     width: 2px;
     float: right;
 }
@@ -183,6 +184,10 @@ li a {
     transform: translateX(17px);
     width: 35px;
     float: right;
+}
+
+#icon-audio, #icon-refresh, #icon-image {
+    opacity: 0;
 }
 
 #icon-refresh {
@@ -222,6 +227,8 @@ li a {
 
 #main-phrase {
     opacity: 0;
+    top: 0;
+    height: 30%;
 }
 
 #translation {
@@ -231,7 +238,22 @@ li a {
     font-size: 1.5em;
     color: #DBDBE0;
     opacity: 0;
+    top: 0;
 }
+
+.image-1 {
+    position: absolute;
+    z-index: 50;
+    left: -100%;
+    top: 15%;
+    width: 70%;
+    height: 40%;
+    background-image: url(../images/image-1.jpeg);
+    background-size: 100%;
+}
+
+/*///////////////////////////////////////////// SLIDER */
+
 
 .noUi-base {
     background: #DBDBE0;
@@ -275,6 +297,15 @@ li a {
 
 #slider-text__right {
     text-align: right;
+}
+
+#sliderrow, #slidertext-container {
+    position: relative;
+    bottom: 0%;
+}
+
+#sliderrow {
+    margin-top: 25px;
 }
 
 
