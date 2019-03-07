@@ -102,7 +102,7 @@
 }
 
 
-/*/ MAIN */
+/*///////////////////////////////////////////// MAIN */
 
 #main-container {
     padding: 10px 30px 10px 30px;
@@ -148,6 +148,10 @@ li a {
 
 #placeholder {
     height: 12%;
+}
+
+#placeholder-lg {
+    height: 35%;
 }
 
 .nav-link:active {
@@ -216,48 +220,74 @@ li a {
     100% {content:"소개"}
 }
 
+#main-phrase {
+    opacity: 0;
+}
+
 #translation {
     margin-top: 20px;
     font-family: 'Merriweather';
     font-weight: 300;
     font-size: 1.5em;
     color: #DBDBE0;
+    opacity: 0;
 }
 
 .noUi-base {
-    height: 8px;
-    width: 100%;
     background: #DBDBE0;
     border: none;
-    border-radius: 7px;
+    border-radius: 10px;
+}
+
+#slider {
     outline: none;
-    z-index: 0;
-    margin: 0;
 }
 
-/*
-.knob {
-    width: 15px;
-    height: 15px;
-    z-index: 1000;
-    background: #001266;
-    border-radius: 7.5px;
-    transition: .2s;
-    margin: 0;
-    transform: translateY(-25%);
+#slidercontainer, .slider-text {
+    opacity: 0;
+    top: 40px;
 }
-
-.knob:hover, .knob:active {
-    width: 25px;
-    height: 25px;
-    border-radius: 12.5px;
-    transition: .2s;
-    cursor: ew-resize; 
-    transform: translateY(-50%);
-} */
 
 #slidercontainer {
     height: 20%;
 }
 
-  
+#slidertext-container {
+    padding-top: 20px;
+}
+
+.slider-text span {
+    font-family: 'SeoulNamsan';
+    width: auto;
+    color: #001266;
+    transition: .2s;
+}
+
+.slider-text span:hover {
+    cursor: pointer;
+    color: #4568fb;
+    transition: .2s;
+}
+
+#slider-text__left {
+    text-align: left;
+}
+
+#slider-text__right {
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+/*/ MEDIA QUERIES */
+
+@media only screen and (max-height: 414px) {
+    #placeholder-lg {
+        height: 25%;
+    }
+}
