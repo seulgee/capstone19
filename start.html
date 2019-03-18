@@ -1,0 +1,51 @@
+<!doctype HTML>
+<html lang="en" style="width:100%; height:100%;">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+ 
+</head>
+<body style="width:100%; height:100%; margin:0; padding:0; overflow: hidden;">
+    <div class="title">
+        <a href="index.html"><h3>일상속 외래어</h3></a>
+    </div>
+    <iframe id="myframe1" style="border-width:0; width:100%; height:100%; z-index:0;" src="mainPage/index-1.html"></iframe>
+</body>
+
+<script type="text/javascript">
+    window.onload = init;
+    var sites = [
+        'mainPage/index-1.html',
+        'mainPage/index-2.html', 
+        'mainPage/index-3.html',
+        'mainPage/index-4.html',
+        'mainPage/index-5.html'];
+
+    if (typeof(Storage) !== "undefined"){
+        //code for storage shit
+        if (localStorage.count){
+            localStorage.count = Number(localStorage.count) + 1;
+            var numberOfPhrases = 5;
+            if (Number(localStorage.count)>=numberOfPhrases){
+                localStorage.count = 0;
+                console.log("greater");
+            }
+        }
+        else {
+            localStorage.count = 0;
+        }
+        var index = localStorage.count;
+        console.log(index);
+    }
+    else {
+        //no storage, go random
+        var index = Math.floor((Math.random() * 5));
+    }
+    
+    function init() {
+        document.getElementById('myframe1').src = sites[index];
+    }
+</script>
+
+</html>

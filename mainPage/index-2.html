@@ -8,9 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/nouislider.css">
     <link href='../fonts/nanumSquare/nanumsquare.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 
 
@@ -18,9 +19,6 @@
   </head>
   <body>
     <div class="container-fluid" id="main-container">
-        <div class="title">
-            <a href="../index.html"><h3>일상속 외래어</h3></a>
-        </div>
         <div class="nav-container">
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -40,57 +38,147 @@
                 <svg class="icon" id="icon-image" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30"><defs><style>.cls-1,.cls-4{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#6CB7B3;}.cls-4{stroke:#6CB7B3;stroke-linecap:round;stroke-miterlimit:10;}</style><clipPath id="clip-path"><rect class="cls-1" y="6.94" width="30" height="16.07"/></clipPath></defs><title>icons</title><g class="cls-2"><path class="cls-3" d="M15,20.22a5.51,5.51,0,0,0,5.61-5.42A5.52,5.52,0,0,0,15,9.38,5.51,5.51,0,0,0,9.4,14.8,5.5,5.5,0,0,0,15,20.22"/><path class="cls-4" d="M.44,15s7-7.64,14.31-7.64S29.56,15,29.56,15"/><path class="cls-4" d="M.44,14.92s7,7.64,14.31,7.64,14.81-7.64,14.81-7.64"/></g></svg>
             </div>
         </div>
-        <div class="row" id="placeholder"></div>
-        <div class="row" id="placeholder"></div>
-        <div class="row" id="placeholder"></div>
+        <div class="image image-1"></div>
+        <div class="row" id="placeholder-lg"></div>
         <div class="row" id="main-phrase">
             <div class="col-sm"></div>
             <div class="col-sm-8">
-                <span id="phrase-wrapper"><h1 id="phrase">매장 안에 <span class="highlight">컬러</span> 더 많아요</h1></span>
+                <span id="phrase-wrapper"><h1 id="phrase">매장 안에 <span class="highlight" id="change-kr">컬러</span> 더 많아요</h1></span>
             </div>
             <div class="col-sm"></div>
         </div>
         <div class="row" id="translation">
             <div class="col-sm"></div>
             <div class="col-sm-8">
-                <p>"There are more <span class="highlight">colors</span> inside"</p>
+                <p>"There are more <span class="highlight">colors</span> inside the store"</p>
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="row" id="placeholder"></div>
-        <div class="row">
+        <div class="row" id="sliderrow">
             <div class="col-sm"></div>
-            <div class="col-sm-8" id="slidercontainer">
+            <div class="col-sm-6" id="slidercontainer">
                 <div id="slider">
-                    <div class="knob" id='slider-thumb'></div>
-                    <div class="range"></div>
                 </div>
-                
-                <!-- <div class="slidercontainer-inner">
-                    <div class="slider">
-                        <div id="slider-thumb"></div>
-                    </div>
-                    <div class="slider-beg"></div>
-                    <div class="slider-end"></div>
-                    
-                </div> -->
-
-                <!-- <input type='range' class="slider" min='1' max='3' value='2' step='1'/> -->
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="row" id="placeholder"></div>
-        <div class="row" id="placeholder"></div>
+        <div class="row" id="slidertext-container">
+           <div class="col-sm-3"></div>
+           <div class="col slider-text" id="slider-text__left"><span class="traditional">전통형</span></div>
+           <div class="col slider-text" id="slider-text__right"><span class="future">미래형</span></div>
+           <div class="col-sm-3"></div>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->
     <script src="../scripts/fitty.min.js"></script>
+    <script src="../scripts/nouislider.min.js"></script>
     <script>
         fitty('h1');
-        
+
+        //refresh
+        var refreshIcon = $('#icon-refresh');
+        refreshIcon.on("click", function(){
+
+        window.location.href = "index-3.html"
+        if (localStorage.count){
+            localStorage.count = Number(localStorage.count) + 1;
+        }
+        else{
+            localStorage.count = 2;
+        }
+        console.log(localStorage.count);
+    })
+
+
+    var slider = document.getElementById('slider');
+    var pipFormats = {'0':'', '1':'현재형', '2':''};
+    noUiSlider.create(slider, {
+        start: [1],
+        keyboardSupport: true,
+        snap: true,
+        connect: [true,false],
+        range: {
+            'min': [0],
+            '30%': [1],
+            'max': [2]
+        },
+        pips: {
+            mode: 'values',
+            values: [0, 1, 2],
+            density: 60,
+            format: {
+                to: function(a){
+                return pipFormats[a];
+                } 
+            },
+        },
+        behaviour: 'tap',
+        keyboardSupport: true
+    });
+
+    $('.traditional').on("click", function(){
+        slider.noUiSlider.set([0]);
+    })
+    $('.future').on("click", function(){
+        slider.noUiSlider.set([2]);
+    })
+
+    var pips = slider.querySelectorAll('.noUi-value');
+
+    function clickOnPip() {
+        var value = this.getAttribute('data-value');
+        slider.noUiSlider.set(value);
+    }
+
+    // for (var i = 0; i < pips.length; i++) {
+
+    // // For this example. Do this in CSS!
+    //     pips[i].style.cursor = 'pointer';
+    //     pips[i].addEventListener('click', clickOnPip);
+    // }
+
+    slider.noUiSlider.on('change', function (values, handle) {
+        var wordTargetKr = $('#change-kr');
+        var wordTargetEn = $('#change-en');
+        var phrase = $('#phrase');
+        var value = values[handle];
+        var setValue = $(function(){
+            slider.noUiSlider.get();
+        })
+
+        if (setValue = "0" ) {
+            wordTargetKr
+                .fadeOut('fast')
+                .queue(function(){
+                    $(this).html('색상').dequeue();
+                })
+                .fadeIn('slow');
+                console.log(values[handle]);
+                
+        } else if (setValue = "1"  ) {
+            wordTargetKr
+                .fadeOut('fast')
+                .queue(function(){
+                    $(this).html('프리미엄 티').dequeue();
+                })
+                .fadeIn('slow');
+                console.log("Second Point");
+                
+        } else {
+            phrase
+                .fadeOut('fast')
+                .queue(function(){
+                    $(this).html('프리미엄 티의 뉴 익스피리언스').dequeue();
+                })
+                .fadeIn('slow');
+                console.log("Third Point");
+        };
+    });
+
+    
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/TweenMax.min.js"></script>

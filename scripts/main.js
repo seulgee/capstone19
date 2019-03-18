@@ -51,75 +51,50 @@ $(document).ready(function(){
     var translationActual = translation.find('p');
     var sliderRow = $('#sliderrow');
 
+    var  toggle = true;
     imageIcon.on("click",function(){
-        if (fit) {
+        if (toggle) {
             fit[0].unsubscribe();
             phraseActual.animate({
                 fontSize: "40px",
                 marginTop: "+190px"
-            },300);
+            },400);
             translationActual.animate({
-                fontSize: "20px",
+                fontSize: ".8em",
                 marginTop: "20px"
-            },300);
+            },400);
             sliderRow.animate({
                 marginTop: "50px"
             });
-            $('.image-1').animate({
+            $('.image-1').delay(200).animate({
                 left: "0"
-            },400)
+            },700);
+            console.log("toggle");
+            toggle=!toggle;
         } else {
-            fit.fit();
+            phraseActual.delay(200).animate({
+                marginTop: "0px"
+            },400);
+            translationActual.animate({
+                fontSize: "1em",
+                marginTop: "0px"
+            },400);
+            sliderRow.animate({
+                marginTop: "25px"
+            });
+            $('.image-1').animate({
+                left: "-100%"
+            },700);
+            $(function(){
+                fitty('h1');
+            },500).delay(200);
             console.log("works");
+            toggle=!toggle;
         }
         
     })
 
-    let items = new Array();
-    items[0]="../mainPage/index-1.html"; 
-    items[1]="../mainPage/index-2.html"; 
-    items[2]="<src='../mainPage/index-3.html'>"; 
-    items[3]="<src='../mainPage/index-4.html'>";
-    items[4]="<src='../mainPage/index-5.html'>"; 
-    items[5]="<src='../mainPage/index-6.html'>"; 
 
-    var refreshIcon = $('#icon-refresh');
-    refreshIcon.on("click",function(){
-        window.location.assign(function(){
-            for(let i = 0; i < items.length; i++){
-    
-                console.log(items[i]);
-             
-             }
-             
-        });
-    })
-
-    // Draggable.create("#slider-thumb", {
-    //     type:"y",
-    //     bounds: document.getElementById("slidercontainer"),
-    //     throwProps:true,
-    //     onClick:function() {
-    //         console.log("clicked");
-    //     },
-    //     onDragEnd:function() {
-    //         console.log("drag ended");
-    //     }
-    // });
-
-    // var gridWidth = 100;
-    // Draggable.create("#slider-thumb", {
-    //     type:"x",
-    //     edgeResistance:0.65,
-    //     bounds:"#slider",
-    //     overshootTolerance: 0,
-    //     throwProps:true,
-    //     snap: {
-    //         x: function(endValue) {
-    //             return Math.round(endValue / gridWidth) * gridWidth;
-    //         }
-    //     }
-    // });
 
     
 
