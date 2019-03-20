@@ -4,6 +4,7 @@
   };
 
 
+
 /*/ LANDING */
 
 #landing {
@@ -101,13 +102,31 @@
     100% {opacity:1; content: "외래어"}
 }
 
+#row-1:hover {
+    animation-name: head-1, head-2;
+    animation-play-state: running;
+}
+
 
 /*///////////////////////////////////////////// MAIN */
+
+.overlay-info {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: .5;
+    z-index: 5;
+}
+
+
+
 
 #main-container {
     padding: 10px 30px 10px 30px;
     height: 100vh;
-    overflow: hidden;;
+    overflow: hidden;
+    cursor: ew-resize;
 }
 
 .title {
@@ -130,6 +149,52 @@ h3, .nav-link:hover {
     color: #4568fb;
 }
 
+.nav-container {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    z-index: 10;
+}
+
+.nav {
+    width: auto;
+    z-index: 10;
+    text-align: right;
+}
+
+.nav-link {
+    display: block;
+    height: auto;
+    padding-right: 0;
+    color: #001266;
+}
+
+.nav-item:nth-of-type(2) {
+    margin-bottom: 25px;
+}
+
+.about-letter1, .about-letter2 {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 0;
+    position: absolute;
+    right: 0px;
+}
+
+.about-letter2, .why-letter2, .why-letter3 {
+    opacity: 0;
+}
+
+.why-letter1, .why-letter2, .why-letter3 {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 0;
+    position: absolute;
+    right: 0px;
+}
+
+
 h1 {
     font-family: 'Nanum Square', sans-serif;
     color: #DBDBE0;
@@ -139,9 +204,6 @@ h1 .about-text {
     font-size: 200px;
 }
 
-li a {
-    color: #4568fb;
-}
 
 #phrase-wrapper {
     display: block;
@@ -149,6 +211,10 @@ li a {
 
 .highlight {
     color: #4568fb;
+}
+
+.trans {
+    transition: .2s;
 }
 
 #placeholder {
@@ -159,23 +225,11 @@ li a {
     height: 35%;
 }
 
-.nav-link:active {
-    color: #4568fb;
-}
-
-.nav-container {
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 30px;
-    z-index: 10;
-}
-
 .vl {
     display: block;
     background: #4568fb;
     border-radius: 2px;
-    margin-top: 10px;
+    margin-top: -10px;
     margin-right: 5px;
     height: 0px;
     width: 2px;
@@ -184,10 +238,18 @@ li a {
 
 .icons {
     display: block;
-    margin-top: 130px;
+    margin-top: 120px;
     transform: translateX(17px);
     width: 35px;
     float: right;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.icons img {
+    width: 100%;
 }
 
 #icon-audio, #icon-refresh, #icon-image {
@@ -199,21 +261,11 @@ li a {
 }
 
 #icon-image {
-    margin-top: 10px;
+    margin-top: 17px;
 }
 
-.nav {
-    width: auto;
-    z-index: 10;
-    text-align: right;
-}
 
-.nav-link {
-    padding-right: 0;
-    color: #001266;
-}
-
-.nav-about__link {
+/* .nav-about__link {
     animation-name: about-hover;
     animation-duration: .3s;
     animation-iteration-count: 1;
@@ -227,7 +279,7 @@ li a {
 
 @keyframes about-hover {
     100% {content:"소개"}
-}
+} */
 
 #main-phrase {
     opacity: 0;
@@ -282,40 +334,11 @@ li a {
     height: 20%;
 }
 
-#slidertext-container {
-    padding-top: 20px;
-}
-
-.slider-text span {
-    font-family: 'SeoulNamsan';
-    width: auto;
-    color: #001266;
-    transition: .2s;
-}
-
-.slider-text span:hover {
-    cursor: pointer;
-    color: #4568fb;
-    transition: .2s;
-}
-
-#slider-text__left {
-    text-align: left;
-}
-
-#slider-text__right {
-    text-align: right;
-}
-
-#sliderrow, #slidertext-container {
+#sliderrow {
     position: relative;
     bottom: 0%;
-}
-
-#sliderrow {
     margin-top: 25px;
 }
-
 
 
 

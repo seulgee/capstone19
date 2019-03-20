@@ -18,7 +18,7 @@
   <body>
     <div class="container-fluid" id="main-container">
         <div class="nav-container">
-            <ul class="nav flex-column">
+            <ul class="nav flex-column" style="opacity:0">
                 <li class="nav-item nav-simulator">
                     <a class="nav-link nav-simulator__link" style="color: #4568fb" href="#">모의실험기</a>
                 </li>
@@ -31,9 +31,9 @@
             </ul>
             <div class="vl"></div>
             <div class="icons flex-column">
-                <svg class="icon" id="icon-audio" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><defs><style>.cls-1{fill:none;stroke:#001266;stroke-linecap:round;stroke-miterlimit:10;}</style></defs><title>icons</title><path class="cls-1" d="M11.82,22.8c0,3.69-.73,6.68-1.63,6.68s-1.63-3-1.63-6.68.73-6.68,1.63-6.68S11.82,19.11,11.82,22.8Z"/><path class="cls-1" d="M9.42,29.48H7.3a1.07,1.07,0,0,1-1-.88l-.69-3a21.71,21.71,0,0,1,0-5.58l.69-3a1.07,1.07,0,0,1,1-.88H9.42L8.94,20a21.71,21.71,0,0,0,0,5.58Z"/><path class="cls-1" d="M18.1,22.8c0,3.69.73,6.68,1.63,6.68s1.63-3,1.63-6.68-.73-6.68-1.63-6.68S18.1,19.11,18.1,22.8Z"/><path class="cls-1" d="M20.5,29.48h2.12a1.07,1.07,0,0,0,1-.88l.69-3a21.71,21.71,0,0,0,0-5.58l-.69-3a1.07,1.07,0,0,0-1-.88H20.5L21,20a21.71,21.71,0,0,1,0,5.58Z"/><path class="cls-1" d="M25,22.57c.82-.12,2.83-.68,3.46-1.85,1.4-2.58,2-13.35-1.87-17.27C23.82.57,15.41.57,15.41.57h-.82S6.18.57,3.38,3.45C-.44,7.37.11,18.14,1.51,20.72,2.44,22.44,5,22.44,5,22.44"/></svg>
-                <svg class="icon" id="icon-refresh" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><defs><style>.cls-1{fill:none;stroke:#001266;stroke-linecap:round;stroke-miterlimit:10;}.cls-2{fill:#001266;}</style></defs><title>icons</title><path class="cls-1" d="M13.66,28.16a13.14,13.14,0,1,1,10.15-4.77"/><polygon class="cls-2" points="20.92 19.79 21.5 25.93 27.64 25.35 30 22.5 23.86 23.08 23.28 16.94 20.92 19.79"/></svg>
-                <svg class="icon" id="icon-image" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30"><defs><style>.cls-1,.cls-4{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#001266;}.cls-4{stroke:#001266;stroke-linecap:round;stroke-miterlimit:10;}</style><clipPath id="clip-path"><rect class="cls-1" y="6.94" width="30" height="16.07"/></clipPath></defs><title>icons</title><g class="cls-2"><path class="cls-3" d="M15,20.22a5.51,5.51,0,0,0,5.61-5.42A5.52,5.52,0,0,0,15,9.38,5.51,5.51,0,0,0,9.4,14.8,5.5,5.5,0,0,0,15,20.22"/><path class="cls-4" d="M.44,15s7-7.64,14.31-7.64S29.56,15,29.56,15"/><path class="cls-4" d="M.44,14.92s7,7.64,14.31,7.64,14.81-7.64,14.81-7.64"/></g></svg>
+                <img class="icon" id="icon-audio" src="../images/icons-01.png">
+                <img class="icon" id="icon-refresh" src="../images/icons-03.png">
+                <img class="icon" id="icon-image" src="../images/icons-02.png">
             </div>
         </div>
         <div class="image image-1"></div>
@@ -41,14 +41,20 @@
         <div class="row" id="main-phrase">
             <div class="col-sm"></div>
             <div class="col-sm-8">
-                <span id="phrase-wrapper"><h1 id="phrase"><span class="highlight" id="change-kr">프리미엄 티</span>의 새로운 경험</h1></span>
+                <span id="phrase-wrapper"><h1 id="phrase">
+                    <span class="highlight" id="change-kr">프리미엄 티</span><span class="reg">의 새로운 경험</span>
+                </h1></span>
             </div>
             <div class="col-sm"></div>
         </div>
         <div class="row" id="translation">
             <div class="col-sm"></div>
             <div class="col-sm-8">
-                <p>"A new experience of <span class="highlight" id="change-en">premium</span> <span class="highlight">tea</span>"</p>
+                <p>
+                    "A <span class="future-change-en">new experience</span> of 
+                    <span class="highlight change-en">premium</span> 
+                    <span class="highlight change-en">tea</span>
+                "</p>
             </div>
             <div class="col-sm"></div>
         </div>
@@ -60,12 +66,7 @@
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="row" id="slidertext-container">
-           <div class="col-sm-3"></div>
-           <div class="col slider-text" id="slider-text__left"><span class="traditional">전통형</span></div>
-           <div class="col slider-text" id="slider-text__right"><span class="future">미래형</span></div>
-           <div class="col-sm-3"></div>
-        </div>
+        <div class="row"></div>
     </div>
 
     <!-- Optional JavaScript -->
@@ -78,104 +79,133 @@
         var refreshIcon = $('#icon-refresh');
         refreshIcon.on("click", function(){
 
-        window.location.href = "index-2.html"
-        if (localStorage.count){
-            localStorage.count = Number(localStorage.count) + 1;
-        }
-        else{
-            localStorage.count = 1;
-        }
-        console.log(localStorage.count);
-    })
-
-
-    var slider = document.getElementById('slider');
-    var pipFormats = {'0':'', '1':'현재형', '2':''};
-    noUiSlider.create(slider, {
-        start: [1],
-        keyboardSupport: true,
-        snap: true,
-        connect: [true,false],
-        range: {
-            'min': [0],
-            '50%': [1],
-            'max': [2]
-        },
-        pips: {
-            mode: 'values',
-            values: [0, 1, 2],
-            density: 60,
-            format: {
-                to: function(a){
-                return pipFormats[a];
-                } 
-            },
-        },
-        behaviour: 'tap',
-        keyboardSupport: true
-    });
-
-    $('.traditional').on("click", function(){
-        slider.noUiSlider.set([0]);
-    })
-    $('.future').on("click", function(){
-        slider.noUiSlider.set([2]);
-    })
-
-    var pips = slider.querySelectorAll('.noUi-value');
-
-    function clickOnPip() {
-        var value = this.getAttribute('data-value');
-        slider.noUiSlider.set(value);
-    }
-
-    // for (var i = 0; i < pips.length; i++) {
-
-    // // For this example. Do this in CSS!
-    //     pips[i].style.cursor = 'pointer';
-    //     pips[i].addEventListener('click', clickOnPip);
-    // }
-
-    slider.noUiSlider.on('change', function (values, handle) {
-        var wordTargetKr = $('#change-kr');
-        var wordTargetEn = $('#change-en');
-        var phrase = $('#phrase');
-        var value = values[handle];
-        var setValue = $(function(){
-            slider.noUiSlider.get();
+            window.location.href = "index-2.html"
+            if (localStorage.count){
+                localStorage.count = Number(localStorage.count) + 1;
+            }
+            else{
+                localStorage.count = 1;
+            }
+            console.log(localStorage.count);
         })
 
-        if (values[handle] == "0.00" ) {
-            wordTargetKr
-                .fadeOut('fast')
-                .queue(function(){
-                    $(this).html('최상급 차').dequeue();
-                })
-                .fadeIn('slow');
+
+        var slider = document.getElementById('slider');
+        var pipFormats = {'0':'전통형', '1':'현재형', '2':'미래형'};
+        noUiSlider.create(slider, {
+            start: [1],
+            keyboardSupport: true,
+            snap: true,
+            connect: [true,false],
+            range: {
+                'min': [0],
+                '50%': [1],
+                'max': [2]
+            },
+            pips: {
+                mode: 'values',
+                values: [0, 1, 2],
+                density: 60,
+                format: {
+                    to: function(a){
+                    return pipFormats[a];
+                    } 
+                },
+            },
+            behaviour: 'tap',
+            keyboardSupport: true
+        });
+
+        var pips = slider.querySelectorAll('.noUi-value');
+
+        function clickOnPip() {
+            var value = this.getAttribute('data-value');
+            slider.noUiSlider.set(value);
+        }
+
+        for (var i = 0; i < pips.length; i++) {
+
+        // For this example. Do this in CSS!
+            pips[i].style.cursor = 'pointer';
+            pips[i].addEventListener('click', clickOnPip);
+        }
+
+        //phrase transitions based on slider value
+        slider.noUiSlider.on('update', function (values, handle) {
+            var fitties = fitty('h1');
+            var wordTargetKr = $('#change-kr');
+            var wordTargetEn = $('.change-en');
+            var phrase = $('#phrase');
+            var noTarget = $('.reg')
+            var futureTarget = $('.future-change-en');
+            var value = values[handle];
+            var setValue = $(function(){
+                slider.noUiSlider.get();
+            })
+
+            if (values[handle] == "0.00" ) {
+                wordTargetKr
+                    .fadeOut('fast')
+                    .removeClass('highlight');
+                wordTargetEn
+                    .removeClass('highlight')
+                    .addClass('trans');
+                futureTarget.removeClass('highlight');
+                setTimeout(function(){
+                    fitties[0].fit();
+                    setTimeout(function(){
+                        wordTargetKr.html('최상급 차')
+                    },10)
+                    wordTargetKr.fadeIn('slow');
+                    noTarget.fadeIn('slow');
+                    console.log("works")
+                },200)
+                console.log(values[handle]);
+                    
+            } else if (values[handle] == "1.00" ) {
+                fitties[0].fit();
+                wordTargetKr.fadeOut('fast');
+                wordTargetEn.addClass('highlight');
+                futureTarget.removeClass('highlight');
+                setTimeout(function(){
+                    
+                    //this is when the handle is coming from 3 to 2
+                    if (noTarget.is(':hidden')){
+                        setTimeout(function(){
+                            fitties[0].fit();
+                            wordTargetKr.fadeIn('slow')
+                        },50)
+                    } else {
+                        wordTargetKr.fadeIn('slow')
+                    };
+
+                    wordTargetKr
+                        .html('프리미엄 티')
+                        .addClass('highlight');
+                    noTarget.fadeIn('slow');
+                    console.log("works")
+                },200)
+                    
+                console.log(values[handle]);
+                    
+            } else if (values[handle] == "2.00" ) {
+                noTarget.fadeOut('fast');
+                wordTargetKr
+                    .fadeOut('fast')
+                    .queue(function(){
+                        $(this).html('프리미엄 티스 뉴 익스피리언스').dequeue();
+                    })
+                    .fadeIn('slow');
+                wordTargetEn.addClass('highlight');
+                futureTarget.addClass('highlight trans');
+                setTimeout(function(){
+                    wordTargetKr.addClass('highlight')
+                },200)
+                    
                 console.log(values[handle]);
                 
-        } else if (values[handle] == "1.00" ) {
-            wordTargetKr
-                .fadeOut('fast')
-                .queue(function(){
-                    $(this).html('프리미엄 티').dequeue();
-                })
-                .fadeIn('slow');
-                console.log("Second Point");
-                
-        } else {
-
-            wordTargetKr
-                .fadeOut('fast')
-                .queue(function(){
-                    $(this).html('프리미엄 티의 뉴 익스피리언스').dequeue();
-                })
-                .fadeIn('slow');
-                console.log("Third Point");
-               
-        };
-    });
-
+            };
+        });
     
     </script>
 
