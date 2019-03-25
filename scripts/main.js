@@ -91,17 +91,6 @@ $(document).ready(function(){
         }, 200)
     })
 
-    // about.mouseleave(function(){
-    //     aboutLink1.animate({
-    //         right: "0px"
-    //     }, 200)
-    //     console.log('anim works')
-    //     aboutLink2.animate({
-    //         opacity: 0 
-    //     }, 200)
-    // })
-
-
     //image icon toggle function
 
     var fitties = fitty('h1');
@@ -151,8 +140,8 @@ $(document).ready(function(){
             console.log("works");
             toggle=!toggle;
         }
-        
-    })
+    });
+
 
 
 

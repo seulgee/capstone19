@@ -39,8 +39,8 @@
         <div class="image image-1"></div>
         <div class="row" id="placeholder-lg"></div>
         <div class="row" id="main-phrase">
-            <div class="col-sm"></div>
-            <div class="col-sm-8">
+            <div class="col-sm" id="change-col-left"></div>
+            <div class="col-sm-8" id="change-col">
                 <span id="phrase-wrapper"><h1 id="phrase">
                     <span class="highlight" id="change-kr">프리미엄 티</span><span class="reg">의 새로운 경험</span>
                 </h1></span>
@@ -77,8 +77,7 @@
 
         //refresh
         var refreshIcon = $('#icon-refresh');
-        refreshIcon.on("click", function(){
-
+        function refreshPage(){
             window.location.href = "index-2.html"
             if (localStorage.count){
                 localStorage.count = Number(localStorage.count) + 1;
@@ -87,9 +86,11 @@
                 localStorage.count = 1;
             }
             console.log(localStorage.count);
-        })
+        }
 
+        refreshIcon.on("click", refreshPage)
 
+        //make slider
         var slider = document.getElementById('slider');
         var pipFormats = {'0':'전통형', '1':'현재형', '2':'미래형'};
         noUiSlider.create(slider, {
@@ -125,12 +126,12 @@
 
         for (var i = 0; i < pips.length; i++) {
 
-        // For this example. Do this in CSS!
+        // move value on pip click
             pips[i].style.cursor = 'pointer';
             pips[i].addEventListener('click', clickOnPip);
         }
 
-        //phrase transitions based on slider value
+        // phrase transitions based on slider value
         slider.noUiSlider.on('update', function (values, handle) {
             var fitties = fitty('h1');
             var wordTargetKr = $('#change-kr');
@@ -138,12 +139,12 @@
             var phrase = $('#phrase');
             var noTarget = $('.reg')
             var futureTarget = $('.future-change-en');
-            var value = values[handle];
-            var setValue = $(function(){
-                slider.noUiSlider.get();
-            })
+            var image = $('.image');
 
             if (values[handle] == "0.00" ) {
+                // if (image.is(":visible")) {
+                //     fitties[0].unsubscribe();
+                // }
                 wordTargetKr
                     .fadeOut('fast')
                     .removeClass('highlight');
@@ -160,9 +161,14 @@
                     noTarget.fadeIn('slow');
                     console.log("works")
                 },200)
+                document.images["icon-audio"].src = "../images/icons-01.png";
+
                 console.log(values[handle]);
                     
             } else if (values[handle] == "1.00" ) {
+                // if (image.is(":visible")) {
+                //     fitties[0].unsubscribe();
+                // }
                 fitties[0].fit();
                 wordTargetKr.fadeOut('fast');
                 wordTargetEn.addClass('highlight');
@@ -185,10 +191,14 @@
                     noTarget.fadeIn('slow');
                     console.log("works")
                 },200)
+                document.images["icon-audio"].src = "../images/icons-01.png";
                     
                 console.log(values[handle]);
                     
             } else if (values[handle] == "2.00" ) {
+                // if (image.is(":visible")) {
+                //     fitties[0].unsubscribe();
+                // }
                 noTarget.fadeOut('fast');
                 wordTargetKr
                     .fadeOut('fast')
@@ -201,12 +211,118 @@
                 setTimeout(function(){
                     wordTargetKr.addClass('highlight')
                 },200)
+                document.images["icon-audio"].src = "../images/icons-01.png";
                     
-                console.log(values[handle]);
-                
+                console.log(values[handle]);   
             };
+
+            
+
+            //audio play sequence functions
+            function playSequence(){
+                if (values[handle] == "0.00" ) {
+                    play1();
+                } else if (values[handle] == "1.00" ) {
+                    play2();
+                } else if (values[handle] == "2.00" ) {
+                    play3();
+                }
+            }
+            
+
+            //audio icon change
+            var newsrc = "icons-06.png";
+            var audioIcon = $('#icon-audio')
+
+            audioIcon.on("click", function() {
+                if ( newsrc == "icons-06.png" ) {
+                    document.images["icon-audio"].src = "../images/icons-06.png";
+                    document.images["icon-audio"].alt = "play once";
+                    newsrc  = "icons-07.png";
+                    //audio play function
+                    audioStartOver();
+                    volume();
+                    playSequence();
+                    noLoop();
+                    console.log("once")
+
+                }
+                else if ( newsrc == "icons-07.png") {
+                    document.images["icon-audio"].src = "../images/icons-07.png";
+                    document.images["icon-audio"].alt = "loop";
+                    newsrc  = "icons-01.png";
+                    //audio play function
+                    audioStartOver();
+                    volume();
+                    playSequence();
+                    loop();
+                    console.log("loop")
+                }
+                else if ( newsrc == "icons-01.png") {
+                    document.images["icon-audio"].src = "../images/icons-01.png";
+                    document.images["icon-audio"].alt = "stop";
+                    newsrc  = "icons-06.png";
+                    //audio play function
+                    audioStartOver();
+                    audioPause()
+                    console.log("stop")
+                }
+            });
+
         });
     
+    var audio1 = new Audio("audio/01_1.WAV");
+    var audio2 = new Audio("audio/01_2.WAV");
+    var audio3 = new Audio("audio/01_3.WAV");
+    function volume(){
+        audio1.volume = 1;
+        audio2.volume = 1;
+        audio3.volume = 1;
+    }
+
+    function play1(){
+        audio1.play();
+        audio2.pause();
+        audio3.pause();
+    }
+    
+    function play2(){
+        audio1.pause();
+        audio2.play();
+        audio3.pause();
+    }
+
+    function play3(){
+        audio1.pause();
+        audio2.pause();
+        audio3.play();
+    }
+
+    function audioPause(){
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+    }
+
+    function audioStartOver(){
+        audio1.currentTime = 0
+        audio2.currentTime = 0
+        audio3.currentTime = 0
+    }
+
+    function loop(){
+        audio1.loop = true;
+        audio2.loop = true;
+        audio3.loop = true;
+    }
+
+    function noLoop(){
+        audio1.loop = false;
+        audio2.loop = false;
+        audio3.loop = false;
+    }
+
+
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
