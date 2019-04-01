@@ -17,6 +17,7 @@
   </head>
   <body>
     <div class="container-fluid" id="main-container">
+        
         <div class="nav-container">
             <ul class="nav flex-column" style="opacity:0">
                 <li class="nav-item nav-simulator">
@@ -29,12 +30,15 @@
                     <a class="nav-link nav-why__link" href="../whyPage/index.html">중</a>
                 </li>
             </ul>
-            <div class="vl"></div>
-            <div class="icons flex-column">
+        </div>
+        <div class="row" id="icons">
+            <div class="col-sm"></div>
+            <div class="col-sm-8">
                 <img class="icon" id="icon-audio" src="../images/icons-01.png">
                 <img class="icon" id="icon-refresh" src="../images/icons-03.png">
                 <img class="icon" id="icon-image" src="../images/icons-02.png">
             </div>
+            <div class="col-sm"></div>
         </div>
         <div class="image image-1"></div>
         <div class="row" id="placeholder-lg"></div>
@@ -50,17 +54,17 @@
         <div class="row" id="translation">
             <div class="col-sm"></div>
             <div class="col-sm-8">
-                <p>
+                <p id="translationRow">
                     "A <span class="future-change-en">new experience</span> of 
                     <span class="highlight change-en">premium</span> 
-                    <span class="highlight change-en">tea</span>
-                "</p>
+                    <span class="highlight change-en">tea</span>"
+                </p>
             </div>
             <div class="col-sm"></div>
         </div>
         <div class="row" id="sliderrow">
             <div class="col-sm"></div>
-            <div class="col-sm-6" id="slidercontainer">
+            <div class="col-sm-8" id="slidercontainer">
                 <div id="slider">
                 </div>
             </div>
@@ -74,7 +78,7 @@
     <script src="../scripts/nouislider.min.js"></script>
     <script>
         fitty('h1');
-
+        
         //refresh
         var refreshIcon = $('#icon-refresh');
         function refreshPage(){
@@ -117,34 +121,43 @@
             keyboardSupport: true
         });
 
+        // move value on pip click
         var pips = slider.querySelectorAll('.noUi-value');
-
         function clickOnPip() {
             var value = this.getAttribute('data-value');
             slider.noUiSlider.set(value);
         }
-
         for (var i = 0; i < pips.length; i++) {
-
-        // move value on pip click
             pips[i].style.cursor = 'pointer';
             pips[i].addEventListener('click', clickOnPip);
         }
 
+        var translationActual = $('#translationRow');
+        var phraseActual = $('#phrase')
+        
         // phrase transitions based on slider value
         slider.noUiSlider.on('update', function (values, handle) {
             var fitties = fitty('h1');
+            
             var wordTargetKr = $('#change-kr');
             var wordTargetEn = $('.change-en');
             var phrase = $('#phrase');
             var noTarget = $('.reg')
             var futureTarget = $('.future-change-en');
-            var image = $('.image');
-
+            
             if (values[handle] == "0.00" ) {
-                // if (image.is(":visible")) {
-                //     fitties[0].unsubscribe();
-                // }
+                getFontSize();
+                if (numFontSizeTrans < 23){
+                    fitties[0].unsubscribe();
+                    phraseActual.css({
+                        "font-size" : "40px",
+                        "margin-top" : "+190px"
+                    });
+                    console.log("unsubscribed")
+                } else {
+                    getFirstFontSize();
+                    fitty('h1');
+                }
                 wordTargetKr
                     .fadeOut('fast')
                     .removeClass('highlight');
@@ -153,6 +166,7 @@
                     .addClass('trans');
                 futureTarget.removeClass('highlight');
                 setTimeout(function(){
+                    
                     fitties[0].fit();
                     setTimeout(function(){
                         wordTargetKr.html('최상급 차')
@@ -160,16 +174,16 @@
                     wordTargetKr.fadeIn('slow');
                     noTarget.fadeIn('slow');
                     console.log("works")
+                    setTimeout(getFirstFontSize, 100)
+                    // setTimeout(function(){
+                    //     fitties[0].unsubscribe();
+                    // },150)
                 },200)
                 document.images["icon-audio"].src = "../images/icons-01.png";
 
                 console.log(values[handle]);
                     
             } else if (values[handle] == "1.00" ) {
-                // if (image.is(":visible")) {
-                //     fitties[0].unsubscribe();
-                // }
-                fitties[0].fit();
                 wordTargetKr.fadeOut('fast');
                 wordTargetEn.addClass('highlight');
                 futureTarget.removeClass('highlight');
@@ -190,33 +204,35 @@
                         .addClass('highlight');
                     noTarget.fadeIn('slow');
                     console.log("works")
+                    setTimeout(getFirstFontSize, 100)
+                    // phraseActual.animate({
+                    //     fontSize: numFontSize
+                    // },100)
+                    // fitties[0].unsubscribe();
                 },200)
                 document.images["icon-audio"].src = "../images/icons-01.png";
                     
                 console.log(values[handle]);
                     
             } else if (values[handle] == "2.00" ) {
-                // if (image.is(":visible")) {
-                //     fitties[0].unsubscribe();
-                // }
                 noTarget.fadeOut('fast');
                 wordTargetKr
                     .fadeOut('fast')
                     .queue(function(){
                         $(this).html('프리미엄 티스 뉴 익스피리언스').dequeue();
+                        setTimeout(getFirstFontSize, 100)
                     })
                     .fadeIn('slow');
+
                 wordTargetEn.addClass('highlight');
                 futureTarget.addClass('highlight trans');
                 setTimeout(function(){
                     wordTargetKr.addClass('highlight')
                 },200)
+                
                 document.images["icon-audio"].src = "../images/icons-01.png";
-                    
                 console.log(values[handle]);   
             };
-
-            
 
             //audio play sequence functions
             function playSequence(){
@@ -229,11 +245,9 @@
                 }
             }
             
-
             //audio icon change
             var newsrc = "icons-06.png";
             var audioIcon = $('#icon-audio')
-
             audioIcon.on("click", function() {
                 if ( newsrc == "icons-06.png" ) {
                     document.images["icon-audio"].src = "../images/icons-06.png";
@@ -270,7 +284,123 @@
             });
 
         });
-    
+
+    //image icon toggle function
+
+    var fitties = fitty('h1');
+    var imageIcon = $('#icon-image');
+    var sliderRow = $('#sliderrow');
+    var futureTarget = $('.future-change-en');
+    var image = $('.image-1');
+    var toggle = true;
+
+    imageIcon.on("click",function(){
+        if (toggle) {
+            console.log("if hello");
+            //get phrase font size from fitties
+            phraseActual.animate({
+                fontSize: numFontSize
+            },50)
+            console.log(numFontSize)
+            //get rid of fitties
+            fitties[0].unsubscribe();
+            //shrink phrase font size and animate
+            futureTarget.removeClass('trans');
+            phraseActual.animate({
+                fontSize: "40px",
+                marginTop: "+190px"
+            },400);
+            //shrink translation font size and animate
+            translationActual.animate({
+                fontSize: "19px",
+                marginTop: "20px"
+            },400);
+            //translation fontsize after anim is done
+            fontSizeTransAfter()
+            sliderRow.animate({
+                marginTop: "50px"
+            });
+            //show image anim
+            image.delay(100).animate({
+                left: "0"
+            },500);
+            console.log("toggle");
+            toggle=!toggle;
+
+        } else {
+            console.log("else hello");
+            futureTarget.removeClass('trans');
+            phraseActual.animate({
+                marginTop: "0px",
+                fontSize: numFontSize
+            },480);
+            
+            translationActual.animate({
+                fontSize: "25px",
+                marginTop: "0px"
+            },400);
+            //translation fontsize after anim is done
+            fontSizeTransAfter();
+            
+            sliderRow.animate({
+                marginTop: "25px"
+            });
+            image.animate({
+                left: "-100%"
+            },500);
+            // setTimeout(delayFunction, 550);
+            console.log("works");
+            toggle=!toggle;
+        }
+        
+    });
+
+    function fontSizeTransAfter(){
+        setTimeout(function(){
+            getFontSize();
+            console.log(numFontSizeTrans)
+        },400);
+    }
+
+    function fitFirstFontSize(){
+        phraseActual.animate({
+                fontSize: numFontSize
+            },100)
+    }
+
+    var numFontSizeTrans = 0;
+    var strFontSizeTrans = 0;
+    function getFontSize (){
+        
+        // const element = document.querySelector('#translationRow')
+        // const style = getComputedStyle(element)
+        // const fontSize = style.fontSize
+        // console.log(fontSize)
+        var translationActual = $('#translationRow');
+        var fontSize = translationActual.css("fontSize");
+        console.log(fontSize  = parseInt(fontSize) + "px")
+        translationActual.css("fontSize", fontSize );
+        numFontSizeTrans = parseInt(fontSize);
+        strFontSizeTrans = fontSize;
+    }
+
+    var numFontSize = 0;
+    var strFontSize = 0;
+    function getFirstFontSize (){
+        
+        // const element = document.querySelector('#translationRow')
+        // const style = getComputedStyle(element)
+        // const fontSize = style.fontSize
+        // console.log(fontSize)
+        var translationActual = $('#phrase');
+        var fontSize = translationActual.css("fontSize");
+        //console.log(fontSize  = parseInt(fontSize) + "px")
+        translationActual.css("fontSize", fontSize );
+        numFontSize = parseInt(fontSize);
+        strFontSize = fontSize;
+        console.log("FIRST: " + strFontSize);
+    }
+
     var audio1 = new Audio("audio/01_1.WAV");
     var audio2 = new Audio("audio/01_2.WAV");
     var audio3 = new Audio("audio/01_3.WAV");

@@ -3,6 +3,10 @@
   src: url("../fonts/Seoulnamsan_oft/Seoulnamsan_B.otf");
   };
 
+body, html {
+    height: 100%;
+    width: 100%;
+}
 
 
 /*/ LANDING */
@@ -121,12 +125,14 @@
 
 
 
-
 #main-container {
     padding: 10px 30px 10px 30px;
     height: 100vh;
     overflow: hidden;
     cursor: ew-resize;
+    background-image: url(../images/texture.jpg);
+    background-blend-mode: lighten;
+    background-size: 100%;
 }
 
 .title {
@@ -145,14 +151,18 @@ h3, li {
     font-size: 18px;
 }
 
-h3, .nav-link:hover {
+h3 {
+    color: #001266;
+}
+
+.nav-link:hover {
     color: #4568fb;
 }
 
 .nav-container {
     display: block;
     position: absolute;
-    top: 10px;
+    top: 18px;
     right: 30px;
     z-index: 10;
 }
@@ -170,8 +180,12 @@ h3, .nav-link:hover {
     color: #001266;
 }
 
-.nav-item:nth-of-type(2) {
+/* .nav-item:nth-of-type(2) {
     margin-bottom: 25px;
+} */
+
+.nav-item a:first-of-type {
+    padding-top: 0;
 }
 
 .about-letter1, .about-letter2 {
@@ -182,7 +196,7 @@ h3, .nav-link:hover {
     right: 0px;
 }
 
-.about-letter2, .why-letter2, .why-letter3 {
+.about-letter2, .why-letter2, .why-letter3, .index-letter2, .index-letter3, .index-letter4, .index-letter5 {
     opacity: 0;
 }
 
@@ -194,21 +208,59 @@ h3, .nav-link:hover {
     right: 0px;
 }
 
+.index-letter1, .index-letter2, .index-letter3, .index-letter4, .index-letter5 {
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    right: 0px;
+}
 
-h1 {
+
+/* h1 {
     font-family: 'Nanum Square', sans-serif;
     color: #DBDBE0;
+} */
+
+
+.about-text {
+    font-size: 70px;
+    font-family: 'Merriweather';
+    position: relative;
+}
+
+.asterisk {
+    color: #4568fb;
 }
 
 
-h1 .about-text {
-    font-size: 200px;
+.about-text .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
 }
-
+.about-text .letter {
+    transform-origin: 0 100%;
+    display: inline-block;
+    line-height: 1em;
+    width: 100%;
+}
 
 #phrase-wrapper {
     display: block;
+    white-space: nowrap;
+    font-family: 'Nanum Square', sans-serif;
+    color: #DBDBE0;
+    position: relative;
+    top: 0;
+
 }
+
+/* #phrase {
+    font-size: 60px;
+} */
 
 .highlight {
     color: #4568fb;
@@ -223,35 +275,27 @@ h1 .about-text {
 }
 
 #placeholder-lg {
-    height: 35%;
+    height: 32%;
 }
 
-.vl {
-    display: block;
-    background: #4568fb;
-    border-radius: 2px;
-    margin-top: -10px;
-    margin-right: 5px;
-    height: 0px;
-    width: 2px;
-    float: right;
+
+#icons {
+    margin: auto;
+    text-align: center;
 }
 
-.icons {
-    display: block;
-    margin-top: 120px;
-    transform: translateX(17px);
-    width: 35px;
-    float: right;
+#icons img {
+    width: 30px;
+    margin: auto;
+    margin-top: 7px;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 .icon:hover {
     cursor: pointer;
 }
 
-.icons img {
-    width: 100%;
-}
 
 #icon-audio, #icon-refresh, #icon-image {
     opacity: 0;
@@ -265,23 +309,6 @@ h1 .about-text {
     margin-top: 17px;
 }
 
-
-/* .nav-about__link {
-    animation-name: about-hover;
-    animation-duration: .3s;
-    animation-iteration-count: 1;
-    animation-play-state: paused; 
-    content: '소';
-}
-
-.nav-about:hover {
-    animation-play-state: running;
-}
-
-@keyframes about-hover {
-    100% {content:"소개"}
-} */
-
 #main-phrase {
     opacity: 0;
     top: 0;
@@ -292,7 +319,7 @@ h1 .about-text {
     margin-top: 20px;
     font-family: 'Merriweather';
     font-weight: 300;
-    font-size: 1.5em;
+    font-size: 25px;
     color: #DBDBE0;
     opacity: 0;
     top: 0;
@@ -351,6 +378,18 @@ h1 .about-text {
 
 @media only screen and (max-height: 414px) {
     #placeholder-lg {
-        height: 25%;
+        height: 20%;
+    }
+
+    #translation p {
+        font-size: 12pt;
+    }
+
+    .title h3, .nav-item {
+        font-size: 12pt;
+    }
+
+    #icons img {
+        width: 20px;
     }
 }
