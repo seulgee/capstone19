@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    getFirstFontSize();
+    
     var phrase = $('#main-phrase')
     var translation = $('#translation')
     var slider = $('#slidercontainer, .slider-text')
@@ -43,7 +43,6 @@ $(document).ready(function(){
         aboutLink1.animate({
             right: "15px"
         }, 200)
-        console.log('anim works')
         aboutLink2.animate({
             opacity: 1 
         }, 200)
@@ -53,7 +52,6 @@ $(document).ready(function(){
         aboutLink1.animate({
             right: "0px"
         }, 200)
-        console.log('anim works')
         aboutLink2.animate({
             opacity: 0 
         }, 200)
@@ -68,7 +66,6 @@ $(document).ready(function(){
         whyLink1.animate({
             right: "30px"
         }, 200)
-        console.log('anim works')
         whyLink2.animate({
             right: "15px",
             opacity: 1 
@@ -82,7 +79,6 @@ $(document).ready(function(){
         whyLink1.animate({
             right: "0px"
         }, 200)
-        console.log('anim works')
         whyLink2.animate({
             right: "0px",
             opacity: 0
@@ -103,7 +99,6 @@ $(document).ready(function(){
         indexLink1.animate({
             right: "60px"
         }, 230)
-        console.log('anim works')
         indexLink2.animate({
             right: "45px",
             opacity: 1 
@@ -125,7 +120,6 @@ $(document).ready(function(){
         indexLink1.animate({
             right: "0px"
         }, 230)
-        console.log('anim works')
         indexLink2.animate({
             right: "0px",
             opacity: 0 
@@ -143,76 +137,6 @@ $(document).ready(function(){
         }, 230)
     })
 
-    // //image icon toggle function
-
-    // var fitties = fitty('h1');
-    // function delayFunction(){
-    //     fitty('h1');
-    //     setTimeout(getFontSize, 50);
-    // };
-    // var phraseActual = phrase.find('h1')
-    // var imageIcon = $('#icon-image');
-    // var translationActual = translation.find('p');
-    // var sliderRow = $('#sliderrow');
-    // var futureTarget = $('.future-change-en');
-    // var toggle = true;
-
-    // imageIcon.on("click",function(){
-
-    //     if (toggle) {
-    //         fitties[0].unsubscribe();
-    //         futureTarget.removeClass('trans');
-    //         phraseActual.animate({
-    //             fontSize: "40px",
-    //             marginTop: "+190px"
-    //         },400);
-    //         setTimeout(getFontSize, 400);
-    //         translationActual.animate({
-    //             fontSize: "19px",
-    //             marginTop: "20px"
-    //         },400);
-    //         sliderRow.animate({
-    //             marginTop: "50px"
-    //         });
-    //         $('.image-1').delay(200).animate({
-    //             left: "0"
-    //         },700);
-    //         console.log("toggle");
-    //         toggle=!toggle;
-    //     } else {
-    //         futureTarget.removeClass('trans');
-    //         phraseActual.delay(200).animate({
-    //             marginTop: "0px"
-    //         },400);
-    //         translationActual.animate({
-    //             fontSize: "25px",
-    //             marginTop: "0px"
-    //         },400);
-    //         sliderRow.animate({
-    //             marginTop: "25px"
-    //         });
-    //         $('.image-1').animate({
-    //             left: "-100%"
-    //         },700);
-    //         setTimeout(delayFunction, 550);
-            
-    //         //getFontSize();
-    //         console.log("works");
-    //         toggle=!toggle;
-    //     }
-        
-    // });
-
-    // function getFontSize (){
-    //     // const element = document.querySelector('#translationRow')
-    //     // const style = getComputedStyle(element)
-    //     // const fontSize = style.fontSize
-    //     // console.log(fontSize)
-    //     var translationActual = $('#translationRow');
-    //     var fontSize = translationActual.css("fontSize");
-    //     console.log(fontSize  = parseInt(fontSize) + 1 + "px")
-    //     translationActual.css("fontSize", fontSize );
-    // }
 
 
     

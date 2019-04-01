@@ -17,7 +17,6 @@
   </head>
   <body>
     <div class="container-fluid" id="main-container">
-        
         <div class="nav-container">
             <ul class="nav flex-column" style="opacity:0">
                 <li class="nav-item nav-simulator">
@@ -78,6 +77,7 @@
     <script src="../scripts/nouislider.min.js"></script>
     <script>
         fitty('h1');
+        getFirstFontSize();
         
         //refresh
         var refreshIcon = $('#icon-refresh');
@@ -122,15 +122,17 @@
         });
 
         // move value on pip click
+        var toggle = true;
         var pips = slider.querySelectorAll('.noUi-value');
         function clickOnPip() {
             var value = this.getAttribute('data-value');
             slider.noUiSlider.set(value);
-        }
+        }  
         for (var i = 0; i < pips.length; i++) {
             pips[i].style.cursor = 'pointer';
             pips[i].addEventListener('click', clickOnPip);
         }
+
 
         var translationActual = $('#translationRow');
         var phraseActual = $('#phrase')
@@ -138,26 +140,13 @@
         // phrase transitions based on slider value
         slider.noUiSlider.on('update', function (values, handle) {
             var fitties = fitty('h1');
-            
             var wordTargetKr = $('#change-kr');
             var wordTargetEn = $('.change-en');
             var phrase = $('#phrase');
             var noTarget = $('.reg')
             var futureTarget = $('.future-change-en');
-            
+
             if (values[handle] == "0.00" ) {
-                getFontSize();
-                if (numFontSizeTrans < 23){
-                    fitties[0].unsubscribe();
-                    phraseActual.css({
-                        "font-size" : "40px",
-                        "margin-top" : "+190px"
-                    });
-                    console.log("unsubscribed")
-                } else {
-                    getFirstFontSize();
-                    fitty('h1');
-                }
                 wordTargetKr
                     .fadeOut('fast')
                     .removeClass('highlight');
@@ -174,11 +163,10 @@
                     wordTargetKr.fadeIn('slow');
                     noTarget.fadeIn('slow');
                     console.log("works")
+                    //get fitty's font size for h1
                     setTimeout(getFirstFontSize, 100)
-                    // setTimeout(function(){
-                    //     fitties[0].unsubscribe();
-                    // },150)
                 },200)
+                //audio icon src
                 document.images["icon-audio"].src = "../images/icons-01.png";
 
                 console.log(values[handle]);
@@ -204,12 +192,10 @@
                         .addClass('highlight');
                     noTarget.fadeIn('slow');
                     console.log("works")
+                    //get fitty's font size for h1
                     setTimeout(getFirstFontSize, 100)
-                    // phraseActual.animate({
-                    //     fontSize: numFontSize
-                    // },100)
-                    // fitties[0].unsubscribe();
                 },200)
+                //audio icon src
                 document.images["icon-audio"].src = "../images/icons-01.png";
                     
                 console.log(values[handle]);
@@ -220,6 +206,7 @@
                     .fadeOut('fast')
                     .queue(function(){
                         $(this).html('프리미엄 티스 뉴 익스피리언스').dequeue();
+                        //get fitty's font size for h1
                         setTimeout(getFirstFontSize, 100)
                     })
                     .fadeIn('slow');
@@ -229,7 +216,7 @@
                 setTimeout(function(){
                     wordTargetKr.addClass('highlight')
                 },200)
-                
+                //audio icon src
                 document.images["icon-audio"].src = "../images/icons-01.png";
                 console.log(values[handle]);   
             };
@@ -292,10 +279,16 @@
     var sliderRow = $('#sliderrow');
     var futureTarget = $('.future-change-en');
     var image = $('.image-1');
-    var toggle = true;
+    
 
     imageIcon.on("click",function(){
         if (toggle) {
+            //disable slider while image shows
+            slider.setAttribute('disabled', true);
+            for (var i = 0; i < pips.length; i++) {
+                pips[i].style.cursor = 'not-allowed';
+                pips[i].removeEventListener('click', clickOnPip);
+            }
             console.log("if hello");
             //get phrase font size from fitties
             phraseActual.animate({
@@ -328,6 +321,12 @@
             toggle=!toggle;
 
         } else {
+            //enable slider while image shows
+            slider.removeAttribute('disabled');
+            for (var i = 0; i < pips.length; i++) {
+                pips[i].style.cursor = 'pointer';
+                pips[i].addEventListener('click', clickOnPip);
+            }
             console.log("else hello");
             futureTarget.removeClass('trans');
             phraseActual.animate({
@@ -348,7 +347,6 @@
             image.animate({
                 left: "-100%"
             },500);
-            // setTimeout(delayFunction, 550);
             console.log("works");
             toggle=!toggle;
         }
@@ -364,21 +362,16 @@
 
     function fitFirstFontSize(){
         phraseActual.animate({
-                fontSize: numFontSize
-            },100)
+            fontSize: numFontSize
+        },100)
     }
 
     var numFontSizeTrans = 0;
     var strFontSizeTrans = 0;
     function getFontSize (){
-        
-        // const element = document.querySelector('#translationRow')
-        // const style = getComputedStyle(element)
-        // const fontSize = style.fontSize
-        // console.log(fontSize)
         var translationActual = $('#translationRow');
         var fontSize = translationActual.css("fontSize");
-        console.log(fontSize  = parseInt(fontSize) + "px")
+        // console.log(fontSize  = parseInt(fontSize) + "px")
         translationActual.css("fontSize", fontSize );
         numFontSizeTrans = parseInt(fontSize);
         strFontSizeTrans = fontSize;
@@ -387,11 +380,6 @@
     var numFontSize = 0;
     var strFontSize = 0;
     function getFirstFontSize (){
-        
-        // const element = document.querySelector('#translationRow')
-        // const style = getComputedStyle(element)
-        // const fontSize = style.fontSize
-        // console.log(fontSize)
         var translationActual = $('#phrase');
         var fontSize = translationActual.css("fontSize");
         //console.log(fontSize  = parseInt(fontSize) + "px")

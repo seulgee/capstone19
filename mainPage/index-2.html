@@ -86,7 +86,7 @@
 
         //refresh
         var refreshIcon = $('#icon-refresh');
-        refreshIcon.on("click", function(){
+        function refreshPage(){
             window.location.href = "index-3.html"
             if (localStorage.count){
                 localStorage.count = Number(localStorage.count) + 1;
@@ -95,8 +95,9 @@
                 localStorage.count = 2;
             }
             console.log(localStorage.count);
-        })
+        }
 
+        refreshIcon.on("click", refreshPage)
 
         //slider settings
         var slider = document.getElementById('slider');
