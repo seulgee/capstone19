@@ -471,6 +471,11 @@ img {
 
     #icons img {
         width: 20px;
+        margin-top: 14px;
+    }
+
+    .title {
+        top: 25px;
     }
 }
 
