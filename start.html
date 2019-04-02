@@ -102,7 +102,7 @@
         document.getElementById('myframe1').src = sites[index];
     }
 
-        var y = window.matchMedia("(max-width: 896px)")
+        var y = window.matchMedia("(max-width: 896px) and (max-height: 414px)")
         var button = $('.mobile-nav')
         var nav = $('.nav-container')
 		myFunction(y) // Call listener function at run time
@@ -133,13 +133,14 @@
                     width: "100%",
                     height: "100%",
                     borderRadius: "0",
-                    opacity: .9
+                    opacity: 1
                 });
                 nav
                     .css({
                         "top": "50%",
                         "right": "50%",
-                        "transform": "translate(+50%, -50%)"
+                        "transform": "translate(+50%, -50%)",
+                        "z-index": "17"
                     })
                     .show()
                 navItem.css({
@@ -150,7 +151,7 @@
                     "margin-bottom": "0"
                 })
                 navLetters.hide();
-                mobileNav.show();
+                mobileNav.fadeIn('slow');
                 toggle = !toggle;
             } else {
                 $(this).animate({
@@ -161,6 +162,7 @@
                     borderRadius: "50%"
                 })
                 nav.hide();
+                mobileNav.fadeOut('slow');
                 toggle = !toggle
                 
             }   

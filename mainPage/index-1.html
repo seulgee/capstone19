@@ -282,7 +282,7 @@
     var sliderRow = $('#sliderrow');
     var futureTarget = $('.future-change-en');
     var image = $('.image');
-    var y = window.matchMedia("(max-width: 896px)")
+    var y = window.matchMedia("(max-width: 896px) and (max-height: 414px)")
     // myFunction(y) // Call listener function at run time
 	// y.addListener(myFunction) // Attach listener function on state changes
     // function myFunction(y) {
@@ -324,7 +324,7 @@
                     marginTop: "30px"
                 },400);
                 sliderRow.animate({
-                    marginTop: "0px"
+                    marginTop: "80px"
                 });
             } else {
                 translationActual.animate({
