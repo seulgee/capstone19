@@ -438,6 +438,7 @@ img {
         color: #ffffff;
         z-index: 30;
         text-align: center;
+        white-space: nowrap;
     }
     
 }
