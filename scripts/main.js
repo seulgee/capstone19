@@ -6,10 +6,6 @@ $(document).ready(function(){
 
     //page load transitions
 
-    $('.vl').animate({
-        height: "100px"
-    },350);
-
     setTimeout(function(){
         $('#icon-audio').animate({opacity:1},300)
         setTimeout(function(){

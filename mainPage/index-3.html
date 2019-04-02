@@ -10,11 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <link rel="stylesheet" type="text/css" href="../css/nouislider.css">
     <link href='../fonts/nanumSquare/nanumsquare.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-
-
 
     <title>일상속 외래어</title>
   </head>
@@ -34,13 +30,13 @@
             </ul>
         </div>
         <div class="row" id="icons">
-            <div class="col-sm"></div>
-            <div class="col-sm-8">
+            <div class="col-md"></div>
+            <div class="col-md-8">
                 <img class="icon" id="icon-audio" src="../images/icons-01.png">
                 <img class="icon" id="icon-refresh" src="../images/icons-03.png">
                 <img class="icon" id="icon-image" src="../images/icons-02.png">
             </div>
-            <div class="col-sm"></div>
+            <div class="col-md"></div>
         </div>
         <div class="image image-1"></div>
         <div class="row" id="placeholder-lg"></div>
@@ -54,14 +50,14 @@
             <div class="col-md"></div>
         </div>
         <div class="row" id="translation">
-            <div class="col-sm"></div>
-            <div class="col-sm-8">
+            <div class="col-md"></div>
+            <div class="col-md-8">
                 <p>"
                     <span class="future-change-en">Such</span>
                     <span class="highlight change-en">quality</span>"
                 </p>
             </div>
-            <div class="col-sm"></div>
+            <div class="col-md"></div>
         </div>
         <div class="row" id="sliderrow">
             <div class="col-sm"></div>
@@ -80,12 +76,12 @@
 
     <script>
         fitty('h1');
+        getFirstFontSize();
 
         //refresh
         var refreshIcon = $('#icon-refresh');
-        refreshIcon.on("click", function(){
-
-        window.location.href = "index-4.html"
+        function refreshPage(){
+            window.location.href = "index-2.html"
             if (localStorage.count){
                 localStorage.count = Number(localStorage.count) + 1;
             }
@@ -93,7 +89,9 @@
                 localStorage.count = 3;
             }
             console.log(localStorage.count);
-        })
+        }
+
+        refreshIcon.on("click", refreshPage)
 
         var slider = document.getElementById('slider');
         var pipFormats = {'0':'전통형', '1':'현재형', '2':'미래형'};
