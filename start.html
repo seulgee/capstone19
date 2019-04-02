@@ -13,28 +13,47 @@
 </head>
 
 <body style="width:100%; height:100%; margin:0; padding:0; overflow: hidden;">
+    <div class="portrait-overlay">
+        <h4>Please rotate your device.</h4>
+    </div>
+    <div class="overlay-info container-fluid">
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm-8"></div>
+            <div class="col-sm"></div>
+        </div>
+    </div>
     <div class="title">
         <a href="index.html"><h3>일상속 외래어</h3></a>
     </div>
-    <!-- <div class="overlay-info"></div> -->
-    <div class="nav-container">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link nav-index__link" style="color:#4568FB" href="index.html">
-                    &#8226;모의실험기
-                </a>
-            </li>
-            <li class="nav-item nav-about">
-                <a class="nav-link nav-about__link" style="margin-bottom:27px;" href="aboutPage/index.html">
-                    <span class="letters about-letter1">소</span><span class="letters about-letter2">개</span>
-                </a>
-            </li>
-            <li class="nav-item nav-why">
-                <a class="nav-link nav-why__link" href="whyPage/index.html">
-                    <p class="why-letter1">중</p><p class="why-letter2">요</p><p class="why-letter3">성</p>
-                </a>
-            </li>
-        </ul>
+    <nav class="list">
+        
+        <div class="nav-container">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link nav-index__link" style="color:#4568FB" href="index.html">
+                        &#8226;모의실험기
+                    </a>
+                </li>
+                <li class="nav-item nav-about">
+                    <a class="nav-link nav-about__link" style="margin-bottom:27px;" href="aboutPage/index.html">
+                        <span class="letters about-letter1">소</span><span class="letters about-letter2">개</span>
+                        <span class="mobile-letters" style="display:none">소개</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-why">
+                    <a class="nav-link nav-why__link" href="whyPage/index.html">
+                        <p class="letters why-letter1">중</p><p class="letters why-letter2">요</p><p class="letters why-letter3">성</p>
+                        <span class="mobile-letters" style="display:none">중요성</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile-nav">
+        </div>
+    </nav>
+    <div class="info">
+        <p>don't speak Korean?</p>
     </div>
     <iframe id="myframe1" style="border-width:0; width:100%; height:100%; z-index:0;" src="mainPage/index-1.html"></iframe>
 
@@ -58,30 +77,101 @@
         'mainPage/index-4.html',
         'mainPage/index-5.html'];
 
-    if (typeof(Storage) !== "undefined"){
-        //code for storage shit
-        if (localStorage.count){
-            localStorage.count = Number(localStorage.count) + 1;
-            var numberOfPhrases = 5;
-            if (Number(localStorage.count)>=numberOfPhrases){
-                localStorage.count = 0;
-                console.log("greater");
-            }
-        }
-        else {
-            localStorage.count = 0;
-        }
-        var index = localStorage.count;
-        console.log(index);
-    }
-    else {
-        //no storage, go random
-        var index = Math.floor((Math.random() * 5));
-    }
+    // if (typeof(Storage) !== "undefined"){
+    //     //code for storage shit
+    //     if (localStorage.count){
+    //         localStorage.count = Number(localStorage.count) + 1;
+    //         var numberOfPhrases = 5;
+    //         if (Number(localStorage.count)>=numberOfPhrases){
+    //             localStorage.count = 0;
+    //             console.log("greater");
+    //         }
+    //     }
+    //     else {
+    //         localStorage.count = 0;
+    //     }
+    //     var index = localStorage.count;
+    //     console.log(index);
+    // }
+    // else {
+    //     //no storage, go random
+    //     var index = Math.floor((Math.random() * 5));
+    // }
     
     function init() {
         document.getElementById('myframe1').src = sites[index];
     }
+
+        var y = window.matchMedia("(max-width: 896px)")
+        var button = $('.mobile-nav')
+        var nav = $('.nav-container')
+		myFunction(y) // Call listener function at run time
+		y.addListener(myFunction) // Attach listener function on state changes
+
+		function myFunction(y) {
+    		if (y.matches){
+    			button.show();
+    			nav.hide();
+
+    		} else {
+    			button.hide();
+    			nav.show();
+    		}
+    	};
+
+        var toggle = true
+        var navItem = $('.nav-item').find('a')
+        var mobileNav = $('.mobile-letters')
+        var navLetters = $('.letters')
+        var navAbout = $('.nav-about__link')
+
+        button.on("click", function(){
+            if (toggle) {
+                $(this).animate({
+                    right: "0px",
+                    top: "0px",
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "0",
+                    opacity: .9
+                });
+                nav
+                    .css({
+                        "top": "50%",
+                        "right": "50%",
+                        "transform": "translate(+50%, -50%)"
+                    })
+                    .show()
+                navItem.css({
+                    "color": "#ffffff",
+                    "text-align": "center"
+                });
+                navAbout.css({
+                    "margin-bottom": "0"
+                })
+                navLetters.hide();
+                mobileNav.show();
+                toggle = !toggle;
+            } else {
+                $(this).animate({
+                    right: "-50px",
+                    top: "-50px",
+                    width: "100px",
+                    height: "100px",
+                    borderRadius: "50%"
+                })
+                nav.hide();
+                toggle = !toggle
+                
+            }   
+        })
+
+    var info = $('.info')
+    var overlay = $('.overlay-info')
+    info.on("click", function(){
+        overlay.fadeIn('fast');
+        console.log("overlay clicked")
+    })
 </script>
 
 </html>

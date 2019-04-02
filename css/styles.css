@@ -114,16 +114,34 @@ body, html {
 
 /*///////////////////////////////////////////// MAIN */
 
+.portrait-overlay {
+    display: none;
+}
+
+.portrait-overlay h4 {
+    line-height: 100vh;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
 .overlay-info {
     position: fixed;
     width: 100%;
     height: 100%;
     background: #ffffff;
-    opacity: .5;
-    z-index: 5;
+    z-index: 15;
+    opacity: .7;
+    display: none;
 }
 
-
+.info {
+    position: fixed;
+    right: 30px;
+    bottom: 10px;
+    font-size: 10pt;
+    text-decoration: underline;
+}
 
 #main-container {
     padding: 10px 30px 10px 30px;
@@ -155,6 +173,16 @@ h3 {
     color: #001266;
 }
 
+.mobile-nav {
+    position: fixed;
+    right: -50px;
+    top: -50px;
+    width: 100px;
+    height: 100px;
+    background-color: #4568FB;
+    border-radius: 50%;
+}
+
 .nav-link:hover {
     color: #4568fb;
 }
@@ -177,6 +205,7 @@ h3 {
     display: block;
     height: auto;
     padding-right: 0;
+    padding-left: 0;
     color: #001266;
 }
 
@@ -258,10 +287,6 @@ h3 {
 
 }
 
-/* #phrase {
-    font-size: 60px;
-} */
-
 .highlight {
     color: #4568fb;
 }
@@ -313,16 +338,18 @@ h3 {
     opacity: 0;
     top: 0;
     height: 30%;
+    text-align: center;
 }
 
 #translation {
     margin-top: 20px;
-    font-family: 'Merriweather';
+    font-family: 'Merriweather', serif;
     font-weight: 300;
     font-size: 25px;
     color: #DBDBE0;
     opacity: 0;
     top: 0;
+    text-align: center;
 }
 
 .image{
@@ -330,15 +357,18 @@ h3 {
     z-index: 50;
     left: -100%;
     top: 15%;
-    width: 70%;
-    height: 40%;
+    width: 50%;
 }
 
-.image-1 {
-    background-image: url(../images/image-1.jpeg);
+img {
+    width: 100%;
+}
+
+/* .image-1 {
+    background-image: url(../images/image-1.png);
     background-size: 100%;
     background-position: 0px -50px;
-}
+} */
 
 /*///////////////////////////////////////////// SLIDER */
 
@@ -385,6 +415,10 @@ h3 {
         font-size: 12pt;
     }
 
+    #translation p::after {
+        font-size: 12pt;
+    }
+
     .title h3, .nav-item {
         font-size: 12pt;
     }
@@ -392,4 +426,18 @@ h3 {
     #icons img {
         width: 20px;
     }
+}
+
+@media only screen and (max-width: 414px) {
+    .portrait-overlay {
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #4568FB;
+        color: #ffffff;
+        z-index: 30;
+        text-align: center;
+    }
+    
 }

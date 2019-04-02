@@ -10,26 +10,29 @@
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <link rel="stylesheet" type="text/css" href="../css/nouislider.css">
     <link href='../fonts/nanumSquare/nanumsquare.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <title>일상속 외래어</title>
   </head>
   <body>
     <div class="container-fluid" id="main-container">
-        <div class="nav-container">
-            <ul class="nav flex-column" style="opacity:0">
-                <li class="nav-item nav-simulator">
-                    <a class="nav-link nav-simulator__link" style="color: #4568fb" href="#">모의실험기</a>
-                </li>
-                <li class="nav-item nav-about">
-                    <a class="nav-link nav-about__link" href="../aboutPage/index.html">소</a>
-                </li>
-                <li class="nav-item nav-why">
-                    <a class="nav-link nav-why__link" href="../whyPage/index.html">중</a>
-                </li>
-            </ul>
-        </div>
+       
+            
+            <div class="nav-container">
+                <ul class="nav flex-column" style="opacity:0">
+                    <li class="nav-item nav-simulator">
+                        <a class="nav-link nav-simulator__link" style="color: #4568fb" href="#">모의실험기</a>
+                    </li>
+                    <li class="nav-item nav-about">
+                        <a class="nav-link nav-about__link" href="../aboutPage/index.html">소</a>
+                    </li>
+                    <li class="nav-item nav-why">
+                        <a class="nav-link nav-why__link" href="../whyPage/index.html">중</a>
+                    </li>
+                </ul>
+            </div>
+
         <div class="row" id="icons">
             <div class="col-sm"></div>
             <div class="col-sm-8">
@@ -39,16 +42,16 @@
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="image image-1"></div>
+        <div class="image"><img class="image-1" width:50%; src="../images/image-1.png"></div>
         <div class="row" id="placeholder-lg"></div>
         <div class="row" id="main-phrase">
-            <div class="col-sm" id="change-col-left"></div>
-            <div class="col-sm-8" id="change-col">
+            <div class="col-md" id="change-col-left"></div>
+            <div class="col-md-8" id="change-col">
                 <span id="phrase-wrapper"><h1 id="phrase">
                     <span class="highlight" id="change-kr">프리미엄 티</span><span class="reg">의 새로운 경험</span>
                 </h1></span>
             </div>
-            <div class="col-sm"></div>
+            <div class="col-md"></div>
         </div>
         <div class="row" id="translation">
             <div class="col-sm"></div>
@@ -278,8 +281,20 @@
     var imageIcon = $('#icon-image');
     var sliderRow = $('#sliderrow');
     var futureTarget = $('.future-change-en');
-    var image = $('.image-1');
-    
+    var image = $('.image');
+    var y = window.matchMedia("(max-width: 896px)")
+    // myFunction(y) // Call listener function at run time
+	// y.addListener(myFunction) // Attach listener function on state changes
+    // function myFunction(y) {
+    //     if (y.matches){
+    //         button.show();
+    //         nav.hide();
+
+    //     } else {
+    //         button.hide();
+    //         nav.show();
+    //     }
+    // };
 
     imageIcon.on("click",function(){
         if (toggle) {
@@ -304,19 +319,33 @@
                 marginTop: "+190px"
             },400);
             //shrink translation font size and animate
-            translationActual.animate({
-                fontSize: "19px",
-                marginTop: "20px"
-            },400);
+            if (y.matches){
+                translationActual.animate({
+                    marginTop: "30px"
+                },400);
+                sliderRow.animate({
+                    marginTop: "0px"
+                });
+            } else {
+                translationActual.animate({
+                    fontSize: "19px",
+                    marginTop: "20px"
+                },400);
+                sliderRow.animate({
+                    marginTop: "50px"
+                });
+            }
             //translation fontsize after anim is done
             fontSizeTransAfter()
-            sliderRow.animate({
-                marginTop: "50px"
-            });
+            
             //show image anim
-            image.delay(100).animate({
-                left: "0"
-            },500);
+            image.delay(100)
+                .animate({
+                    left: "50%"
+                },500)
+                .css({
+                    "transform": "translateX(-50%)"
+                });
             console.log("toggle");
             toggle=!toggle;
 
@@ -334,10 +363,16 @@
                 fontSize: numFontSize
             },480);
             
-            translationActual.animate({
-                fontSize: "25px",
-                marginTop: "0px"
-            },400);
+            if (y.matches){
+                translationActual.animate({
+                    marginTop: "0px"
+                },400);
+            } else {
+                translationActual.animate({
+                    fontSize: "25px",
+                    marginTop: "20px"
+                },400);
+            }
             //translation fontsize after anim is done
             fontSizeTransAfter();
             
