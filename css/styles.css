@@ -91,6 +91,27 @@ body, html {
     100% {opacity:1; content: "일상속"}
 }
 
+@-webkit-keyframes head-1 {
+    0% {opacity:1; content: "일상속"}
+    20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+    70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+    100% {opacity:1; content: "일상속"}
+}
+
+@-moz-keyframes head-1 {
+    0% {opacity:1; content: "일상속"}
+    20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+    70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+    100% {opacity:1; content: "일상속"}
+}
+
+@-ms-keyframes head-1 {
+    0% {opacity:1; content: "일상속"}
+    20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+    70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+    100% {opacity:1; content: "일상속"}
+}
+
 #landing-title__right:before{
     content: '외래어';
     animation-name: head-2;
@@ -100,6 +121,27 @@ body, html {
 }
 
 @keyframes head-2 {
+    0% {opacity:1; content: "외래어"}
+    40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+    80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+    100% {opacity:1; content: "외래어"}
+}
+
+@-webkit-keyframes head-2 {
+    0% {opacity:1; content: "외래어"}
+    40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+    80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+    100% {opacity:1; content: "외래어"}
+}
+
+@-moz-keyframes head-2 {
+    0% {opacity:1; content: "외래어"}
+    40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+    80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+    100% {opacity:1; content: "외래어"}
+}
+
+@-ms-keyframes head-2 {
     0% {opacity:1; content: "외래어"}
     40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
     80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
