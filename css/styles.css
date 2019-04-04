@@ -4,12 +4,6 @@
         url("../fonts/Seoulnamsan_oft/Seoulnamsan_B.otf") format('truetype');
   };
 
-@font-face {
-    font-family: "Nanum Square";
-    src: url("../fonts/nanumsquare.css"),
-            url("../fonts/nanumsquare.css") format('truetype');
-}
-
 body, html {
     height: 100%;
     width: 100%;
@@ -375,7 +369,7 @@ h3 {
 #phrase-wrapper {
     display: block;
     white-space: nowrap;
-    font-family: 'Nanum Square', sans-serif;
+    font-family: 'NanumSquare', sans-serif;
     color: #DBDBE0;
     position: relative;
     top: 0;
