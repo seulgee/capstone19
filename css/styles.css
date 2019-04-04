@@ -32,7 +32,7 @@ body, html {
 #landing-title__right, #landing-title__left {
     font-family: "Seoulnamsan";
     font-size: 50pt;
-    color: #ffe7aa;
+    color: #ffffff;#ffe7aa;
     opacity: 0;
 }
 
@@ -476,6 +476,15 @@ img {
 
     .title {
         top: 25px;
+    }
+
+    #row-2 {
+        width: 100%;
+        text-align: center;
+        position: fixed;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
