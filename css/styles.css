@@ -1,7 +1,14 @@
 @font-face {
   font-family: "Seoulnamsan";
-  src: url("../fonts/Seoulnamsan_oft/Seoulnamsan_B.otf");
+  src: url("../fonts/Seoulnamsan_oft/Seoulnamsan_B.otf"),
+        url("../fonts/Seoulnamsan_oft/Seoulnamsan_B.otf") format('truetype');
   };
+
+@font-face {
+    font-family: "Nanum Square";
+    src: url("../fonts/nanumsquare.css"),
+            url("../fonts/nanumsquare.css") format('truetype');
+}
 
 body, html {
     height: 100%;
@@ -32,7 +39,7 @@ body, html {
 #landing-title__right, #landing-title__left {
     font-family: "Seoulnamsan";
     font-size: 50pt;
-    color: #ffffff;#ffe7aa;
+    color: #ffffff;
     opacity: 0;
 }
 
