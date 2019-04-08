@@ -8,93 +8,496 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <link href='../fonts/nanumSquare/nanumsquare.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/nouislider.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-
-
-
-    <title>일상속 외래어</title>
+  <title>일상속 외래어</title>
   </head>
   <body>
     <div class="container-fluid" id="main-container">
-        <div class="title">
-            <a href="../index.html"><h3>일상속 외래어</h3></a>
-        </div>
         <div class="nav-container">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">모의실험기</a>
+            <ul class="nav flex-column" style="opacity:0">
+                <li class="nav-item nav-simulator">
+                    <a class="nav-link nav-simulator__link" style="color: #4568fb" href="#">모의실험기</a>
                 </li>
                 <li class="nav-item nav-about">
                     <a class="nav-link nav-about__link" href="../aboutPage/index.html">소</a>
                 </li>
                 <li class="nav-item nav-why">
-                    <a class="nav-link" href="../whyPage/index.html">중</a>
+                    <a class="nav-link nav-why__link" href="../whyPage/index.html">중</a>
                 </li>
             </ul>
-            <div class="vl"></div>
-            <div class="icons flex-column">
-                <svg class="icon" id="icon-audio" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><defs><style>.cls-1{fill:none;stroke:#6CB7B3;stroke-linecap:round;stroke-miterlimit:10;}</style></defs><title>icons</title><path class="cls-1" d="M11.82,22.8c0,3.69-.73,6.68-1.63,6.68s-1.63-3-1.63-6.68.73-6.68,1.63-6.68S11.82,19.11,11.82,22.8Z"/><path class="cls-1" d="M9.42,29.48H7.3a1.07,1.07,0,0,1-1-.88l-.69-3a21.71,21.71,0,0,1,0-5.58l.69-3a1.07,1.07,0,0,1,1-.88H9.42L8.94,20a21.71,21.71,0,0,0,0,5.58Z"/><path class="cls-1" d="M18.1,22.8c0,3.69.73,6.68,1.63,6.68s1.63-3,1.63-6.68-.73-6.68-1.63-6.68S18.1,19.11,18.1,22.8Z"/><path class="cls-1" d="M20.5,29.48h2.12a1.07,1.07,0,0,0,1-.88l.69-3a21.71,21.71,0,0,0,0-5.58l-.69-3a1.07,1.07,0,0,0-1-.88H20.5L21,20a21.71,21.71,0,0,1,0,5.58Z"/><path class="cls-1" d="M25,22.57c.82-.12,2.83-.68,3.46-1.85,1.4-2.58,2-13.35-1.87-17.27C23.82.57,15.41.57,15.41.57h-.82S6.18.57,3.38,3.45C-.44,7.37.11,18.14,1.51,20.72,2.44,22.44,5,22.44,5,22.44"/></svg>
-                <svg class="icon" id="icon-refresh" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><defs><style>.cls-1{fill:none;stroke:#6CB7B3;stroke-linecap:round;stroke-miterlimit:10;}.cls-2{fill:#6CB7B3;}</style></defs><title>icons</title><path class="cls-1" d="M13.66,28.16a13.14,13.14,0,1,1,10.15-4.77"/><polygon class="cls-2" points="20.92 19.79 21.5 25.93 27.64 25.35 30 22.5 23.86 23.08 23.28 16.94 20.92 19.79"/></svg>
-                <svg class="icon" id="icon-image" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30"><defs><style>.cls-1,.cls-4{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#6CB7B3;}.cls-4{stroke:#6CB7B3;stroke-linecap:round;stroke-miterlimit:10;}</style><clipPath id="clip-path"><rect class="cls-1" y="6.94" width="30" height="16.07"/></clipPath></defs><title>icons</title><g class="cls-2"><path class="cls-3" d="M15,20.22a5.51,5.51,0,0,0,5.61-5.42A5.52,5.52,0,0,0,15,9.38,5.51,5.51,0,0,0,9.4,14.8,5.5,5.5,0,0,0,15,20.22"/><path class="cls-4" d="M.44,15s7-7.64,14.31-7.64S29.56,15,29.56,15"/><path class="cls-4" d="M.44,14.92s7,7.64,14.31,7.64,14.81-7.64,14.81-7.64"/></g></svg>
-            </div>
         </div>
-        <div class="row" id="placeholder"></div>
-        <div class="row" id="placeholder"></div>
-        <div class="row" id="placeholder"></div>
-        <div class="row" id="main-phrase">
+
+        <div class="row" id="icons">
             <div class="col-sm"></div>
             <div class="col-sm-8">
-                <span id="phrase-wrapper"><h1 id="phrase">이것이 진짜 <span class="highlight">윈터스릴</span></h1></span>
+                <img class="icon" id="icon-audio" src="../images/icons-01.png">
+                <img class="icon" id="icon-refresh" src="../images/icons-03.png">
+                <img class="icon" id="icon-image" src="../images/icons-02.png">
             </div>
             <div class="col-sm"></div>
+        </div>
+        <div class="image"><img class="image-1" width:50%; src="../images/image-8.png"></div>
+        <div class="row" id="placeholder-lg"></div>
+        <div class="row" id="main-phrase">
+            <div class="col-md" id="change-col-left"></div>
+            <div class="col-md-8" id="change-col">
+                <span id="phrase-wrapper"><h1 id="phrase">
+                    <span class="reg">이것이 진짜</span>
+                    <span class="highlight" id="change-kr">윈터 스릴</span>
+                </h1></span>
+            </div>
+            <div class="col-md"></div>
         </div>
         <div class="row" id="translation">
             <div class="col-sm"></div>
             <div class="col-sm-8">
-                <p>"This is the real <span class="highlight">winter thrill</span>"</p>
+                <p id="translationRow">
+                    "<span class="future-change-en">This is the real</span>
+                    <span class="highlight change-en">winter thrill</span>"
+                </p>
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="row" id="placeholder"></div>
-        <div class="row">
+        <div class="row" id="sliderrow">
             <div class="col-sm"></div>
             <div class="col-sm-8" id="slidercontainer">
                 <div id="slider">
-                    <div class="knob" id='slider-thumb'></div>
-                    <div class="range"></div>
                 </div>
-                
-                <!-- <div class="slidercontainer-inner">
-                    <div class="slider">
-                        <div id="slider-thumb"></div>
-                    </div>
-                    <div class="slider-beg"></div>
-                    <div class="slider-end"></div>
-                    
-                </div> -->
-
-                <!-- <input type='range' class="slider" min='1' max='3' value='2' step='1'/> -->
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="row" id="placeholder"></div>
-        <div class="row" id="placeholder"></div>
+        <div class="row"></div>
     </div>
 
     <!-- Optional JavaScript -->
     <script src="../scripts/fitty.min.js"></script>
+    <script src="../scripts/nouislider.min.js"></script>
     <script>
         fitty('h1');
+        getFirstFontSize();
         
+        //refresh
+        var refreshIcon = $('#icon-refresh');
+        function refreshPage(){
+            window.location.href = "index-9.html"
+            if (localStorage.count){
+                localStorage.count = Number(localStorage.count) + 1;
+            }
+            else{
+                localStorage.count = 8;
+            }
+            console.log(localStorage.count);
+        }
+
+        refreshIcon.on("click", refreshPage)
+
+        //make slider
+        var slider = document.getElementById('slider');
+        var pipFormats = {'0':'전통형', '1':'현재형', '2':'미래형'};
+        noUiSlider.create(slider, {
+            start: [1],
+            keyboardSupport: true,
+            snap: true,
+            connect: [true,false],
+            range: {
+                'min': [0],
+                '50%': [1],
+                'max': [2]
+            },
+            pips: {
+                mode: 'values',
+                values: [0, 1, 2],
+                density: 60,
+                format: {
+                    to: function(a){
+                    return pipFormats[a];
+                    } 
+                },
+            },
+            behaviour: 'tap',
+            keyboardSupport: true
+        });
+
+        // move value on pip click
+        var toggle = true;
+        var pips = slider.querySelectorAll('.noUi-value');
+        function clickOnPip() {
+            var value = this.getAttribute('data-value');
+            slider.noUiSlider.set(value);
+        }  
+        for (var i = 0; i < pips.length; i++) {
+            pips[i].style.cursor = 'pointer';
+            pips[i].addEventListener('click', clickOnPip);
+        }
+
+
+        var translationActual = $('#translationRow');
+        var phraseActual = $('#phrase')
+        var wordTargetEn = $('.change-en');
+        var noChange = $('#constant');
+        
+        // phrase transitions based on slider value
+        slider.noUiSlider.on('update', function (values, handle) {
+            var fitties = fitty('h1');
+            var wordTargetKr = $('#change-kr');
+            var phrase = $('#phrase');
+            var noTarget = $('.reg')
+            var futureTarget = $('.future-change-en');
+
+            if (values[handle] == "0.00" ) {
+                wordTargetKr
+                    .fadeOut('fast')
+                    .removeClass('highlight');
+                wordTargetEn
+                    .removeClass('highlight')
+                    .addClass('trans');
+                futureTarget.removeClass('highlight');
+                setTimeout(function(){
+                    
+                    fitties[0].fit();
+                    setTimeout(function(){
+                        wordTargetKr.html('겨울 전율')
+                    },10)
+                    wordTargetKr.fadeIn('slow');
+                    noTarget.fadeIn('slow');
+                    console.log("works")
+                    //get fitty's font size for h1
+                    setTimeout(getFirstFontSize, 100)
+                },200)
+                //audio icon src
+                document.images["icon-audio"].src = "../images/icons-01.png";
+
+                console.log(values[handle]);
+                    
+            } else if (values[handle] == "1.00" ) {
+                wordTargetKr.fadeOut('fast');
+                wordTargetEn.addClass('highlight');
+                futureTarget.removeClass('highlight');
+                setTimeout(function(){
+                    
+                    //this is when the handle is coming from 3 to 2
+                    if (noTarget.is(':hidden')){
+                        setTimeout(function(){
+                            fitties[0].fit();
+                            noChange.fadeIn('slow')
+                            wordTargetKr.fadeIn('slow')
+                        },50)
+                    } else {
+                        noChange.fadeIn('slow')
+                        wordTargetKr.fadeIn('slow')
+                    };
+
+                    wordTargetKr
+                        .html('윈터 스릴')
+                        .addClass('highlight');
+                    noTarget.fadeIn('slow');
+                    console.log("works")
+                    //get fitty's font size for h1
+                    setTimeout(getFirstFontSize, 100)
+                },200)
+                //audio icon src
+                document.images["icon-audio"].src = "../images/icons-01.png";
+                    
+                console.log(values[handle]);
+                    
+            } else if (values[handle] == "2.00" ) {
+                noTarget.fadeOut('fast');
+                noChange.fadeOut('fast');
+                wordTargetKr
+                    .fadeOut('fast')
+                    .queue(function(){
+                        $(this).html('디스 이즈 더 리얼 윈터 스릴').dequeue();
+                        //get fitty's font size for h1
+                        setTimeout(getFirstFontSize, 100)
+                    })
+                    .fadeIn('slow');
+
+                wordTargetEn.addClass('highlight');
+                futureTarget.addClass('highlight trans');
+                setTimeout(function(){
+                    wordTargetKr.addClass('highlight')
+                },200)
+                //audio icon src
+                document.images["icon-audio"].src = "../images/icons-01.png";
+                console.log(values[handle]);   
+            };
+
+            //audio play sequence functions
+            function playSequence(){
+                if (values[handle] == "0.00" ) {
+                    play1();
+                } else if (values[handle] == "1.00" ) {
+                    play2();
+                } else if (values[handle] == "2.00" ) {
+                    play3();
+                }
+            }
+            
+            //audio icon change
+            var newsrc = "icons-06.png";
+            var audioIcon = $('#icon-audio')
+            audioIcon.on("click", function() {
+                if ( newsrc == "icons-06.png" ) {
+                    document.images["icon-audio"].src = "../images/icons-06.png";
+                    document.images["icon-audio"].alt = "play once";
+                    newsrc  = "icons-07.png";
+                    //audio play function
+                    audioStartOver();
+                    volume();
+                    playSequence();
+                    noLoop();
+                    console.log("once")
+
+                }
+                else if ( newsrc == "icons-07.png") {
+                    document.images["icon-audio"].src = "../images/icons-07.png";
+                    document.images["icon-audio"].alt = "loop";
+                    newsrc  = "icons-01.png";
+                    //audio play function
+                    audioStartOver();
+                    volume();
+                    playSequence();
+                    loop();
+                    console.log("loop")
+                }
+                else if ( newsrc == "icons-01.png") {
+                    document.images["icon-audio"].src = "../images/icons-01.png";
+                    document.images["icon-audio"].alt = "stop";
+                    newsrc  = "icons-06.png";
+                    //audio play function
+                    audioStartOver();
+                    audioPause()
+                    console.log("stop")
+                }
+            });
+
+        });
+
+    //image icon toggle function
+
+    var fitties = fitty('h1');
+    var imageIcon = $('#icon-image');
+    var sliderRow = $('#sliderrow');
+    var futureTarget = $('.future-change-en');
+    var image = $('.image');
+
+    var sliderContainer = $('#slidercontainer');
+    var y = window.matchMedia("(max-width: 896px) and (max-height: 414px)")
+    myFunction(y) // Call listener function at run time
+	y.addListener(myFunction) // Attach listener function on state changes
+    function myFunction(y) {
+        if (y.matches){
+            sliderContainer
+                .removeClass('col-sm-8')
+                .addClass('col-sm-6');
+
+        } else {
+        }
+    };
+
+    imageIcon.on("click",function(){
+        if (toggle) {
+            //disable slider while image shows
+            slider.setAttribute('disabled', true);
+            for (var i = 0; i < pips.length; i++) {
+                pips[i].style.cursor = 'not-allowed';
+                pips[i].removeEventListener('click', clickOnPip);
+            }
+            console.log("if hello");
+            //get phrase font size from fitties
+            phraseActual.animate({
+                fontSize: numFontSize
+            },50)
+            console.log(numFontSize)
+            //get rid of fitties
+            fitties[0].unsubscribe();
+            //shrink phrase font size and animate
+            futureTarget.removeClass('trans');
+            wordTargetEn.removeClass('trans');
+            //shrink translation font size and animate
+            if (y.matches){
+                phraseActual.animate({
+                    fontSize: "40px",
+                    marginTop: "+160px"
+                })
+                translationActual.animate({
+                    marginTop: "85px"
+                },400);
+                sliderRow.animate({
+                    marginTop: "80px"
+                });
+            } else {
+                phraseActual.animate({
+                    fontSize: "40px",
+                    marginTop: "+210px"
+                })
+                translationActual.animate({
+                    fontSize: "19px",
+                    marginTop: "45px"
+                },400);
+                sliderRow.animate({
+                    marginTop: "50px"
+                });
+            }
+            //translation fontsize after anim is done
+            fontSizeTransAfter()
+            
+            //show image anim
+            image.delay(100)
+                .animate({
+                    left: "50%"
+                },500)
+                .css({
+                    "transform": "translateX(-50%)"
+                });
+            console.log("toggle");
+            toggle=!toggle;
+
+        } else {
+            //enable slider while image shows
+            slider.removeAttribute('disabled');
+            for (var i = 0; i < pips.length; i++) {
+                pips[i].style.cursor = 'pointer';
+                pips[i].addEventListener('click', clickOnPip);
+            }
+            console.log("else hello");
+            futureTarget.removeClass('trans');
+            phraseActual.animate({
+                marginTop: "0px",
+                fontSize: numFontSize
+            },480);
+            
+            if (y.matches){
+                translationActual.animate({
+                    marginTop: "0px"
+                },400);
+            } else {
+                translationActual.animate({
+                    fontSize: "25px",
+                    marginTop: "20px"
+                },400);
+            }
+            //translation fontsize after anim is done
+            fontSizeTransAfter();
+            
+            sliderRow.animate({
+                marginTop: "25px"
+            });
+            image.animate({
+                left: "-100%"
+            },500);
+            console.log("works");
+            toggle=!toggle;
+        }
+        
+    });
+
+    var sliderHandle = $('.noUi-handle')
+    var disabled  = slider.hasAttribute('disabled', true)
+    // function onDisabled(){
+    //     if 
+    // }
+
+    function fontSizeTransAfter(){
+        setTimeout(function(){
+            getFontSize();
+            console.log(numFontSizeTrans)
+        },400);
+    }
+
+    function fitFirstFontSize(){
+        phraseActual.animate({
+            fontSize: numFontSize
+        },100)
+    }
+
+    var numFontSizeTrans = 0;
+    var strFontSizeTrans = 0;
+    function getFontSize (){
+        var translationActual = $('#translationRow');
+        var fontSize = translationActual.css("fontSize");
+        // console.log(fontSize  = parseInt(fontSize) + "px")
+        translationActual.css("fontSize", fontSize );
+        numFontSizeTrans = parseInt(fontSize);
+        strFontSizeTrans = fontSize;
+    }
+
+    var numFontSize = 0;
+    var strFontSize = 0;
+    function getFirstFontSize (){
+        var translationActual = $('#phrase');
+        var fontSize = translationActual.css("fontSize");
+        //console.log(fontSize  = parseInt(fontSize) + "px")
+        translationActual.css("fontSize", fontSize );
+        numFontSize = parseInt(fontSize);
+        strFontSize = fontSize;
+        console.log("FIRST: " + strFontSize);
+    }
+
+    var audio1 = new Audio("audio/01_1.WAV");
+    var audio2 = new Audio("audio/01_2.WAV");
+    var audio3 = new Audio("audio/01_3.WAV");
+    function volume(){
+        audio1.volume = 1;
+        audio2.volume = 1;
+        audio3.volume = 1;
+    }
+
+    function play1(){
+        audio1.play();
+        audio2.pause();
+        audio3.pause();
+    }
+    
+    function play2(){
+        audio1.pause();
+        audio2.play();
+        audio3.pause();
+    }
+
+    function play3(){
+        audio1.pause();
+        audio2.pause();
+        audio3.play();
+    }
+
+    function audioPause(){
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+    }
+
+    function audioStartOver(){
+        audio1.currentTime = 0
+        audio2.currentTime = 0
+        audio3.currentTime = 0
+    }
+
+    function loop(){
+        audio1.loop = true;
+        audio2.loop = true;
+        audio3.loop = true;
+    }
+
+    function noLoop(){
+        audio1.loop = false;
+        audio2.loop = false;
+        audio3.loop = false;
+    }
+
+
     </script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/utils/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/CSSPlugin.min.js"></script>
     <script src="../scripts/main.js"></script>
   </body>
 </html>

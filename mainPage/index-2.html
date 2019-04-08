@@ -9,29 +9,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <link rel="stylesheet" type="text/css" href="../css/nouislider.css">
-    <link href='../fonts/nanumSquare/nanumsquare.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-
-
-    <title>일상속 외래어</title>
+  <title>일상속 외래어</title>
   </head>
   <body>
     <div class="container-fluid" id="main-container">
         <div class="nav-container">
             <ul class="nav flex-column" style="opacity:0">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">모의실험기</a>
+                <li class="nav-item nav-simulator">
+                    <a class="nav-link nav-simulator__link" style="color: #4568fb" href="#">모의실험기</a>
                 </li>
                 <li class="nav-item nav-about">
-                    <a class="nav-link nav-about__link" href="aboutPage/index.html">소</a>
+                    <a class="nav-link nav-about__link" href="../aboutPage/index.html">소</a>
                 </li>
                 <li class="nav-item nav-why">
-                    <a class="nav-link" href="whyPage/index.html">중</a>
+                    <a class="nav-link nav-why__link" href="../whyPage/index.html">중</a>
                 </li>
             </ul>
         </div>
+
         <div class="row" id="icons">
             <div class="col-sm"></div>
             <div class="col-sm-8">
@@ -41,23 +40,23 @@
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="image image-1"></div>
+        <div class="image"><img class="image-1" width:50%; src="../images/image-2.png"></div>
         <div class="row" id="placeholder-lg"></div>
         <div class="row" id="main-phrase">
-            <div class="col-sm"></div>
-            <div class="col-sm-8">
+            <div class="col-md" id="change-col-left"></div>
+            <div class="col-md-8" id="change-col">
                 <span id="phrase-wrapper"><h1 id="phrase">
                     <span class="reg">매장 안에</span> 
                     <span class="highlight" id="change-kr">컬러</span> 
                     <span class="reg">더 많아요</span>
                 </h1></span>
             </div>
-            <div class="col-sm"></div>
+            <div class="col-md"></div>
         </div>
         <div class="row" id="translation">
             <div class="col-sm"></div>
             <div class="col-sm-8">
-                <p>"There are 
+                <p id="translationRow">"There are 
                     <span class="future-change-en">more</span> 
                     <span class="highlight change-en">colors</span> 
                     <span class="future-change-en">inside</span>
@@ -69,7 +68,7 @@
         </div>
         <div class="row" id="sliderrow">
             <div class="col-sm"></div>
-            <div class="col-sm-6" id="slidercontainer">
+            <div class="col-sm-8" id="slidercontainer">
                 <div id="slider">
                 </div>
             </div>
@@ -83,7 +82,8 @@
     <script src="../scripts/nouislider.min.js"></script>
     <script>
         fitty('h1');
-
+        getFirstFontSize();
+        
         //refresh
         var refreshIcon = $('#icon-refresh');
         function refreshPage(){
@@ -99,7 +99,7 @@
 
         refreshIcon.on("click", refreshPage)
 
-        //slider settings
+        //make slider
         var slider = document.getElementById('slider');
         var pipFormats = {'0':'전통형', '1':'현재형', '2':'미래형'};
         noUiSlider.create(slider, {
@@ -126,33 +126,30 @@
             keyboardSupport: true
         });
 
+        // move value on pip click
+        var toggle = true;
         var pips = slider.querySelectorAll('.noUi-value');
-
         function clickOnPip() {
             var value = this.getAttribute('data-value');
             slider.noUiSlider.set(value);
-        }
-
+        }  
         for (var i = 0; i < pips.length; i++) {
-
-        // For this example. Do this in CSS!
             pips[i].style.cursor = 'pointer';
             pips[i].addEventListener('click', clickOnPip);
         }
 
 
-        //phrase transitions based on slider value
+        var translationActual = $('#translationRow');
+        var phraseActual = $('#phrase')
+        var wordTargetEn = $('.change-en');
+        
+        // phrase transitions based on slider value
         slider.noUiSlider.on('update', function (values, handle) {
             var fitties = fitty('h1');
             var wordTargetKr = $('#change-kr');
-            var wordTargetEn = $('.change-en');
             var phrase = $('#phrase');
             var noTarget = $('.reg')
             var futureTarget = $('.future-change-en');
-            var value = values[handle];
-            var setValue = $(function(){
-                slider.noUiSlider.get();
-            })
 
             if (values[handle] == "0.00" ) {
                 wordTargetKr
@@ -161,8 +158,9 @@
                 wordTargetEn
                     .removeClass('highlight')
                     .addClass('trans');
-                futureTarget.removeClass('highlight');    
+                futureTarget.removeClass('highlight');
                 setTimeout(function(){
+                    
                     fitties[0].fit();
                     setTimeout(function(){
                         wordTargetKr.html('색상')
@@ -170,11 +168,15 @@
                     wordTargetKr.fadeIn('slow');
                     noTarget.fadeIn('slow');
                     console.log("works")
+                    //get fitty's font size for h1
+                    setTimeout(getFirstFontSize, 100)
                 },200)
+                //audio icon src
+                document.images["icon-audio"].src = "../images/icons-01.png";
+
                 console.log(values[handle]);
                     
             } else if (values[handle] == "1.00" ) {
-                fitties[0].fit();
                 wordTargetKr.fadeOut('fast');
                 wordTargetEn.addClass('highlight');
                 futureTarget.removeClass('highlight');
@@ -195,7 +197,11 @@
                         .addClass('highlight');
                     noTarget.fadeIn('slow');
                     console.log("works")
+                    //get fitty's font size for h1
+                    setTimeout(getFirstFontSize, 100)
                 },200)
+                //audio icon src
+                document.images["icon-audio"].src = "../images/icons-01.png";
                     
                 console.log(values[handle]);
                     
@@ -205,26 +211,293 @@
                     .fadeOut('fast')
                     .queue(function(){
                         $(this).html('스토어 인사이드 모어 컬러').dequeue();
+                        //get fitty's font size for h1
+                        setTimeout(getFirstFontSize, 100)
                     })
                     .fadeIn('slow');
+
                 wordTargetEn.addClass('highlight');
                 futureTarget.addClass('highlight trans');
                 setTimeout(function(){
                     wordTargetKr.addClass('highlight')
                 },200)
-                    
-                console.log(values[handle]);
-                
+                //audio icon src
+                document.images["icon-audio"].src = "../images/icons-01.png";
+                console.log(values[handle]);   
             };
+
+            //audio play sequence functions
+            function playSequence(){
+                if (values[handle] == "0.00" ) {
+                    play1();
+                } else if (values[handle] == "1.00" ) {
+                    play2();
+                } else if (values[handle] == "2.00" ) {
+                    play3();
+                }
+            }
+            
+            //audio icon change
+            var newsrc = "icons-06.png";
+            var audioIcon = $('#icon-audio')
+            audioIcon.on("click", function() {
+                if ( newsrc == "icons-06.png" ) {
+                    document.images["icon-audio"].src = "../images/icons-06.png";
+                    document.images["icon-audio"].alt = "play once";
+                    newsrc  = "icons-07.png";
+                    //audio play function
+                    audioStartOver();
+                    volume();
+                    playSequence();
+                    noLoop();
+                    console.log("once")
+
+                }
+                else if ( newsrc == "icons-07.png") {
+                    document.images["icon-audio"].src = "../images/icons-07.png";
+                    document.images["icon-audio"].alt = "loop";
+                    newsrc  = "icons-01.png";
+                    //audio play function
+                    audioStartOver();
+                    volume();
+                    playSequence();
+                    loop();
+                    console.log("loop")
+                }
+                else if ( newsrc == "icons-01.png") {
+                    document.images["icon-audio"].src = "../images/icons-01.png";
+                    document.images["icon-audio"].alt = "stop";
+                    newsrc  = "icons-06.png";
+                    //audio play function
+                    audioStartOver();
+                    audioPause()
+                    console.log("stop")
+                }
+            });
+
         });
 
+    //image icon toggle function
+
+    var fitties = fitty('h1');
+    var imageIcon = $('#icon-image');
+    var sliderRow = $('#sliderrow');
+    var futureTarget = $('.future-change-en');
+    var image = $('.image');
+
+    var sliderContainer = $('#slidercontainer');
+    var y = window.matchMedia("(max-width: 896px) and (max-height: 414px)")
+    myFunction(y) // Call listener function at run time
+	y.addListener(myFunction) // Attach listener function on state changes
+    function myFunction(y) {
+        if (y.matches){
+            sliderContainer
+                .removeClass('col-sm-8')
+                .addClass('col-sm-6');
+
+        } else {
+        }
+    };
+
+    imageIcon.on("click",function(){
+        if (toggle) {
+            //disable slider while image shows
+            slider.setAttribute('disabled', true);
+            for (var i = 0; i < pips.length; i++) {
+                pips[i].style.cursor = 'not-allowed';
+                pips[i].removeEventListener('click', clickOnPip);
+            }
+            console.log("if hello");
+            //get phrase font size from fitties
+            phraseActual.animate({
+                fontSize: numFontSize
+            },50)
+            console.log(numFontSize)
+            //get rid of fitties
+            fitties[0].unsubscribe();
+            //shrink phrase font size and animate
+            futureTarget.removeClass('trans');
+            wordTargetEn.removeClass('trans');
+            //shrink translation font size and animate
+            if (y.matches){
+                phraseActual.animate({
+                    fontSize: "40px",
+                    marginTop: "+160px"
+                })
+                translationActual.animate({
+                    marginTop: "85px"
+                },400);
+                sliderRow.animate({
+                    marginTop: "80px"
+                });
+            } else {
+                phraseActual.animate({
+                    fontSize: "40px",
+                    marginTop: "+210px"
+                })
+                translationActual.animate({
+                    fontSize: "19px",
+                    marginTop: "45px"
+                },400);
+                sliderRow.animate({
+                    marginTop: "50px"
+                });
+            }
+            //translation fontsize after anim is done
+            fontSizeTransAfter()
+            
+            //show image anim
+            image.delay(100)
+                .animate({
+                    left: "50%"
+                },500)
+                .css({
+                    "transform": "translateX(-50%)"
+                });
+            console.log("toggle");
+            toggle=!toggle;
+
+        } else {
+            //enable slider while image shows
+            slider.removeAttribute('disabled');
+            for (var i = 0; i < pips.length; i++) {
+                pips[i].style.cursor = 'pointer';
+                pips[i].addEventListener('click', clickOnPip);
+            }
+            console.log("else hello");
+            futureTarget.removeClass('trans');
+            phraseActual.animate({
+                marginTop: "0px",
+                fontSize: numFontSize
+            },480);
+            
+            if (y.matches){
+                translationActual.animate({
+                    marginTop: "0px"
+                },400);
+            } else {
+                translationActual.animate({
+                    fontSize: "25px",
+                    marginTop: "20px"
+                },400);
+            }
+            //translation fontsize after anim is done
+            fontSizeTransAfter();
+            
+            sliderRow.animate({
+                marginTop: "25px"
+            });
+            image.animate({
+                left: "-100%"
+            },500);
+            console.log("works");
+            toggle=!toggle;
+        }
+        
+    });
+
+    var sliderHandle = $('.noUi-handle')
+    var disabled  = slider.hasAttribute('disabled', true)
+    // function onDisabled(){
+    //     if 
+    // }
+
+    function fontSizeTransAfter(){
+        setTimeout(function(){
+            getFontSize();
+            console.log(numFontSizeTrans)
+        },400);
+    }
+
+    function fitFirstFontSize(){
+        phraseActual.animate({
+            fontSize: numFontSize
+        },100)
+    }
+
+    var numFontSizeTrans = 0;
+    var strFontSizeTrans = 0;
+    function getFontSize (){
+        var translationActual = $('#translationRow');
+        var fontSize = translationActual.css("fontSize");
+        // console.log(fontSize  = parseInt(fontSize) + "px")
+        translationActual.css("fontSize", fontSize );
+        numFontSizeTrans = parseInt(fontSize);
+        strFontSizeTrans = fontSize;
+    }
+
+    var numFontSize = 0;
+    var strFontSize = 0;
+    function getFirstFontSize (){
+        var translationActual = $('#phrase');
+        var fontSize = translationActual.css("fontSize");
+        //console.log(fontSize  = parseInt(fontSize) + "px")
+        translationActual.css("fontSize", fontSize );
+        numFontSize = parseInt(fontSize);
+        strFontSize = fontSize;
+        console.log("FIRST: " + strFontSize);
+    }
+
+    var audio1 = new Audio("audio/01_1.WAV");
+    var audio2 = new Audio("audio/01_2.WAV");
+    var audio3 = new Audio("audio/01_3.WAV");
+    function volume(){
+        audio1.volume = 1;
+        audio2.volume = 1;
+        audio3.volume = 1;
+    }
+
+    function play1(){
+        audio1.play();
+        audio2.pause();
+        audio3.pause();
+    }
     
+    function play2(){
+        audio1.pause();
+        audio2.play();
+        audio3.pause();
+    }
+
+    function play3(){
+        audio1.pause();
+        audio2.pause();
+        audio3.play();
+    }
+
+    function audioPause(){
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+    }
+
+    function audioStartOver(){
+        audio1.currentTime = 0
+        audio2.currentTime = 0
+        audio3.currentTime = 0
+    }
+
+    function loop(){
+        audio1.loop = true;
+        audio2.loop = true;
+        audio3.loop = true;
+    }
+
+    function noLoop(){
+        audio1.loop = false;
+        audio2.loop = false;
+        audio3.loop = false;
+    }
+
+
     </script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/utils/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/plugins/CSSPlugin.min.js"></script>
     <script src="../scripts/main.js"></script>
   </body>
 </html>

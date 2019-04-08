@@ -98,28 +98,38 @@
         'mainPage/index-2.html', 
         'mainPage/index-3.html',
         'mainPage/index-4.html',
-        'mainPage/index-5.html'];
+        'mainPage/index-5.html',
+        'mainPage/index-6.html',
+        'mainPage/index-7.html',
+        'mainPage/index-8.html',
+        'mainPage/index-9.html',
+        'mainPage/index-10.html',
+        'mainPage/index-11.html',
+        'mainPage/index-12.html',
+        'mainPage/index-13.html',
+        'mainPage/index-14.html',
+        'mainPage/index-15.html'];
 
-    // if (typeof(Storage) !== "undefined"){
-    //     //code for storage shit
-    //     if (localStorage.count){
-    //         localStorage.count = Number(localStorage.count) + 1;
-    //         var numberOfPhrases = 5;
-    //         if (Number(localStorage.count)>=numberOfPhrases){
-    //             localStorage.count = 0;
-    //             console.log("greater");
-    //         }
-    //     }
-    //     else {
-    //         localStorage.count = 0;
-    //     }
-    //     var index = localStorage.count;
-    //     console.log(index);
-    // }
-    // else {
-    //     //no storage, go random
-    //     var index = Math.floor((Math.random() * 5));
-    // }
+    if (typeof(Storage) !== "undefined"){
+        //code for storage shit
+        if (localStorage.count){
+            localStorage.count = Number(localStorage.count) + 1;
+            var numberOfPhrases = 15;
+            if (Number(localStorage.count)>=numberOfPhrases){
+                localStorage.count = 0;
+                console.log("greater");
+            }
+        }
+        else {
+            localStorage.count = 0;
+        }
+        var index = localStorage.count;
+        console.log(index);
+    }
+    else {
+        //no storage, go random
+        var index = Math.floor((Math.random() * 15));
+    }
     
     function init() {
         document.getElementById('myframe1').src = sites[index];
