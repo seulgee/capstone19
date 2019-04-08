@@ -12,4 +12,12 @@ $(document).ready(function() {
         top: "0px" 
     },400);
 
+    $('.title-anim').on('mouseover', function(){
+        landingTitle.addClass('animated')
+    })
+
+    $('.title-anim').on('mouseout', function(){
+        landingTitle.removeClass('animated')
+    })
+
 });

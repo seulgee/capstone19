@@ -77,82 +77,163 @@ body, html {
     border-color: #ffe7aa;
 }
 
-#landing-title__left:before{
+#landing-title__left::before{
     content: '일상속';
     animation-name: head-1;
     animation-duration: .7s;
-    animation-iteration-count: initial;
     animation-delay: 1s;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-animation-name: head-1;
+    -webkit-animation-duration: .7s;
 }
 
 @keyframes head-1 {
-    0% {opacity:1; content: "일상속"}
+    0% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
     20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
     70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
-    100% {opacity:1; content: "일상속"}
+    100% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
 }
 
-@-webkit-keyframes head-1 {
-    0% {opacity:1; content: "일상속"}
-    20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
-    70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
-    100% {opacity:1; content: "일상속"}
-}
+        @-webkit-keyframes head-1 {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+            20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+            70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+        }
 
-@-moz-keyframes head-1 {
-    0% {opacity:1; content: "일상속"}
-    20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
-    70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
-    100% {opacity:1; content: "일상속"}
-}
+        @-moz-keyframes head-1 {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+            20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+            70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+        }
 
-@-ms-keyframes head-1 {
-    0% {opacity:1; content: "일상속"}
-    20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
-    70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
-    100% {opacity:1; content: "일상속"}
-}
+        @-ms-keyframes head-1 {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+            20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+            70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+        }
 
-#landing-title__right:before{
+#landing-title__right::before{
     content: '외래어';
     animation-name: head-2;
     animation-duration: .7s;
-    animation-iteration-count: initial;
     animation-delay: 1s;
+    animation-iteration-count: inherit;
+    -webkit-animation-name: head-2;
+    -webkit-animation-duration: .7s;
+    -webkit-animation-delay: 1s;
 }
 
 @keyframes head-2 {
-    0% {opacity:1; content: "외래어"}
+    0% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
     40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
     80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
-    100% {opacity:1; content: "외래어"}
+    100% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
 }
 
-@-webkit-keyframes head-2 {
-    0% {opacity:1; content: "외래어"}
+        @-webkit-keyframes head-2 {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+            40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+            80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+        }
+
+        @-moz-keyframes head-2 {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+            40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+            80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+        }
+
+        @-ms-keyframes head-2 {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+            40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+            80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+        }
+
+#landing-title__left.animated::before{
+    content: '일상속';
+    animation-name: head-1-h;
+    animation-duration: .4s;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-animation-name: head-1-h;
+    -webkit-animation-duration: .7s;
+}
+
+@keyframes head-1-h {
+    0% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+    20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+    70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+    100% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+}
+
+        @-webkit-keyframes head-1-h {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+            20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+            70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+        }
+
+        @-moz-keyframes head-1-h {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+            20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+            70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+        }
+
+        @-ms-keyframes head-1-h {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+            20% {opacity:1; font-family: 'Merriweather'; content: "daily"}
+            70% {opacity:1; font-family: 'Seoulnamsan'; content: "데일리"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "일상속"}
+        }
+
+#landing-title__right.animated::before{
+    content: '외래어';
+    animation-name: head-2-h;
+    animation-duration: .4s;
+    animation-iteration-count: inherit;
+    -webkit-animation-name: head-2-h;
+    -webkit-animation-duration: .4s;
+}
+
+@keyframes head-2-h {
+    0% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
     40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
     80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
-    100% {opacity:1; content: "외래어"}
+    100% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
 }
 
-@-moz-keyframes head-2 {
-    0% {opacity:1; content: "외래어"}
-    40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
-    80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
-    100% {opacity:1; content: "외래어"}
-}
+        @-webkit-keyframes head-2-h {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+            40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+            80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+        }
 
-@-ms-keyframes head-2 {
-    0% {opacity:1; content: "외래어"}
-    40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
-    80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
-    100% {opacity:1; content: "외래어"}
-}
+        @-moz-keyframes head-2-h {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+            40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+            80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+        }
 
-#row-1:hover {
-    animation-name: head-1, head-2;
-    animation-play-state: running;
-}
+        @-ms-keyframes head-2-h {
+            0% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+            40% {opacity:1; font-family: 'Merriweather'; content: "loanwords"}
+            80% {opacity:1; font-family: 'Seoulnamsan'; content: "론워드"}
+            100% {opacity:1; font-family: 'Seoulnamsan'; content: "외래어"}
+        }
+
 
 
 /*///////////////////////////////////////////// MAIN */
