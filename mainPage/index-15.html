@@ -40,29 +40,32 @@
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="image"><img class="image-1" width:50%; src="../images/image-7.png"></div>
+        <div class="image"><img class="image-1" width:50%; src="../images/image-15.png"></div>
         <div class="row" id="placeholder-lg"></div>
         <div class="row" id="main-phrase">
             <div class="col-md" id="change-col-left"></div>
             <div class="col-md-8" id="change-col">
                 <span id="phrase-wrapper"><h1 id="phrase">
-                    <span class="reg">난 집에서</span>
-                    <span class="highlight" id="change-kr">홈 뷰티 디바이스</span>
-                    <span class="reg">써!</span>
+                    <span class="reg">이상윤의</span>
+                    <span class="highlight" id="change-kr-1">클래스</span><span class="reg reg-change">가</span>
+                    <span class="reg">다른</span>
+                    <span class="highlight" id="change-kr-2">시그니처</span>
+                    <span class="reg">수학</span> 
                 </h1></span>
             </div>
             <div class="col-md"></div>
         </div>
         <div class="row" id="translation">
-            <div class="col-sm"></div>
-            <div class="col-sm-8">
+            <div class="col-md"></div>
+            <div class="col-md-8">
                 <p id="translationRow">
-                    "<span class="future-change-en">I use a</span>
-                    <span class="highlight change-en">home beauty device</span> 
-                    <span class="future-change-en">at home!</span>"
+                    "<span class="future-change-en">Lee's</span>
+                    <span class="highlight change-en">signature</span> 
+                    <span class="future-change-en">math on a different</span>
+                    <span class="highlight change-en">class(level)</span>"
                 </p>
             </div>
-            <div class="col-sm"></div>
+            <div class="col-md"></div>
         </div>
         <div class="row" id="sliderrow">
             <div class="col-sm"></div>
@@ -85,12 +88,12 @@
         //refresh
         var refreshIcon = $('#icon-refresh');
         function refreshPage(){
-            window.location.href = "index-8.html"
+            window.location.href = "index-1.html"
             if (localStorage.count){
                 localStorage.count = Number(localStorage.count) + 1;
             }
             else{
-                localStorage.count = 7;
+                localStorage.count = 15;
             }
             console.log(localStorage.count);
         }
@@ -107,7 +110,7 @@
             connect: [true,false],
             range: {
                 'min': [0],
-                '50%': [1],
+                '40%': [1],
                 'max': [2]
             },
             pips: {
@@ -140,14 +143,18 @@
         var translationActual = $('#translationRow');
         var phraseActual = $('#phrase')
         var wordTargetEn = $('.change-en');
-        var noChange = $('#constant');
+        var noChange = $('.constant');
         
         // phrase transitions based on slider value
         slider.noUiSlider.on('update', function (values, handle) {
             var fitties = fitty('h1');
-            var wordTargetKr = $('#change-kr');
+            var wordTargetKr = $('#change-kr-1, #change-kr-2');
+            //specific to this phrase
+            var target1 = $('#change-kr-1');
+            var target2 = $('#change-kr-2');
             var phrase = $('#phrase');
             var noTarget = $('.reg')
+            var exceptionReg = $('.reg-change');
             var futureTarget = $('.future-change-en');
 
             if (values[handle] == "0.00" ) {
@@ -162,7 +169,9 @@
                     
                     fitties[0].fit();
                     setTimeout(function(){
-                        wordTargetKr.html('가정용 미용장치')
+                        target1.html('격');
+                        target2.html('상징적');
+                        exceptionReg.html('이');
                     },10)
                     wordTargetKr.fadeIn('slow');
                     noTarget.fadeIn('slow');
@@ -192,10 +201,10 @@
                         noChange.fadeIn('slow')
                         wordTargetKr.fadeIn('slow')
                     };
-
-                    wordTargetKr
-                        .html('홈 뷰티 디바이스')
-                        .addClass('highlight');
+                    target1.html('클래스');
+                    target2.html('시그니처');
+                    exceptionReg.html('가');
+                    wordTargetKr.addClass('highlight');
                     noTarget.fadeIn('slow');
                     console.log("works")
                     //get fitty's font size for h1
@@ -209,10 +218,9 @@
             } else if (values[handle] == "2.00" ) {
                 noTarget.fadeOut('fast');
                 noChange.fadeOut('fast');
-                wordTargetKr
-                    .fadeOut('fast')
+                wordTargetKr.fadeOut('fast')
                     .queue(function(){
-                        $(this).html('아이 유즈 홈 뷰티 디바이스 앳 홈').dequeue();
+                        target1.html('리스 디프런트 클래스 시그니처 매스').dequeue();
                         //get fitty's font size for h1
                         setTimeout(getFirstFontSize, 100)
                     })
@@ -323,7 +331,7 @@
             //shrink translation font size and animate
             if (y.matches){
                 phraseActual.animate({
-                    fontSize: "40px",
+                    fontSize: "20px",
                     marginTop: "+160px"
                 },450, 'swing')
                 translationActual.animate({
@@ -334,9 +342,9 @@
                 });
             } else {
                 phraseActual.animate({
-                    fontSize: "40px",
+                    fontSize: "25px",
                     marginTop: "+210px"
-                }, 450, 'swing')
+                },450, 'swing')
                 translationActual.animate({
                     fontSize: "19px",
                     marginTop: "45px"

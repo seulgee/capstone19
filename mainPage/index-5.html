@@ -55,8 +55,8 @@
             <div class="col-md"></div>
         </div>
         <div class="row" id="translation">
-            <div class="col-sm"></div>
-            <div class="col-sm-8">
+            <div class="col-md"></div>
+            <div class="col-md-8">
                 <p id="translationRow">
                     "<span class="future-change-en">Two</span>
                     <span class="highlight change-en">slices</span> 
@@ -67,7 +67,7 @@
                     <span class="highlight constant-en">cheese!</span>"
                 </p>
             </div>
-            <div class="col-sm"></div>
+            <div class="col-md"></div>
         </div>
         <div class="row" id="sliderrow">
             <div class="col-sm"></div>
@@ -334,9 +334,9 @@
             //shrink translation font size and animate
             if (y.matches){
                 phraseActual.animate({
-                    fontSize: "30px",
+                    fontSize: "25px",
                     marginTop: "+160px"
-                })
+                },450, 'swing')
                 translationActual.animate({
                     marginTop: "85px"
                 },400);
@@ -347,7 +347,7 @@
                 phraseActual.animate({
                     fontSize: "30px",
                     marginTop: "+210px"
-                })
+                },450, 'swing')
                 translationActual.animate({
                     fontSize: "19px",
                     marginTop: "45px"
@@ -363,7 +363,7 @@
             image.delay(100)
                 .animate({
                     left: "50%"
-                },500)
+                },550, 'swing')
                 .css({
                     "transform": "translateX(-50%)"
                 });
@@ -379,17 +379,17 @@
             }
             console.log("else hello");
             futureTarget.removeClass('trans');
-            phraseActual.animate({
+            phraseActual.delay(100).animate({
                 marginTop: "0px",
                 fontSize: numFontSize
             },480);
             
             if (y.matches){
-                translationActual.animate({
+                translationActual.delay(100).animate({
                     marginTop: "0px"
                 },400);
             } else {
-                translationActual.animate({
+                translationActual.delay(100).animate({
                     fontSize: "25px",
                     marginTop: "20px"
                 },400);
@@ -402,7 +402,7 @@
             });
             image.animate({
                 left: "-100%"
-            },500);
+            },700);
             console.log("works");
             toggle=!toggle;
         }

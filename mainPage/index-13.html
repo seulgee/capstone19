@@ -40,13 +40,13 @@
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="image"><img class="image-1" width:50%; src="../images/image-1.png"></div>
+        <div class="image"><img class="image-1" width:50%; src="../images/image-13.png"></div>
         <div class="row" id="placeholder-lg"></div>
         <div class="row" id="main-phrase">
             <div class="col-md" id="change-col-left"></div>
             <div class="col-md-8" id="change-col">
                 <span id="phrase-wrapper"><h1 id="phrase">
-                    <span class="reg">에스티 로더의</span>
+                    <span class="highlight constant">에스티 로더</span><span class="reg">의</span>
                     <span class="highlight" id="change-kr-1">럭셔리 스킨 케어</span><span class="reg">가 피부에</span>
                     <span class="highlight" id="change-kr-2">에너지</span><span class="reg reg-change">를</span> 
                     <span class="reg">채워줍니다</span>
@@ -55,16 +55,16 @@
             <div class="col-md"></div>
         </div>
         <div class="row" id="translation">
-            <div class="col-sm"></div>
-            <div class="col-sm-8">
+            <div class="col-md"></div>
+            <div class="col-md-8">
                 <p id="translationRow">
-                    "<span class="future-change-en">Estee Lauder's</span>
+                    "<span class="highlight constant-en">Estee Lauder</span><span class="future-change-en">'s</span>
                     <span class="highlight change-en">luxury skincare</span> 
                     <span class="future-change-en">fills your skin with</span>
                     <span class="highlight change-en">energy</span>"
                 </p>
             </div>
-            <div class="col-sm"></div>
+            <div class="col-md"></div>
         </div>
         <div class="row" id="sliderrow">
             <div class="col-sm"></div>
@@ -109,7 +109,7 @@
             connect: [true,false],
             range: {
                 'min': [0],
-                '50%': [1],
+                '75%': [1],
                 'max': [2]
             },
             pips: {
@@ -333,9 +333,9 @@
             //shrink translation font size and animate
             if (y.matches){
                 phraseActual.animate({
-                    fontSize: "25px",
+                    fontSize: "20px",
                     marginTop: "+160px"
-                })
+                },450, 'swing')
                 translationActual.animate({
                     marginTop: "85px"
                 },400);
@@ -346,7 +346,7 @@
                 phraseActual.animate({
                     fontSize: "25px",
                     marginTop: "+210px"
-                })
+                },450, 'swing')
                 translationActual.animate({
                     fontSize: "19px",
                     marginTop: "45px"
@@ -362,7 +362,7 @@
             image.delay(100)
                 .animate({
                     left: "50%"
-                },500)
+                },550, 'swing')
                 .css({
                     "transform": "translateX(-50%)"
                 });
@@ -378,17 +378,17 @@
             }
             console.log("else hello");
             futureTarget.removeClass('trans');
-            phraseActual.animate({
+            phraseActual.delay(100).animate({
                 marginTop: "0px",
                 fontSize: numFontSize
             },480);
             
             if (y.matches){
-                translationActual.animate({
+                translationActual.delay(100).animate({
                     marginTop: "0px"
                 },400);
             } else {
-                translationActual.animate({
+                translationActual.delay(100).animate({
                     fontSize: "25px",
                     marginTop: "20px"
                 },400);
@@ -401,7 +401,7 @@
             });
             image.animate({
                 left: "-100%"
-            },500);
+            },700);
             console.log("works");
             toggle=!toggle;
         }
