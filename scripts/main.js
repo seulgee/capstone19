@@ -1,5 +1,15 @@
 $(document).ready(function(){
+
+    $('[data-toggle="tooltip"]').tooltip();  
     
+    function isTouchDevice(){
+        return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+    }
+    if(isTouchDevice()===false) {
+        $("[rel='tooltip']").tooltip();
+    }
+
+
     var phrase = $('#main-phrase')
     var translation = $('#translation')
     var slider = $('#slidercontainer, .slider-text')
@@ -28,6 +38,13 @@ $(document).ready(function(){
         opacity: '1',
         top: '0px'
     },400)
+
+    //about page page load 
+
+    var aboutText = $('.about-text')
+    aboutText.delay(100).animate({
+        opacity: '1'
+    },700);
 
 
     //nav items animation
@@ -133,6 +150,93 @@ $(document).ready(function(){
         }, 230)
     })
 
+    //mobile nav
+
+    var y = window.matchMedia("(max-width: 896px) and (max-height: 414px)")
+        var button = $('.mobile-nav')
+        var nav = $('.nav-container')
+        var overlayNav = $('#overlay-nav')
+        var overlaySlider = $('#overlay-slider')
+		myFunction(y) // Call listener function at run time
+		y.addListener(myFunction) // Attach listener function on state changes
+
+		function myFunction(y) {
+    		if (y.matches){
+    			button.show();
+                nav.hide();
+                overlayNav.hide();
+                overlaySlider
+                    .removeClass('col-sm-8')
+                    .addClass('col-sm-6')
+
+    		} else {
+    			button.hide();
+                nav.show();
+                overlayNav.show();
+    		}
+    	};
+
+        var toggle = true
+        var navItem = $('.nav-item').find('a')
+        var mobileNav = $('.mobile-letters')
+        var navLetters = $('.letters')
+        var navAbout = $('.nav-about__link')
+        var navSim = $('.nav-index__link')
+        var navWhy = $('.nav-why__link')
+        var exit = $('#exit')
+
+        button.on("click", function(){
+            if (toggle) {
+                $(this).animate({
+                    right: "0px",
+                    top: "0px",
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "0",
+                    opacity: 1
+                });
+                nav
+                    .css({
+                        "top": "50%",
+                        "right": "50%",
+                        "transform": "translate(+50%, -50%)",
+                        "z-index": "17",
+                        "text-align": "center"
+                    })
+                    .show()
+                navItem.css({
+                    "color": "#ffffff",
+                    "text-align": "center"
+                });
+                navAbout.css({
+                    "margin-bottom": "0"
+                })
+                navSim.css({
+                    "margin-bottom": "0"
+                })
+                navWhy.css({
+                    "margin-bottom": "0"
+                })
+
+                navLetters.hide();
+                exit.fadeIn('fast');
+                mobileNav.fadeIn('slow');
+                toggle = !toggle;
+            } else {
+                $(this).animate({
+                    right: "-50px",
+                    top: "-50px",
+                    width: "100px",
+                    height: "100px",
+                    borderRadius: "50%"
+                })
+                // nav.hide();
+                exit.fadeOut('fast');
+                mobileNav.fadeOut('fast');
+                toggle = !toggle
+                
+            }   
+        })
 
 
     

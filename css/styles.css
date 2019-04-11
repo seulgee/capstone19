@@ -81,13 +81,14 @@ body, html {
     content: '일상속';
     animation-name: head-1;
     animation-duration: .7s;
-    animation-delay: 1s;
+    /* animation-delay: 1s; */
+    animation-iteration-count: 1;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-animation-name: head-1;
-    -webkit-animation-duration: .7s;
+    /* -webkit-animation-duration: .7s; */
 }
 
 @keyframes head-1 {
@@ -122,11 +123,11 @@ body, html {
     content: '외래어';
     animation-name: head-2;
     animation-duration: .7s;
-    animation-delay: 1s;
-    animation-iteration-count: inherit;
+    /* animation-delay: 1s; */
+    animation-iteration-count: 1;
     -webkit-animation-name: head-2;
     -webkit-animation-duration: .7s;
-    -webkit-animation-delay: 1s;
+    /* -webkit-animation-delay: 1s; */
 }
 
 @keyframes head-2 {
@@ -160,7 +161,7 @@ body, html {
 #landing-title__left.animated::before{
     content: '일상속';
     animation-name: head-1-h;
-    animation-duration: .4s;
+    animation-duration: .7s;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -200,10 +201,10 @@ body, html {
 #landing-title__right.animated::before{
     content: '외래어';
     animation-name: head-2-h;
-    animation-duration: .4s;
+    animation-duration: .7s;
     animation-iteration-count: inherit;
     -webkit-animation-name: head-2-h;
-    -webkit-animation-duration: .4s;
+    -webkit-animation-duration: .7s;
 }
 
 @keyframes head-2-h {
@@ -242,9 +243,30 @@ body, html {
     display: none;
 }
 
-.portrait-overlay h4 {
+.portrait-overlay h4:first-of-type {
     position: fixed;
     top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Seoulnamsan', sans-serif;
+    font-weight: 300;
+    font-size: 1.3em;
+}
+
+.portrait-overlay h4:nth-of-type(2){
+    position: fixed;
+    top: 43.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-size: 2.5em;
+    color: #DBDBE0;
+}
+
+.portrait-overlay h4:nth-of-type(3){
+    position: fixed;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Merriweather', serif;
@@ -363,6 +385,7 @@ h3 {
     top: 18px;
     right: 30px;
     z-index: 10;
+    width: 90px;
 }
 
 .nav {
@@ -385,6 +408,10 @@ h3 {
 
 .nav-item a:first-of-type {
     padding-top: 0;
+}
+
+.tooltip.left {
+    top: -10px;
 }
 
 .about-letter1, .about-letter2 {
@@ -415,21 +442,98 @@ h3 {
 }
 
 
-/* h1 {
-    font-family: 'Nanum Square', sans-serif;
-    color: #DBDBE0;
-} */
+.line-box {
+    position: absolute;
+    top: 0;
+    left: -550px;
+    z-index: 40;
+    width: 34vw;
+    height: 15%;
+    background-image: url(../images/texture.jpg);
+    background-blend-mode: lighten;
+    background-size: 100%;
+    padding: 15px 5px 15px 50px;
+    opacity: 0;
 
+}
+
+.definition {
+    color: #4568FB;
+    font-size: 1.5vw;
+}
+
+.definition-en {
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-style: italic;
+}
 
 .about-text {
-    font-size: 4.5em;
+    font-size: 6vw;
     font-family: 'Merriweather';
+    font-weight: 300;
     position: relative;
+    color: #DBDBE0;
+    opacity: 0;
+    position: relative;
+    z-index:5;
+}
+
+.dark {
+    color: #001266;
 }
 
 .asterisk {
     color: #4568fb;
 }
+
+.asterisk:hover {
+    cursor: pointer;
+    animation-name: color-anim;
+    animation-duration: .8s;
+    animation-iteration-count: 1;
+        -webkit-animation-name: color-anim;
+        -webkit-animation-duration: .8s;
+        -webkit-animation-iteration-count: 1;
+        -moz-animation-name: color-anim;
+        -moz-animation-duration: .8s;
+        -moz-animation-iteration-count: 1;
+        -ms-animation-name: color-anim;
+        -ms-animation-duration: .8s;
+        -ms-animation-iteration-count: 1;
+}
+
+@keyframes color-anim {
+    0% {color: #4568fb}
+    25% {color: #ffe7aa}
+    50% {color: #001266}
+    75% {color: #ffe7aa}
+    100% {color: #4568FB}
+}
+
+    @-webkit-keyframes color-anim {
+        0% {color: #4568fb}
+        25% {color: #ffe7aa}
+        50% {color: #001266}
+        75% {color: #ffe7aa}
+        100% {color: #4568FB}
+    }
+
+    @-moz-keyframes color-anim {
+        0% {color: #4568fb}
+        25% {color: #ffe7aa}
+        50% {color: #001266}
+        75% {color: #ffe7aa}
+        100% {color: #4568FB}
+    }
+
+    @-ms-keyframes color-anim {
+        0% {color: #4568fb}
+        25% {color: #ffe7aa}
+        50% {color: #001266}
+        75% {color: #ffe7aa}
+        100% {color: #4568FB}
+    }
 
 
 .about-text .text-wrapper {
@@ -465,7 +569,7 @@ h3 {
     transition: .25s;
 }
 
-#placeholder {
+#placeholder, #placeholder-2 {
     height: 12%;
 }
 
@@ -572,12 +676,10 @@ img {
 
 
 
-
-
 /*/ MEDIA QUERIES */
 
-@media only screen and (max-height: 414px) {
-    #placeholder-lg {
+@media only screen and (max-height: 414px) and (max-width: 896px) {
+    #placeholder-lg, #placeholder-2 {
         height: 20%;
     }
 
@@ -610,6 +712,25 @@ img {
         left: 50%;
         transform: translateX(-50%);
     }
+
+    .nav-container {
+        width: 100%;
+    }
+
+    .about-text {
+        font-size: 5.5vw;
+    }
+
+    .line-box {
+        height: 40px;
+        width: 215px;
+        padding: 5px 5px 0px 17px
+    }
+
+    .definition {
+        font-size: 1.55vw;
+        margin-bottom: 0;
+    }
 }
 
 @media only screen and (max-width: 414px) {
@@ -625,4 +746,16 @@ img {
         white-space: nowrap;
     }
     
+}
+
+@media only screen and (min-width: 1283px) {
+
+    .about-text {
+        font-size: 5.65vw;
+    }
+
+    .line-box {
+        width: 32vw;
+        height: 17%;
+    }
 }
