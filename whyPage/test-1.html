@@ -12,12 +12,11 @@
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
     <title>일상속 외래어</title>
   </head>
   <body>
-    <div class="portrait-overlay">
+    <div class="portrait-overlay" style="z-index:1000;">
         <h4>장치를 가로로 돌려주세요.</h4>
         <h4>&#8226;</h4>
         <h4>Please rotate your device.</h4>
@@ -51,84 +50,198 @@
             <div class="mobile-nav">
                 <i class="fas fa-times" id="exit"></i>
             </div>
-            <div class="slides">
-                    <div class="slide" id="slide-1">
-                      <div class="slide__bg">
-                        
-                      </div>
-                      <div class="slide__content">
-                        <div class="slide__text">
-                          <p>King Sejong the Great leads a team of scholars to invent Hangul, the Korean alphabet, to increase literacy among the peasant population.</p>
-                        </div>
-                        <div class="slide__title">
-                            <h1 id="slide-1-title">1446</h1>
-                            <div class="circle"></div>
-                            <div class="slide__image first"></div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                
-                    <div class="slide" id="slide-2">
-                      <div class="slide__bg">
-                          
-                      </div>
-                      <div class="slide__content">
-                        <div class="slide__text">
-                          <p>King Sejong invents Hangul, the Korean alphabet, to increase literacy among the peasant population.</p>
-                        </div>
-                        <div class="slide__title">
-                            <h1 id="slide-2-title">1910</h1>
-                            <div class="circle"></div>
-                            <div class="slide__image"></div>
-                        </div>
-                        </div>
-                        
-                        
-                    </div>
-                
-                    <div class="slide" id="slide-3">
-                      <div class="slide__bg">
-                            
-                      </div>
-                      <div class="slide__content">
-                        <div class="slide__text">
-                          <p>King Sejong invents Hangul, the Korean alphabet, to increase literacy among the peasant population.</p>
-                        </div>
-                        <div class="slide__title">
-                            <h1 id="slide-3-title">1988</h1>
-                            <div class="circle"></div>
-                            <div class="slide__image"></div>
-                        </div>                       
+            <div class="dots" style="text-align:center">
+                <a class="dot" id="dot-1" href="#slide-1"></a> 
+                <a class="dot" id="dot-2" href="#slide-2"></a>
+                <a class="dot" id="dot-3" href="#slide-3"></a>
+                <a class="dot" id="dot-4" href="#slide-4"></a>
+            </div>
+            
 
-                      </div>
+            <div class="slides">
+                <!-- <a class="arrow next" href="#slide-2">&#10095;</a> -->
+    
+                <div class="slide" id="slide-1">
+                    <div class="slide__bg">
                     </div>
-                
-                    <div class="slide" id="slide-4">
-                      <div class="slide__bg">
-                      </div>
-                      <div class="slide__content">
-                        <div class="slide__text">
-                          <p>King Sejong invents Hangul, the Korean alphabet, to increase literacy among the peasant population.</p>
-                        </div>
-                        <div class="slide__title">
-                            <h1 id="slide-4-title">2019</h1>
-                            <div class="circle"></div>
-                            <div class="slide__image last"></div>
-                        </div>
-                      </div>
+                    <div class="slide__content">
+                    <div class="slide__text">
+                        <p>King Sejong the Great leads a team of scholars to invent Hangul, the Korean alphabet, to increase literacy among the peasant population.</p>
                     </div>
-                
-                
-                  </div>
+                    <div class="slide__title">
+                        <h1 id="slide-1-title">1446</h1>
+                        <div class="circle"></div>
+                        <div class="slide__image first"></div>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="slide" id="slide-2">
+                    <!-- <a class="arrow prev" href="#slide-1">&#10094;</a>
+                    <a class="arrow next" href="#slide-3">&#10095;</a> -->
+
+                    <div class="slide__bg">  
+                    </div>
+                    <div class="slide__content">
+                    <div class="slide__text">
+                        <p>Korea becomes a colony of Imperial Japan. Japanese becomes the official language of Korea, and the use of Korean language is banned in 1938. Innumerous amount of effort was made to conserve the Korean language so that it could be passed on to future generations.</p>
+                    </div>
+                    <div class="slide__title">
+                        <h1 id="slide-2-title">1910</h1>
+                        <div class="circle"></div>
+                        <div class="slide__image"></div>
+                    </div>
+                    </div>
+                </div>
+            
+                <div class="slide" id="slide-3">
+                    <div class="slide__bg">
+                    </div>
+                    <div class="slide__content">
+                    <div class="slide__text">
+                        <p>After gaining independence from Imperial Japan in 1945, Korea starts having "substantial direct contact with English after hosting the Olympic Games."</p>
+                    </div>
+                    <div class="slide__title">
+                        <h1 id="slide-3-title">1988</h1>
+                        <div class="circle"></div>
+                        <div class="slide__image"></div>
+                    </div>  
+                    </div>
+                </div>
+            
+                <div class="slide" id="slide-4">
+                    <div class="slide__bg">
+                    </div>
+                    <div class="slide__content">
+                    <div class="slide__text">
+                        <p>Today, Korean continues to be a unique language. However, with the influence of Western pop culture and the great amount of emphasis placed on the importance of being able to communicate in English, the prominence of loanwords are replacing their Korean counterparts. What will the Korean language look like in 10 years?</p>
+                    </div>
+                    <div class="slide__title">
+                        <h1 id="slide-4-title">2019</h1>
+                        <div class="circle"></div>
+                        <div class="slide__image last"></div>
+                    </div>
+                    </div>
+                </div>
+
+            
+            
+            </div>
+
+            <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <div class="dots" style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+                <span class="dot" onclick="currentSlide(4)"></span> 
+            </div> -->
+                      
     </div>
 
     <script>
-        </script>
+        var arrow = $('.arrow');
+        var dots = $('#dot-1, #dot-2, #dot-3, #dot-4');
+        var dot = $('.dot')
+        var slide1 = $('#slide-1')
+        var slide2 = $('#slide-2')
+        var slide3 = $('#slide-3')
+        var slide4 = $('#slide-4')
+
+        dot.each(function(){
+            dotActive()
+        })
+
+        function dotActive(){
+            $(dot).on('click', function(){
+                dots.removeClass('active')
+                if ($(this).hasClass('active')) {
+                    $(this).removeClass('active')
+                } else {
+                    $(this).addClass('active');
+                }
+
+            })
+        }
+
+        // $('.slide').isInViewport = function() {
+        //     var elementLeft = $(this).offset().left;
+        //     var elementRight = elementLeft + $(this).outerWidth();
+
+        //     var viewportLeft = $(window).scrollLeft();
+        //     var viewportRight = viewportTop + $(window).width();
+
+        //     return elementRight > viewportLeft && elementLeft < viewportRight;
+        // };
+
+        //     $(window).on('resize scroll', function() {
+                
+        //             if (slide1.isInViewport()) {
+        //                 $('#dot-1').addClass('.active');
+        //                 $('#dot-2').removeClass('.active');
+        //                 $('#dot-3').removeClass('.active');
+        //                 $('#dot-4').removeClass('.active');
+        //             } else if (slide2.isInViewport()){
+        //                 $('#dot-2').addClass('.active');
+        //                 $('#dot-1').removeClass('.active');
+        //                 $('#dot-3').removeClass('.active');
+        //                 $('#dot-4').removeClass('.active');
+        //             } else if (slide3.isInViewport()){
+        //                 $('#dot-3').addClass('.active');
+        //                 $('#dot-1').removeClass('.active');
+        //                 $('#dot-2').removeClass('.active');
+        //                 $('#dot-4').removeClass('.active');
+        //             } else if (slide4.isInViewport()){
+        //                 $('#dot-4').addClass('.active');
+        //                 $('#dot-1').removeClass('.active');
+        //                 $('#dot-2').removeClass('.active');
+        //                 $('#dot-3').removeClass('.active');
+        //             }
+          
+        // });
+
+
+        
+        // arrow.on('click', function(){
+        //     $(this).fadeOut('fast')
+        //     setTimeout(function(){
+        //         $(this).fadeIn('fast')
+        //     },200)
+        // })
+
+
+
+        // var slideIndex = 1;
+        // showSlides(slideIndex);
+
+        // function plusSlides(n) {
+        // showSlides(slideIndex += n);
+        // }
+
+        // function currentSlide(n) {
+        // showSlides(slideIndex = n);
+        // }
+
+        // function showSlides(n) {
+        // var i;
+        // var slides = document.getElementsByClassName("slide");
+        // var dots = document.getElementsByClassName("dot");
+        // if (n > slides.length) {slideIndex = 1}    
+        // if (n < 1) {slideIndex = slides.length}
+        // for (i = 0; i < slides.length; i++) {
+        //     slides[i].style.display = "none";  
+        // }
+        // for (i = 0; i < dots.length; i++) {
+        //     dots[i].className = dots[i].className.replace(" active", "");
+        // }
+        // slides[slideIndex-1].style.display = "block";  
+        // dots[slideIndex-1].className += " active";
+        // }
+    </script>
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../scripts/main.js"></script>

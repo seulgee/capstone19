@@ -18,10 +18,16 @@ $(document).ready(function(){
 
     setTimeout(function(){
         $('#icon-audio').animate({opacity:1},300)
+        $('#dot-1').animate({opacity:1},300)
         setTimeout(function(){
             $('#icon-refresh').animate({opacity:1},300)
+            $('#dot-2').animate({opacity:1},300)
             setTimeout(function(){
                 $('#icon-image').animate({opacity:1},300)
+                $('#dot-3').animate({opacity:1},300)
+                setTimeout(function(){
+                    $('#dot-4').animate({opacity:1},300)
+                },150)
             },150)
         },150)
     },400)
@@ -46,6 +52,23 @@ $(document).ready(function(){
         opacity: '1'
     },700);
 
+    //why page page load
+
+    var arrow = $('.arrow')
+    arrow.delay(100).animate({
+        opacity: 1
+    },700)
+
+    var timeline = $('.slide__title')
+    timeline.delay(120).animate({
+        bottom: "2vh",
+        opacity: 1
+    },500)
+
+    var whyText = $('.slide__text')
+    whyText.delay(450).animate({
+        opacity: 1
+    },500)
 
     //nav items animation
     var about = $(".nav-about__link")
@@ -160,7 +183,7 @@ $(document).ready(function(){
 		myFunction(y) // Call listener function at run time
 		y.addListener(myFunction) // Attach listener function on state changes
 
-		function myFunction(y) {
+		function myFunction() {
     		if (y.matches){
     			button.show();
                 nav.hide();

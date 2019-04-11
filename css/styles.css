@@ -44,7 +44,7 @@ body, html {
 #row-1 {
     width: 100%;
     position: fixed;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -53,9 +53,26 @@ body, html {
     width: 100%;
     text-align: center;
     position: fixed;
-    bottom: 20%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+#intro {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 57%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+#intro p {
+    color: #ffffff;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    font-style: italic;
 }
 
 #landing-button {
@@ -77,11 +94,19 @@ body, html {
     border-color: #ffe7aa;
 }
 
+.pause {
+    animation-play-state: paused;
+}
+
+.running {
+    animation-play-state: running;
+}
+
 #landing-title__left::before{
     content: '일상속';
     animation-name: head-1;
     animation-duration: .7s;
-    /* animation-delay: 1s; */
+    animation-delay: 1s;
     animation-iteration-count: 1;
     user-select: none;
     -webkit-user-select: none;
@@ -123,7 +148,7 @@ body, html {
     content: '외래어';
     animation-name: head-2;
     animation-duration: .7s;
-    /* animation-delay: 1s; */
+    animation-delay: 1s;
     animation-iteration-count: 1;
     -webkit-animation-name: head-2;
     -webkit-animation-duration: .7s;
@@ -162,6 +187,7 @@ body, html {
     content: '일상속';
     animation-name: head-1-h;
     animation-duration: .7s;
+    animation-delay: 0s;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -202,6 +228,7 @@ body, html {
     content: '외래어';
     animation-name: head-2-h;
     animation-duration: .7s;
+    animation-delay: 0s;
     animation-iteration-count: inherit;
     -webkit-animation-name: head-2-h;
     -webkit-animation-duration: .7s;
@@ -321,7 +348,7 @@ body, html {
     padding: 10px 30px 10px 30px;
     height: 100vh;
     overflow: hidden;
-    cursor: ew-resize;
+    /* cursor: ew-resize; */
     background-image: url(../images/texture.jpg);
     background-blend-mode: lighten;
     background-size: 100%;
@@ -445,21 +472,21 @@ h3 {
 .line-box {
     position: absolute;
     top: 0;
-    left: -550px;
+    left: 21%;
     z-index: 40;
-    width: 34vw;
+    width: 0px;
     height: 15%;
     background-image: url(../images/texture.jpg);
     background-blend-mode: lighten;
     background-size: 100%;
-    padding: 15px 5px 15px 50px;
-    opacity: 0;
+    padding: 0 0 0 0;
 
 }
 
 .definition {
     color: #4568FB;
     font-size: 1.5vw;
+    opacity: 0;
 }
 
 .definition-en {
@@ -470,7 +497,7 @@ h3 {
 
 .about-text {
     font-size: 6vw;
-    font-family: 'Merriweather';
+    font-family: 'Merriweather', serif;
     font-weight: 300;
     position: relative;
     color: #DBDBE0;
@@ -638,11 +665,6 @@ img {
     width: 100%;
 }
 
-/* .image-1 {
-    background-image: url(../images/image-1.png);
-    background-size: 100%;
-    background-position: 0px -50px;
-} */
 
 /*///////////////////////////////////////////// SLIDER */
 
@@ -721,11 +743,11 @@ img {
         font-size: 5.5vw;
     }
 
-    .line-box {
+    /* .line-box {
         height: 40px;
         width: 215px;
         padding: 5px 5px 0px 17px
-    }
+    } */
 
     .definition {
         font-size: 1.55vw;
@@ -755,7 +777,7 @@ img {
     }
 
     .line-box {
-        width: 32vw;
         height: 17%;
+        left: 19%;
     }
 }

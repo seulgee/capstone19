@@ -11,7 +11,6 @@
     <link href='../fonts/nanumSquare/nanumsquare.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
 
 
@@ -59,12 +58,15 @@
             <div class="col-md-10" id="thing">
                 <div class="line-box">
                     <p class="definition definition-en">
-                        a word adopted from a foreign language with little or no modification.
+                        words adopted from a foreign language with little or no modification.
                     </p>
                 </div>
                 <h1 class="about-text">
-                    <span class="text-kr" style="display: none;">일상속 외래어<span class="asterisk">&#42;</span>는 현대 한국인들의 일상속에서 점점 늘어가며 쓰이는 외래어를 되돌아 보고자 탄생한 </span>
-                    <span class="text-en dark">Loanwords</span><span class="asterisk">&#42;</span> is a project that reflects on the <span class="dark">increasing degree of integration of foreign vocabulary</span> in the Korean language today.</span>
+                    <span class="text-kr" style="display: none;">
+                        <span class="dark">일상속 외래어</span><span class="asterisk">&#42;</span>는 현대 한국인들의 일상속에서 점점 쓰임이 놀어가는 외래어를 되돌아 보고자 탄생한 프로젝트이다.</span>
+                    <span class="text-en">
+                        Daily <span class="dark">Loanwords</span><span class="asterisk">&#42;</span> is a project that reflects on the <span class="dark">increasing degree of integration of foreign vocabulary</span> in the Korean language today.
+                    </span>
                 </h1>
             </div>
             <div class="col-md"></div>
@@ -76,20 +78,35 @@
     <script>
         var asterisk = $('.asterisk')
         var box = $('.line-box')
+        var def = $('.definition')
         var toggle = true
+        
 
         asterisk.on('click', function(){
             if (toggle){
-                box.animate({
-                    left: 0,
-                    opacity: 1
-                },500)
+                box
+                    .animate({
+                        // width: "34vw",
+                        width: "32vw",
+                        padding: "15px 5px 15px 50px"
+                    },400)
+                    .queue(function(){
+                        def.animate({
+                            opacity: 1
+                        },200).dequeue()
+                    })
                 toggle = !toggle
             } else {
-                box.animate({
-                    left: "-550px",
-                    opacity: 0
-                },500)
+                def
+                    .animate({
+                        opacity: 0
+                    },200)
+                    .queue(function(){
+                        box.animate({
+                            width: 0,
+                            padding: 0
+                        },400).dequeue()
+                    })
                 toggle = !toggle
             }
         })
