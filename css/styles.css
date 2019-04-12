@@ -18,7 +18,7 @@ body, html {
 }
 
 .background {
-    background-color: #4568FB;
+    background-color: #001266;
     height: 100vh;
     width: 100%;
     margin-left: 0;
@@ -90,7 +90,7 @@ body, html {
 
 #landing-button:hover {
     background-color: #ffe7aa;
-    color: #4568FB;
+    color: #001266;
     border-color: #ffe7aa;
 }
 
@@ -348,7 +348,7 @@ body, html {
     padding: 10px 30px 10px 30px;
     height: 100vh;
     overflow: hidden;
-    /* cursor: ew-resize; */
+    cursor: ew-resize;
     background-image: url(../images/texture.jpg);
     background-blend-mode: lighten;
     background-size: 100%;
@@ -404,6 +404,11 @@ h3 {
 
 .nav-link:hover {
     color: #4568fb;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .nav-container {
@@ -779,5 +784,9 @@ img {
     .line-box {
         height: 17%;
         left: 19%;
+    }
+
+    #placeholder-2 {
+        height: 10%;
     }
 }

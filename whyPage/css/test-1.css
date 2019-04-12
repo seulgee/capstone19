@@ -6,7 +6,6 @@
     padding:0;
     height: 100vh;
     overflow: hidden;
-    cursor: ew-resize;
 }
 
  h3 .why-title {
@@ -26,6 +25,9 @@
     position: relative;
     padding: 8% 0;
     scroll-snap-align: start;
+        -webkit-scroll-snap-align: start;
+        -moz-scroll-snap-align: start;
+        -ms-scroll-snap-align: start;
 
   }
 
@@ -68,7 +70,7 @@
 
   .slide__title {
       display: block;
-      z-index: 30;
+      z-index: 5;
       position: absolute;
       bottom: -30vh;
       color: #ffffff;
@@ -93,7 +95,7 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 32;
+      z-index: 10;
   }
 
   .slide__bg {
@@ -120,6 +122,8 @@ html, body {
     white-space: nowrap;
     height: 100%;
     scroll-snap-type: x mandatory;
+        -webkit-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
 }   
 .slide {
     width: 100%;
@@ -204,7 +208,7 @@ html, body {
 /*/slideshow */
 .arrow {
     cursor: pointer;
-    position: fixed;
+    position: absolute;
     top: 50%;
     width: auto;
     padding: 16px;
@@ -212,15 +216,18 @@ html, body {
     color: white;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
+    transition: 0.2s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    z-index: 35;
+    z-index: 10;
     opacity: 0;
   }
 
+.arrow:hover {
+    color: #717171;
+}
 /* Position the "next button" to the right */
-.next {
+#next {
     right: 0;
     border-radius: 3px 0 0 3px;
   }
@@ -231,7 +238,7 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
-    z-index: 35;
+    z-index: 10;
 }
 
 .dot {

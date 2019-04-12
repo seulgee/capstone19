@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="nav-item nav-why" data-toggle="tooltip" data-placement="left" title="why care?">
-                        <a class="nav-link nav-why__link" style="color:#ffffff" href="whyPage/test-1.html">
+                        <a class="nav-link nav-why__link" style="color:#ffffff" href="test-1.html">
                             <span class="letters">&#8226;중요성</span>
                             <span class="mobile-letters" style="display:none">&#8226;중요성 &#124; <span class="en-font">why</span></span>
                         </a>
@@ -56,9 +56,13 @@
                 <a class="dot" id="dot-3" href="#slide-3"></a>
                 <a class="dot" id="dot-4" href="#slide-4"></a>
             </div>
+            <div class="arrows">
+                <a id="prev" class="arrow" href="#slide-1">&#10094;</a>
+                <a id="next" class="arrow" href="#slide-2">&#10095;</a>
+            </div>
             
 
-            <div class="slides">
+            <div class="slides"  onscroll="scrollFunction();">
                 <!-- <a class="arrow next" href="#slide-2">&#10095;</a> -->
     
                 <div class="slide" id="slide-1">
@@ -127,27 +131,35 @@
             
             
             </div>
-
-            <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-            <div class="dots" style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span> 
-                <span class="dot" onclick="currentSlide(2)"></span> 
-                <span class="dot" onclick="currentSlide(3)"></span> 
-                <span class="dot" onclick="currentSlide(4)"></span> 
-            </div> -->
-                      
     </div>
 
     <script>
+        $('#dot-1').addClass('active')
+        $('#prev').hide();
+
+        //arrow code
+        //set counter to first slide
+        var counter = 1
+
+        //event listeners for arrows
+        function prevSlide(){
+            if(counter>1){
+                counter--;
+            }
+            var newHref = "#slide-"+counter
+            document.getElementById("prev").setAttribute('href',newHref)
+        }
+        function nextSlide(){
+            if(counter<5){
+                counter++;
+            }
+            var newHref = "#slide-"+counter
+            document.getElementById("next").setAttribute('href',newHref)
+        }
+
         var arrow = $('.arrow');
         var dots = $('#dot-1, #dot-2, #dot-3, #dot-4');
         var dot = $('.dot')
-        var slide1 = $('#slide-1')
-        var slide2 = $('#slide-2')
-        var slide3 = $('#slide-3')
-        var slide4 = $('#slide-4')
 
         dot.each(function(){
             dotActive()
@@ -165,79 +177,63 @@
             })
         }
 
-        // $('.slide').isInViewport = function() {
-        //     var elementLeft = $(this).offset().left;
-        //     var elementRight = elementLeft + $(this).outerWidth();
+        function scrollFunction(){
+            console.log('scroll')
+            var divElement1 = document.getElementById('slide-1')
+            var divElement2 = document.getElementById('slide-2')
+            var divElement3 = document.getElementById('slide-3')
+            var divElement4 = document.getElementById('slide-4')
+            var slides = [divElement1, divElement2, divElement3, divElement4];
 
-        //     var viewportLeft = $(window).scrollLeft();
-        //     var viewportRight = viewportTop + $(window).width();
+            var bounding1 = slides[0].getBoundingClientRect();
+            var bounding2 = slides[1].getBoundingClientRect();
+            var bounding3 = slides[2].getBoundingClientRect();
+            var bounding4 = slides[3].getBoundingClientRect();
 
-        //     return elementRight > viewportLeft && elementLeft < viewportRight;
-        // };
+            var dot1 = document.getElementById('dot-1')
+            var dot2 = document.getElementById('dot-2')
+            var dot3 = document.getElementById('dot-3')
+            var dot4 = document.getElementById('dot-4')
 
-        //     $(window).on('resize scroll', function() {
-                
-        //             if (slide1.isInViewport()) {
-        //                 $('#dot-1').addClass('.active');
-        //                 $('#dot-2').removeClass('.active');
-        //                 $('#dot-3').removeClass('.active');
-        //                 $('#dot-4').removeClass('.active');
-        //             } else if (slide2.isInViewport()){
-        //                 $('#dot-2').addClass('.active');
-        //                 $('#dot-1').removeClass('.active');
-        //                 $('#dot-3').removeClass('.active');
-        //                 $('#dot-4').removeClass('.active');
-        //             } else if (slide3.isInViewport()){
-        //                 $('#dot-3').addClass('.active');
-        //                 $('#dot-1').removeClass('.active');
-        //                 $('#dot-2').removeClass('.active');
-        //                 $('#dot-4').removeClass('.active');
-        //             } else if (slide4.isInViewport()){
-        //                 $('#dot-4').addClass('.active');
-        //                 $('#dot-1').removeClass('.active');
-        //                 $('#dot-2').removeClass('.active');
-        //                 $('#dot-3').removeClass('.active');
-        //             }
-          
-        // });
+            var boundings = [bounding1, bounding2, bounding3, bounding4];
+            var dotsArray = [dot1, dot2, dot3, dot4];
+            var i;
 
+            var prevArrow = $('#prev')
+            var nextArrow = $('#next')
 
-        
-        // arrow.on('click', function(){
-        //     $(this).fadeOut('fast')
-        //     setTimeout(function(){
-        //         $(this).fadeIn('fast')
-        //     },200)
-        // })
+            console.log(bounding3.left);
+            for (i=0;i<slides.length;i++){
+                if (boundings[0].left >= -10 && boundings[0].left <= 10) {
+                    prevArrow.hide();
+                } else if (boundings[3].left >= -10 && boundings[3].left <= 10) {
+                    nextArrow.hide()
+                } else {
+                    prevArrow.show();
+                    nextArrow.show();
+                }
+                if (boundings[i].left >= -600 && boundings[i].left <= 600 ){
+                    $(dotsArray[i]).addClass('active');
+                    console.log("div number " + i  + "in viewport" )
+                    counter = i;
+                    if(counter>0){
+                        prevHref = "#slide-" + counter;
+                        document.getElementById("prev").setAttribute('href',prevHref)
+                    }
+                    if(counter<4){
+                        var next = counter+2;
+                        nextHref = "#slide-" + next;
+                        document.getElementById("next").setAttribute('href',nextHref)
+                    }
 
+                } 
+                else {
+                    $(dotsArray[i]).removeClass('active')
+                    console.log("div number " + i  + "not in viewport" )
+                }
+            }
+        }
 
-
-        // var slideIndex = 1;
-        // showSlides(slideIndex);
-
-        // function plusSlides(n) {
-        // showSlides(slideIndex += n);
-        // }
-
-        // function currentSlide(n) {
-        // showSlides(slideIndex = n);
-        // }
-
-        // function showSlides(n) {
-        // var i;
-        // var slides = document.getElementsByClassName("slide");
-        // var dots = document.getElementsByClassName("dot");
-        // if (n > slides.length) {slideIndex = 1}    
-        // if (n < 1) {slideIndex = slides.length}
-        // for (i = 0; i < slides.length; i++) {
-        //     slides[i].style.display = "none";  
-        // }
-        // for (i = 0; i < dots.length; i++) {
-        //     dots[i].className = dots[i].className.replace(" active", "");
-        // }
-        // slides[slideIndex-1].style.display = "block";  
-        // dots[slideIndex-1].className += " active";
-        // }
     </script>
 
 
