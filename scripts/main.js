@@ -48,9 +48,15 @@ $(document).ready(function(){
     //about page page load 
 
     var aboutText = $('.about-text')
+    var sliderLink = $('.to-slider')
     aboutText.delay(100).animate({
         opacity: '1'
     },700);
+    setTimeout(function(){
+        sliderLink.animate({
+            opacity: 1
+        },500)
+    },1100)
 
     //why page page load
 

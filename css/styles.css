@@ -489,6 +489,7 @@ section {
     z-index: 30;
     display: inline-block;
     font-size: 15px;
+    opacity: 0;
 }
 
 .to-slider p:hover {
