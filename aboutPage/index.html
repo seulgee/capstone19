@@ -52,31 +52,35 @@
         <div class="mobile-nav">
             <i class="fas fa-times" id="exit"></i>
         </div>
-        <div class="row" id="placeholder-2"></div>
-        <div class="row" id="main">
-            <div class="col-md"></div>
-            <div class="col-md-10" id="thing">
-                <div class="line-box">
-                    <p class="definition definition-en">
-                        words adopted from a foreign language with little or no modification.
-                    </p>
+        <section id="one">
+            <div class="row" id="placeholder-2"></div>
+            <div class="row" id="main">
+                <div class="col-md"></div>
+                <div class="col-md-10" id="thing">
+                    <div class="line-box">
+                        <p class="definition definition-en">
+                            words adopted from a foreign language with little or no modification.
+                        </p>
+                    </div>
+                    <div class="to-slider">
+                        <a href="../start.html">
+                            <p class=""><i class="fas fa-arrow-right"></i> Try the Simulator</p>
+                        </a>
+                    </div>
+                    <h1 class="about-text">
+                        <span class="text-kr" style="display: none;">
+                            <span class="dark">일상속 외래어</span><span class="asterisk">&#42;</span>는 현대 한국인들의 일상속에서 점점 쓰임이 놀어가는 외래어를 되돌아 보고자 탄생한 프로젝트이다.</span>
+                        <span class="text-en">
+                            <span class="dark">Daily <span class="word-fade">Loanwords</span></span><span class="asterisk">&#42;</span> is a project that reflects on the <span class="dark">increasing degree of integration of foreign vocabulary</span> in the Korean language today.
+                        </span>
+                    </h1>
                 </div>
-                <div class="to-slider">
-                    <a href="../start.html">
-                        <p class=""><i class="fas fa-arrow-right"></i> Try the Simulator</p>
-                    </a>
-                </div>
-                <h1 class="about-text">
-                    <span class="text-kr" style="display: none;">
-                        <span class="dark">일상속 외래어</span><span class="asterisk">&#42;</span>는 현대 한국인들의 일상속에서 점점 쓰임이 놀어가는 외래어를 되돌아 보고자 탄생한 프로젝트이다.</span>
-                    <span class="text-en">
-                        <span class="dark">Daily Loanwords</span><span class="asterisk">&#42;</span> is a project that reflects on the <span class="dark">increasing degree of integration of foreign vocabulary</span> in the Korean language today.
-                    </span>
-                </h1>
+                <div class="col-md"></div>
             </div>
-            <div class="col-md"></div>
-        </div>
-        <div class="row" id="placeholder"></div>
+            <div class="row" id="placeholder"></div>
+        </section>
+        <section id="two">
+        </section>
     </div>
 
     <!-- Optional JavaScript -->
@@ -85,6 +89,7 @@
         var box = $('.line-box')
         var def = $('.definition')
         var toggle = true
+        var wordFade = $('.word-fade')
         
 
         asterisk.on('click', function(){
@@ -92,10 +97,13 @@
                 box
                     .animate({
                         // width: "34vw",
-                        width: "32vw",
-                        padding: "15px 5px 15px 50px"
+                        width: "31vw",
+                        padding: "15px 5px 15px 3%"
                     },450)
                     .queue(function(){
+                        wordFade.animate({
+                            opacity: 0
+                        },50).dequeue()
                         def.animate({
                             opacity: 1
                         },250).dequeue()
@@ -111,6 +119,9 @@
                             width: 0,
                             padding: 0
                         },400).dequeue()
+                        wordFade.animate({
+                            opacity: 1
+                        },100).dequeue()
                     })
                 toggle = !toggle
             }

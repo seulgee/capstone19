@@ -478,6 +478,10 @@ a:hover {
 
 /* ABOUT PAGE ///////////////////*/
 
+section {
+    height: 100vh;
+}
+
 .to-slider {
     position: absolute;
     bottom: 0;
@@ -542,7 +546,7 @@ a:hover {
 }
 
 .about-text {
-    font-size: 6vw;
+    font-size: 5.65vw;
     font-family: 'Merriweather', serif;
     font-weight: 300;
     position: relative;
@@ -818,9 +822,6 @@ img {
 
 @media only screen and (min-width: 1283px) {
 
-    .about-text {
-        font-size: 5.65vw;
-    }
 
     .line-box {
         height: 17%;
