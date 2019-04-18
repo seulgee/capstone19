@@ -525,7 +525,7 @@ section {
     position: absolute;
     top: 0;
     left: 21%;
-    z-index: 40;
+    z-index: 10;
     width: 0px;
     height: 15%;
     background-image: url(../images/texture.jpg);
