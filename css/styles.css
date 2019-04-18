@@ -801,13 +801,35 @@ img {
     }
 
     .line-box {
-        left: 19%;
+        left: 18.3%;
         height: 17%;
     }
 
     .to-slider {
         font-size: 11px;
         padding-right: 15px;
+    }
+
+    #row-1 {
+        top: 38%;
+    }
+
+    #row-2 {
+        bottom: 10%;
+    }
+
+    #intro {
+        top: 55%;
+    }
+
+    #intro p {
+        font-size: 11px;
+        line-height: 17px;
+    }
+
+    #intro-text {
+        padding-left: 23%;
+        padding-right: 23%;
     }
 }
 

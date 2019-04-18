@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">    
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     
@@ -14,9 +15,11 @@
   </head>
 
   <body>
-  <div class="portrait-overlay">
-      <h4>Please rotate your device.</h4>
-  </div>
+    <div class="portrait-overlay">
+        <h4>장치를 가로로 돌려주세요.</h4>
+        <h4>&#8226;</h4>
+        <h4>Please rotate your device.</h4>
+    </div>
   <section id="landing">
   <div class="background">
     <div class="container-fluid" id="landing-container">
@@ -30,7 +33,7 @@
       </div>
       <div class="row" id="intro">
         <div class="col"></div>
-        <div class="col-md-4">
+        <div class="col-md-4" id="intro-text">
             <p>A reflection on how loanwords are shaping the evolving Korean language today. Intended for a Korean-speaking audience.</p>
         </div>
         <div class="col"></div>
@@ -57,4 +60,19 @@
     <script src="scripts/landing.js"></script>
 
   </body>
+
+  <script>
+    // var y = window.matchMedia("(max-height: 414px) and (max-width: 896px)")
+    // myFunction(y) // Call listener function at run time
+    // var column = $('#intro-text')
+    // y.addListener(myFunction) // Attach listener function on state changes
+    // function myFunction(y){
+    //   if (y.matches){
+    //     column.removeClass('col-4');
+    //     column.css({
+    //       "width": "70%"
+    //     });
+    //   } else {}
+    // }
+  </script>
 </html>
