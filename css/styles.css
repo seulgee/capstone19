@@ -486,7 +486,7 @@ section {
     position: absolute;
     bottom: 0;
     right: 0;
-    z-index: 30;
+    z-index: 10;
     display: inline-block;
     font-size: 15px;
     opacity: 0;
@@ -499,6 +499,7 @@ section {
 .to-slider p {
     color: #001266;
     transition: .3s;
+    margin-bottom: 0;
 }
 
 .to-slider i {
@@ -536,7 +537,7 @@ section {
 
 .definition {
     color: #4568FB;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     opacity: 0;
 }
 
@@ -794,15 +795,19 @@ img {
         font-size: 5.5vw;
     }
 
-    /* .line-box {
-        height: 40px;
-        width: 215px;
-        padding: 5px 5px 0px 17px
-    } */
-
     .definition {
         font-size: 1.55vw;
         margin-bottom: 0;
+    }
+
+    .line-box {
+        left: 19%;
+        height: 17%;
+    }
+
+    .to-slider {
+        font-size: 11px;
+        padding-right: 15px;
     }
 }
 
@@ -822,7 +827,6 @@ img {
 }
 
 @media only screen and (min-width: 1283px) {
-
 
     .line-box {
         height: 17%;

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <link href='../fonts/nanumSquare/nanumsquare.css' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">  
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -79,8 +80,6 @@
             </div>
             <div class="row" id="placeholder"></div>
         </section>
-        <section id="two">
-        </section>
     </div>
 
     <!-- Optional JavaScript -->
@@ -90,13 +89,28 @@
         var def = $('.definition')
         var toggle = true
         var wordFade = $('.word-fade')
-        
 
-        asterisk.on('click', function(){
-            if (toggle){
+        var y = window.matchMedia("(max-height: 414px) and (max-width: 896px)")
+		 // Call listener function at run time
+        y.addListener(myFunction) // Attach listener function on state changes
+        function myFunction(y){
+            if (y.matches) {
                 box
                     .animate({
-                        // width: "34vw",
+                        width: "30vw",
+                        padding: "10px 0 0 0"
+                    },450)
+                    .queue(function(){
+                        wordFade.animate({
+                            opacity: 0
+                        },50).dequeue()
+                        def.animate({
+                            opacity: 1
+                        },250).dequeue()
+                    })
+            } else {
+                box
+                    .animate({
                         width: "31vw",
                         padding: "15px 5px 15px 3%"
                     },450)
@@ -108,6 +122,12 @@
                             opacity: 1
                         },250).dequeue()
                     })
+            }
+        }
+
+        asterisk.on('click', function(){
+            if (toggle){
+                myFunction(y)
                 toggle = !toggle
             } else {
                 def
