@@ -83,12 +83,12 @@
         //refresh
         var refreshIcon = $('#icon-refresh');
         function refreshPage(){
-            window.location.href = "index-2.html"
+            window.location.href = "index-14.html"
             if (localStorage.count){
                 localStorage.count = Number(localStorage.count) + 1;
             }
             else{
-                localStorage.count = 1;
+                localStorage.count = 13;
             }
             console.log(localStorage.count);
         }
@@ -231,7 +231,7 @@
                 } else if (values[handle] == "1.00" ) {
                     play2();
                 } else if (values[handle] == "2.00" ) {
-                    play3();
+                    play2();
                 }
             }
             
@@ -436,55 +436,41 @@
         console.log("FIRST: " + strFontSize);
     }
 
-    var audio1 = new Audio("audio/01_1.WAV");
-    var audio2 = new Audio("audio/01_2.WAV");
-    var audio3 = new Audio("audio/01_3.WAV");
+    var audio1 = new Audio("audio/13_1.WAV");
+    var audio2 = new Audio("audio/13_2.WAV");
     function volume(){
         audio1.volume = 1;
         audio2.volume = 1;
-        audio3.volume = 1;
     }
 
     function play1(){
         audio1.play();
         audio2.pause();
-        audio3.pause();
     }
     
     function play2(){
         audio1.pause();
         audio2.play();
-        audio3.pause();
-    }
-
-    function play3(){
-        audio1.pause();
-        audio2.pause();
-        audio3.play();
     }
 
     function audioPause(){
         audio1.pause();
         audio2.pause();
-        audio3.pause();
     }
 
     function audioStartOver(){
         audio1.currentTime = 0
         audio2.currentTime = 0
-        audio3.currentTime = 0
     }
 
     function loop(){
         audio1.loop = true;
         audio2.loop = true;
-        audio3.loop = true;
     }
 
     function noLoop(){
         audio1.loop = false;
         audio2.loop = false;
-        audio3.loop = false;
     }
 
 
