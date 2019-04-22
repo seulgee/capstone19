@@ -16,61 +16,48 @@
   <title>일상속 외래어</title>
   </head>
   <body>
-    <div class="container-fluid" id="main-container">
-        <div class="nav-container">
-            <ul class="nav flex-column" style="opacity:0">
-                <li class="nav-item nav-simulator">
-                    <a class="nav-link nav-simulator__link" style="color: #4568fb" href="#">모의실험기</a>
-                </li>
-                <li class="nav-item nav-about">
-                    <a class="nav-link nav-about__link" href="../aboutPage/index.html">소</a>
-                </li>
-                <li class="nav-item nav-why">
-                    <a class="nav-link nav-why__link" href="../whyPage/index.html">중</a>
-                </li>
-            </ul>
-        </div>
+    <div id="main-container">
 
-        <div class="row" id="icons">
-            <div class="col-sm"></div>
-            <div class="col-sm-8">
+        <div id="icons">
+            <div class="col">
                 <img class="icon" id="icon-audio" src="../images/icons-01.png">
                 <img class="icon" id="icon-refresh" src="../images/icons-03.png">
                 <img class="icon" id="icon-image" src="../images/icons-02.png">
             </div>
-            <div class="col-sm"></div>
         </div>
-        <div class="image"><img class="image-1" width:50%; src="../images/image-1.png"></div>
-        <div class="row" id="placeholder-lg"></div>
-        <div class="row" id="main-phrase">
-            <div class="col-md" id="change-col-left"></div>
-            <div class="col-md-8" id="change-col">
+        <div class="image"><img class="image-1" width:50%; src="../images/image-5.png"></div>
+        <div id="placeholder-lg"></div>
+        <div id="main-phrase">
+            <div class="col fullscreen" id="change-col">
                 <span id="phrase-wrapper"><h1 id="phrase">
-                    <span class="reg">서리풀</span>
-                    <span class="highlight" id="change-kr">푸드트럭</span>
+                    <span class="highlight constant">체다</span>
+                    <span class="highlight" id="change-kr-1">슬라이스</span> 
+                    <span class="reg">2장에 진하고 부드러운</span>
+                    <span class="highlight" id="change-kr-2">딥</span><span class="highlight constant">치즈</span><span class="reg">까지!</span>
                 </h1></span>
             </div>
-            <div class="col-md"></div>
         </div>
-        <div class="row" id="translation">
-            <div class="col-sm"></div>
-            <div class="col-sm-8">
+        <div id="translation">
+            <div class="fullscreen">
                 <p id="translationRow">
-                    "Seoripul
-                    <span class="highlight change-en">food truck</span>"
+                    "<span class="future-change-en">Two</span>
+                    <span class="highlight change-en">slices</span> 
+                    of
+                    <span class="highlight constant-en">cheddar,</span>
+                    <span class="future-change-en">and deep and smooth</span>
+                    <span class="highlight change-en">deep</span>
+                    <span class="highlight constant-en">cheese!</span>"
                 </p>
             </div>
-            <div class="col-sm"></div>
         </div>
-        <div class="row" id="sliderrow" style="margin-top:25px;">
-                <div class="col-sm"></div>
-            <div class="col-sm-8" id="slidercontainer">
+        <div id="sliderrow" style="margin-top:25px;">
+            <div class="filler"></div>
+            <div id="slidercontainer">
                 <div id="slider">
                 </div>
             </div>
-            <div class="col-sm"></div>
+            <div class="filler"></div>
         </div>
-        <div class="row"></div>
     </div>
 
     <!-- Optional JavaScript -->
@@ -79,16 +66,50 @@
     <script>
         fitty('h1');
         getFirstFontSize();
+
+        var y = window.matchMedia("(max-height: 414px) and (max-width: 896px)")
+        y.addListener(myFunction) // Attach listener function on state changes
+        function myFunction(y){
+            if (y.matches) {
+                box
+                    .animate({
+                        width: "30vw",
+                        padding: "10px 0 0 0"
+                    },450)
+                    .queue(function(){
+                        wordFade.animate({
+                            opacity: 0
+                        },50).dequeue()
+                        def.animate({
+                            opacity: 1
+                        },250).dequeue()
+                    })
+            } else {
+                box
+                    .animate({
+                        width: "31vw",
+                        padding: "15px 5px 15px 3%"
+                    },450)
+                    .queue(function(){
+                        wordFade.animate({
+                            opacity: 0
+                        },50).dequeue()
+                        def.animate({
+                            opacity: 1
+                        },250).dequeue()
+                    })
+            }
+        }
         
         //refresh
         var refreshIcon = $('#icon-refresh');
         function refreshPage(){
-            window.location.href = "index-2.html"
+            window.location.href = "index-6.html"
             if (localStorage.count){
                 localStorage.count = Number(localStorage.count) + 1;
             }
             else{
-                localStorage.count = 1;
+                localStorage.count = 5;
             }
             console.log(localStorage.count);
         }
@@ -105,7 +126,7 @@
             connect: [true,false],
             range: {
                 'min': [0],
-                '67%': [1],
+                '40%': [1],
                 'max': [2]
             },
             pips: {
@@ -133,18 +154,20 @@
             pips[i].style.cursor = 'pointer';
             pips[i].addEventListener('click', clickOnPip);
         }
-        
-        
 
 
         var translationActual = $('#translationRow');
         var phraseActual = $('#phrase')
         var wordTargetEn = $('.change-en');
+        var noChange = $('.constant');
         
         // phrase transitions based on slider value
         slider.noUiSlider.on('update', function (values, handle) {
             var fitties = fitty('h1');
-            var wordTargetKr = $('#change-kr');
+            var wordTargetKr = $('#change-kr-1, #change-kr-2');
+            //specific to this phrase
+            var target1 = $('#change-kr-1');
+            var target2 = $('#change-kr-2');
             var phrase = $('#phrase');
             var noTarget = $('.reg')
             var futureTarget = $('.future-change-en');
@@ -161,7 +184,8 @@
                     
                     fitties[0].fit();
                     setTimeout(function(){
-                        wordTargetKr.html('식품 화물 자동차')
+                        target1.html('조각')
+                        target2.html('진한')
                     },10)
                     wordTargetKr.fadeIn('slow');
                     noTarget.fadeIn('slow');
@@ -184,15 +208,17 @@
                     if (noTarget.is(':hidden')){
                         setTimeout(function(){
                             fitties[0].fit();
-                            wordTargetKr.fadeIn('slow')
+                            noChange.fadeIn('slow')
+                            target2.fadeIn('slow')
+                            target1.fadeIn('slow')
                         },50)
                     } else {
+                        noChange.fadeIn('slow')
                         wordTargetKr.fadeIn('slow')
                     };
-
-                    wordTargetKr
-                        .html('푸드트럭')
-                        .addClass('highlight');
+                    target1.html('슬라이스');
+                    target2.html('딥');
+                    wordTargetKr.addClass('highlight');
                     noTarget.fadeIn('slow');
                     console.log("works")
                     //get fitty's font size for h1
@@ -205,10 +231,13 @@
                     
             } else if (values[handle] == "2.00" ) {
                 noTarget.fadeOut('fast');
-                wordTargetKr
-                    .fadeOut('fast')
+                noChange.fadeOut('fast');
+                wordTargetKr.fadeOut('fast')
                     .queue(function(){
-                        $(this).html('서리풀 푸드트럭').dequeue();
+                        target1.html('체다 슬라이스 투 슬라이스 앤 딥앤 스무드').dequeue();
+                    })
+                    .queue(function(){
+                        target2.html('딥 치즈').dequeue();
                         //get fitty's font size for h1
                         setTimeout(getFirstFontSize, 100)
                     })
@@ -284,18 +313,18 @@
     var image = $('.image');
 
     var sliderContainer = $('#slidercontainer');
-    var y = window.matchMedia("(max-width: 896px) and (max-height: 414px)")
-    myFunction(y) // Call listener function at run time
-	y.addListener(myFunction) // Attach listener function on state changes
-    function myFunction(y) {
-        if (y.matches){
-            sliderContainer
-                .removeClass('col-sm-8')
-                .addClass('col-sm-6');
+    // var y = window.matchMedia("(max-width: 896px) and (max-height: 414px)")
+    // myFunction(y) // Call listener function at run time
+	// y.addListener(myFunction) // Attach listener function on state changes
+    // function myFunction(y) {
+    //     if (y.matches){
+    //         sliderContainer
+    //             .removeClass('col-sm-8')
+    //             .addClass('col-sm-6');
 
-        } else {
-        }
-    };
+    //     } else {
+    //     }
+    // };
 
     imageIcon.on("click",function(){
         if (toggle) {
@@ -319,7 +348,7 @@
             //shrink translation font size and animate
             if (y.matches){
                 phraseActual.animate({
-                    fontSize: "40px",
+                    fontSize: "25px",
                     marginTop: "+160px"
                 },450, 'swing')
                 translationActual.animate({
@@ -330,7 +359,7 @@
                 });
             } else {
                 phraseActual.animate({
-                    fontSize: "40px",
+                    fontSize: "30px",
                     marginTop: "+210px"
                 },450, 'swing')
                 translationActual.animate({
@@ -436,9 +465,9 @@
         console.log("FIRST: " + strFontSize);
     }
 
-    var audio1 = new Audio("audio/01_1.WAV");
-    var audio2 = new Audio("audio/01_2.WAV");
-    var audio3 = new Audio("audio/01_3.WAV");
+    var audio1 = new Audio("audio/05_1.WAV");
+    var audio2 = new Audio("audio/05_2.WAV");
+    var audio3 = new Audio("audio/05_3.WAV");
     function volume(){
         audio1.volume = 1;
         audio2.volume = 1;

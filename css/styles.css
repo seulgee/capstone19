@@ -268,11 +268,6 @@ body, html {
 
 /*///////////////////////////////////////////// MAIN */
 
-.fullscreen {
-    width: 100%;
-    padding-left: 16.5%;
-    padding-right: 16.5%;
-}
 
 .portrait-overlay {
     display: none;
@@ -360,7 +355,6 @@ body, html {
     background-image: url(../images/texture.jpg);
     background-blend-mode: lighten;
     background-size: 100%;
-    width: 100%;
 }
 
 .title {
@@ -751,10 +745,8 @@ img {
     position: relative;
     bottom: 0%;
     margin-top: 25px;
-    margin: auto;
-    display: inline-block;
-    width: 100%;
 }
+
 
 
 
@@ -839,27 +831,6 @@ img {
     #intro-text {
         padding-left: 23%;
         padding-right: 23%;
-    }
-
-    .fullscreen {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    #slidercontainer {
-        display: inline-block;
-        vertical-align: top;
-        position: relative;
-        width: 50%;
-        padding-left: 15px;
-        padding-right: 15px;
-
-    }
-
-    .filler{
-        width: 25%;
-        display: inline-block;
-        vertical-align: top;
     }
 }
 
