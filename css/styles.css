@@ -268,6 +268,12 @@ body, html {
 
 /*///////////////////////////////////////////// MAIN */
 
+.fullscreen {
+    width: 100%;
+    padding-left: 16.5%;
+    padding-right: 16.5%;
+}
+
 .portrait-overlay {
     display: none;
 }
@@ -830,6 +836,11 @@ img {
     #intro-text {
         padding-left: 23%;
         padding-right: 23%;
+    }
+
+    .fullscreen {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
