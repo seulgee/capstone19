@@ -55,8 +55,8 @@
             <div class="col-md"></div>
         </div>
         <div class="row" id="translation">
-            <div class="col-md"></div>
-            <div class="col-md-8">
+            <div class="col-sm"></div>
+            <div class="col-sm-8">
                 <p id="translationRow">
                     "<span class="future-change-en">Two</span>
                     <span class="highlight change-en">slices</span> 
@@ -67,7 +67,7 @@
                     <span class="highlight constant-en">cheese!</span>"
                 </p>
             </div>
-            <div class="col-md"></div>
+            <div class="col-sm"></div>
         </div>
         <div class="row" id="sliderrow">
             <div class="col-sm"></div>
@@ -86,6 +86,40 @@
     <script>
         fitty('h1');
         getFirstFontSize();
+
+        var y = window.matchMedia("(max-height: 414px) and (max-width: 896px)")
+        y.addListener(myFunction) // Attach listener function on state changes
+        function myFunction(y){
+            if (y.matches) {
+                box
+                    .animate({
+                        width: "30vw",
+                        padding: "10px 0 0 0"
+                    },450)
+                    .queue(function(){
+                        wordFade.animate({
+                            opacity: 0
+                        },50).dequeue()
+                        def.animate({
+                            opacity: 1
+                        },250).dequeue()
+                    })
+            } else {
+                box
+                    .animate({
+                        width: "31vw",
+                        padding: "15px 5px 15px 3%"
+                    },450)
+                    .queue(function(){
+                        wordFade.animate({
+                            opacity: 0
+                        },50).dequeue()
+                        def.animate({
+                            opacity: 1
+                        },250).dequeue()
+                    })
+            }
+        }
         
         //refresh
         var refreshIcon = $('#icon-refresh');
