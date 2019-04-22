@@ -40,16 +40,14 @@
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="image"><img class="image-1" width:50%; src="../images/image-13.png"></div>
+        <div class="image"><img class="image-1" width:50%; src="../images/image-1.png"></div>
         <div class="row" id="placeholder-lg"></div>
         <div class="row" id="main-phrase">
             <div class="col-md" id="change-col-left"></div>
             <div class="col-md-8" id="change-col">
                 <span id="phrase-wrapper"><h1 id="phrase">
-                    <span class="highlight constant">에스티 로더</span><span class="reg">의</span>
-                    <span class="highlight" id="change-kr-1">럭셔리 스킨 케어</span><span class="reg">가 피부에</span>
-                    <span class="highlight" id="change-kr-2">에너지</span><span class="reg reg-change">를</span> 
-                    <span class="reg">채워줍니다</span>
+                    <span class="reg">서리풀</span>
+                    <span class="highlight" id="change-kr">푸드트럭</span>
                 </h1></span>
             </div>
             <div class="col-md"></div>
@@ -58,16 +56,14 @@
             <div class="col-sm"></div>
             <div class="col-sm-8">
                 <p id="translationRow">
-                    "<span class="highlight constant-en">Estee Lauder</span><span class="future-change-en">'s</span>
-                    <span class="highlight change-en">luxury skincare</span> 
-                    <span class="future-change-en">fills your skin with</span>
-                    <span class="highlight change-en">energy</span>"
+                    "Seoripul
+                    <span class="highlight change-en">food truck</span>"
                 </p>
             </div>
             <div class="col-sm"></div>
         </div>
-        <div class="row" id="sliderrow">
-            <div class="col-sm"></div>
+        <div class="row" id="sliderrow" style="margin-top:25px;">
+                <div class="col-sm"></div>
             <div class="col-sm-8" id="slidercontainer">
                 <div id="slider">
                 </div>
@@ -87,12 +83,12 @@
         //refresh
         var refreshIcon = $('#icon-refresh');
         function refreshPage(){
-            window.location.href = "index-14.html"
+            window.location.href = "index-2.html"
             if (localStorage.count){
                 localStorage.count = Number(localStorage.count) + 1;
             }
             else{
-                localStorage.count = 13;
+                localStorage.count = 1;
             }
             console.log(localStorage.count);
         }
@@ -109,7 +105,7 @@
             connect: [true,false],
             range: {
                 'min': [0],
-                '75%': [1],
+                '67%': [1],
                 'max': [2]
             },
             pips: {
@@ -137,23 +133,20 @@
             pips[i].style.cursor = 'pointer';
             pips[i].addEventListener('click', clickOnPip);
         }
+        
+        
 
 
         var translationActual = $('#translationRow');
         var phraseActual = $('#phrase')
         var wordTargetEn = $('.change-en');
-        var noChange = $('.constant');
         
         // phrase transitions based on slider value
         slider.noUiSlider.on('update', function (values, handle) {
             var fitties = fitty('h1');
-            var wordTargetKr = $('#change-kr-1, #change-kr-2');
-            //specific to this phrase
-            var target1 = $('#change-kr-1');
-            var target2 = $('#change-kr-2');
+            var wordTargetKr = $('#change-kr');
             var phrase = $('#phrase');
             var noTarget = $('.reg')
-            var exceptionReg = $('.reg-change');
             var futureTarget = $('.future-change-en');
 
             if (values[handle] == "0.00" ) {
@@ -168,9 +161,7 @@
                     
                     fitties[0].fit();
                     setTimeout(function(){
-                        target1.html('고품격 피부 관리');
-                        target2.html('활력');
-                        exceptionReg.html('을');
+                        wordTargetKr.html('식품 화물 자동차')
                     },10)
                     wordTargetKr.fadeIn('slow');
                     noTarget.fadeIn('slow');
@@ -193,17 +184,15 @@
                     if (noTarget.is(':hidden')){
                         setTimeout(function(){
                             fitties[0].fit();
-                            noChange.fadeIn('slow')
                             wordTargetKr.fadeIn('slow')
                         },50)
                     } else {
-                        noChange.fadeIn('slow')
                         wordTargetKr.fadeIn('slow')
                     };
-                    target1.html('럭셔리 스킨 케어');
-                    target2.html('에너지');
-                    exceptionReg.html('를')
-                    wordTargetKr.addClass('highlight');
+
+                    wordTargetKr
+                        .html('푸드트럭')
+                        .addClass('highlight');
                     noTarget.fadeIn('slow');
                     console.log("works")
                     //get fitty's font size for h1
@@ -216,13 +205,10 @@
                     
             } else if (values[handle] == "2.00" ) {
                 noTarget.fadeOut('fast');
-                noChange.fadeOut('fast');
-                wordTargetKr.fadeOut('fast')
+                wordTargetKr
+                    .fadeOut('fast')
                     .queue(function(){
-                        target1.html('에스티 로더스 럭셔리 스킨 케어 필스 유어 스킨 위드').dequeue();
-                    })
-                    .queue(function(){
-                        target2.html('에너지').dequeue();
+                        $(this).html('서리풀 푸드트럭').dequeue();
                         //get fitty's font size for h1
                         setTimeout(getFirstFontSize, 100)
                     })
@@ -333,7 +319,7 @@
             //shrink translation font size and animate
             if (y.matches){
                 phraseActual.animate({
-                    fontSize: "20px",
+                    fontSize: "40px",
                     marginTop: "+160px"
                 },450, 'swing')
                 translationActual.animate({
@@ -344,7 +330,7 @@
                 });
             } else {
                 phraseActual.animate({
-                    fontSize: "25px",
+                    fontSize: "40px",
                     marginTop: "+210px"
                 },450, 'swing')
                 translationActual.animate({
@@ -450,9 +436,9 @@
         console.log("FIRST: " + strFontSize);
     }
 
-    var audio1 = new Audio("audio/13_1.WAV");
-    var audio2 = new Audio("audio/13_2.WAV");
-    var audio3 = new Audio("audio/13_3.WAV");
+    var audio1 = new Audio("audio/01_1.WAV");
+    var audio2 = new Audio("audio/01_2.WAV");
+    var audio3 = new Audio("audio/01_3.WAV");
     function volume(){
         audio1.volume = 1;
         audio2.volume = 1;
