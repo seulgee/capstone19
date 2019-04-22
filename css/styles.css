@@ -754,6 +754,15 @@ img {
 /*/ MEDIA QUERIES */
 
 @media only screen and (max-height: 414px) and (max-width: 896px) {
+    #landing-button {
+        opacity: 0;
+        width: 300px;
+        margin-top: 100px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 12px;
+    }
+    
     #placeholder-lg, #placeholder-2 {
         height: 20%;
     }
