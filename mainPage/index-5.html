@@ -16,33 +16,18 @@
   <title>일상속 외래어</title>
   </head>
   <body>
-    <div class="container-fluid" id="main-container">
-        <div class="nav-container">
-            <ul class="nav flex-column" style="opacity:0">
-                <li class="nav-item nav-simulator">
-                    <a class="nav-link nav-simulator__link" style="color: #4568fb" href="#">모의실험기</a>
-                </li>
-                <li class="nav-item nav-about">
-                    <a class="nav-link nav-about__link" href="../aboutPage/index.html">소</a>
-                </li>
-                <li class="nav-item nav-why">
-                    <a class="nav-link nav-why__link" href="../whyPage/index.html">중</a>
-                </li>
-            </ul>
-        </div>
+    <div id="main-container">
 
-        <div class="row" id="icons">
-            <div class="col"></div>
+        <div id="icons">
             <div class="col">
                 <img class="icon" id="icon-audio" src="../images/icons-01.png">
                 <img class="icon" id="icon-refresh" src="../images/icons-03.png">
                 <img class="icon" id="icon-image" src="../images/icons-02.png">
             </div>
-            <div class="col"></div>
         </div>
         <div class="image"><img class="image-1" width:50%; src="../images/image-5.png"></div>
-        <div class="row" id="placeholder-lg"></div>
-        <div class="row" id="main-phrase">
+        <div id="placeholder-lg"></div>
+        <div id="main-phrase">
             <div class="col fullscreen" id="change-col">
                 <span id="phrase-wrapper"><h1 id="phrase">
                     <span class="highlight constant">체다</span>
@@ -52,8 +37,8 @@
                 </h1></span>
             </div>
         </div>
-        <div class="row" id="translation">
-            <div class="col fullscreen">
+        <div id="translation">
+            <div class="fullscreen">
                 <p id="translationRow">
                     "<span class="future-change-en">Two</span>
                     <span class="highlight change-en">slices</span> 
@@ -65,15 +50,14 @@
                 </p>
             </div>
         </div>
-        <div class="row" id="sliderrow">
-            <div class="col-sm"></div>
-            <div class="col-sm-8" id="slidercontainer">
+        <div id="sliderrow" style="margin-top:25px;">
+            <div class="filler"></div>
+            <div id="slidercontainer">
                 <div id="slider">
                 </div>
             </div>
-            <div class="col-sm"></div>
+            <div class="filler"></div>
         </div>
-        <div class="row"></div>
     </div>
 
     <!-- Optional JavaScript -->
@@ -329,18 +313,18 @@
     var image = $('.image');
 
     var sliderContainer = $('#slidercontainer');
-    var y = window.matchMedia("(max-width: 896px) and (max-height: 414px)")
-    myFunction(y) // Call listener function at run time
-	y.addListener(myFunction) // Attach listener function on state changes
-    function myFunction(y) {
-        if (y.matches){
-            sliderContainer
-                .removeClass('col-sm-8')
-                .addClass('col-sm-6');
+    // var y = window.matchMedia("(max-width: 896px) and (max-height: 414px)")
+    // myFunction(y) // Call listener function at run time
+	// y.addListener(myFunction) // Attach listener function on state changes
+    // function myFunction(y) {
+    //     if (y.matches){
+    //         sliderContainer
+    //             .removeClass('col-sm-8')
+    //             .addClass('col-sm-6');
 
-        } else {
-        }
-    };
+    //     } else {
+    //     }
+    // };
 
     imageIcon.on("click",function(){
         if (toggle) {
