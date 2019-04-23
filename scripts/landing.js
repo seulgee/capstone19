@@ -3,8 +3,14 @@ $(document).ready(function() {
     var landingTitle = $("#landing-title__left, #landing-title__right");
     var landingButton = $("#landing-button")
     var landingText = $('#intro')
+    var landingMobile = $('#gif-anim')
 
     landingTitle.delay(100)
+        .animate({
+            opacity : "1"
+        }, 500)
+
+    landingMobile.delay(100)
         .animate({
             opacity : "1"
         }, 500)
