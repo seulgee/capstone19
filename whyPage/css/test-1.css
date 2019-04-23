@@ -94,7 +94,7 @@
     color: #ffffff;
   }
 
-  p {
+  .slide-mobile__text p, .slide__text p {
     color: #DBDBE0;
     font-family: 'Merriweather', serif;
   }
