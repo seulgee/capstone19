@@ -24,24 +24,15 @@
     <div class="overlay-info container-fluid">
         <div class="row">
             <div class="col-sm"></div>
-            <div class="col-sm-6"></div>
-            <div class="col-sm" id="overlay-nav">
-                <p>simulator</p>
-                <p>about</p>
-                <p>why</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm"></div>
             <div class="col-sm-8" id="overlay-slider">
                 <div class="overlay-sub" id="first">
-                    <p>traditional</p>
+                    <p>(traditional)</p>
                 </div>
                 <div class="overlay-sub" id="second">
-                    <p>modern</p>
+                    <p>(modern)</p>
                 </div>
                 <div class="overlay-sub" id="third">
-                    <p>future</p>
+                    <p>(future)</p>
                 </div>
             </div>
             <div class="col-sm"></div>
@@ -78,9 +69,9 @@
             <i class="fas fa-times" id="exit"></i>
         </div>
     </nav>
-    <!-- <div class="info">
-        <p>don't speak Korean?</p>
-    </div> -->
+    <div class="info">
+        <p>slider help</p>
+    </div>
     <iframe id="myframe1" style="border-width:0; width:100%; height:100%; z-index:0;" src="mainPage/index-1.html"></iframe>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -141,6 +132,7 @@
 
     var info = $('.info')
     var overlay = $('.overlay-info')
+    var toggle = true
     info.on("click", function(){
         if (toggle) {
             overlay.fadeIn('fast');
@@ -148,7 +140,7 @@
             toggle = !toggle
         } else {
             overlay.fadeOut('fast');
-            info.find('p').html("don't speak Korean?");
+            info.find('p').html("slider help");
             toggle = !toggle
         }
     })
