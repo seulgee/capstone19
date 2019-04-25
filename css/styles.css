@@ -314,6 +314,10 @@ body, html {
     color: rgb(187, 187, 190);
 }
 
+.info:hover {
+    cursor: pointer;
+}
+
 #overlay-nav {
     padding-top: 18px;
 }
@@ -343,7 +347,6 @@ body, html {
     padding: 10px 30px 10px 30px;
     height: 100vh;
     overflow: hidden;
-    cursor: ew-resize;
     background-image: url(../images/texture.jpg);
     background-blend-mode: lighten;
     background-size: 100%;
