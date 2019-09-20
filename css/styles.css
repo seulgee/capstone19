@@ -255,7 +255,6 @@ body, html {
         }
 
 
-
 /*///////////////////////////////////////////// MAIN */
 
 
@@ -370,6 +369,15 @@ h3, li {
 
 h3 {
     color: #001266;
+}
+
+.header-title {
+    transition: .3s;
+}
+
+.header-title:hover {
+    color: #4568fb;
+    transition: .3s;
 }
 
 .mobile-nav {
@@ -670,7 +678,6 @@ section {
     cursor: pointer;
 }
 
-
 #icon-audio, #icon-refresh, #icon-image {
     opacity: 0;
 }
@@ -785,6 +792,8 @@ img {
     .title h3 {
         font-size: 10pt;
     }
+
+    
 
     #icons img {
         width: 20px;

@@ -1,0 +1,49 @@
+.arrow {
+    margin: auto;
+    width: 100%;
+    color: #4568fb;
+    text-align: center;
+    padding-top: 20%;
+}
+
+i {
+    margin: auto;
+    font-size: 30px;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: arrow;
+}
+
+.instruction {
+    margin: auto;
+    width: 60%;
+    color: #001266;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+@keyframes arrow {  
+    0%
+    {opacity: 1;
+    transform: rotate(0deg)}
+   35%
+    {transform: translateX(30px)} 
+    40%
+    {opacity: 0;
+    transform: rotate(180deg)}
+    45%
+    {opacity: 1;
+    transform:  rotate(180deg)}
+  90%
+    {opacity: 0;
+    transform: translateX(-30px) rotate(180deg)}
+    100%
+    {opacity: 0;}
+}
+
+@media only screen and (min-width: 768px) {
+
+    .arrow {
+        padding-top: 35%;
+    }
+}
